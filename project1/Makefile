@@ -1,4 +1,4 @@
-CFALGS		=  -std=c90 -pedantic -Wall -g
+CFLAGS		=  -std=c90 -pedantic -Wall -g
 
 
 project1:
