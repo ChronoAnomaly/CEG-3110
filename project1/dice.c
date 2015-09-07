@@ -16,6 +16,11 @@ void dice(int num)
 
 	srand(time(NULL));
 
+	if(num <= 0) {
+		fprintf( stderr, "ERROR: Dice must be higher than 0.\n");
+		exit(EXIT_FAILURE);
+	}
+
 	for(i = 0; i < num; i++) {
 		roll = (rand()%6)+1;
 		printf("%d ", roll);
