@@ -45,9 +45,9 @@ function quit {
 	exit
 }
 
-one_dice
-two_dice
-three_dice
-four_dice
-five_dice
+one_dice &
+two_dice &
+three_dice &
+four_dice &
+five_dice &
 quit
