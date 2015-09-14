@@ -4,6 +4,11 @@
  */
 #include "password_checker.h"
 
+/*
+ * Main function for processing a password entered by the user. It runs
+ * through all the requirements checks for a valid password and will
+ * output if the password is valid or invalid.
+ */
 void password_checker()
 {
 	char pass[BUFFER] = { '\0' };
@@ -31,21 +36,19 @@ void password_checker()
 		printf("Invalid password length.\n");
 		exit(EXIT_FAILURE);
 	}
-	check_special(pass);
+
+	/* Check that all the requirements are met for the currently entered
+	password */
 	if(check_upper(pass) && check_lower(pass) && check_digit(pass)
 		&& check_special(pass) && check_no_space(pass)) {
 		valid_password = TRUE;
 	}
-
-
 
 	if(valid_password) {
 		printf("Valid password.\n");
 	} else {
 		printf("Invalid password.\n");
 	}
-
-	printf("Password is: %s\t length is: %ld\n", pass, len);
 }
 
 /*
