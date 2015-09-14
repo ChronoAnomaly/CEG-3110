@@ -1,3 +1,7 @@
+/*
+ * Brett Worley
+ * CEG-3110-01
+ */
 #ifndef __PASSWORD__
 #define __PASSWORD__
 

@@ -1,8 +1,12 @@
+/*
+ * Brett Worley
+ * CEG-3110-01
+ */
 #include "password_checker.h"
 
 void password_checker()
 {
-	char pass[BUFFER];
+	char pass[BUFFER] = { '\0' };
 	int valid_password = FALSE;
 	size_t len;
 
@@ -27,9 +31,9 @@ void password_checker()
 		printf("Invalid password length.\n");
 		exit(EXIT_FAILURE);
 	}
-
+	check_special(pass);
 	if(check_upper(pass) && check_lower(pass) && check_digit(pass)
-		&& check_special(pass)) {
+		&& check_special(pass) && check_no_space(pass)) {
 		valid_password = TRUE;
 	}
 
@@ -44,6 +48,10 @@ void password_checker()
 	printf("Password is: %s\t length is: %ld\n", pass, len);
 }
 
+/*
+ * Checks the given string for upper case characters.
+ * If two or more are found, then it returns true; else it returns false.
+ */
 int check_upper(const char* str)
 {
 	int count = 0;
@@ -62,6 +70,10 @@ int check_upper(const char* str)
 	}
 }
 
+/*
+ * Checks the given string for lower case characters.
+ * If two or more are found, then it returns true; else it returns false.
+ */
 int check_lower(const char* str)
 {
 	int count = 0;
@@ -117,10 +129,28 @@ int check_digit(const char* str)
 	}
 }
 
+/*
+ * Checks the given string against the allowed special characters.
+ * If two or more are found, then it returns true; else it returns false.
+ */
 int check_special(const char* str)
 {
-	int count = 0;
-	
+	int i, len, count = 0;
+	char special[] = { '!', '@', '#', '$', '%', '&', '*', ')', '(', ']', '[',
+			'}', '{', '>', '<', ';', ':', '.', ',', '/', '|',
+			'\\' , '~', '?', '_', '-', '+', '='};
+	len = sizeof(special) / sizeof(char);
+
+	while(*str) {
+		
+		for(i = 0; i < len; i++) {
+			if(*str == special[i]) {
+				count++;
+			}
+		}
+
+		str++;
+	}
 
 	if(count >= 2) {
 		return TRUE;
