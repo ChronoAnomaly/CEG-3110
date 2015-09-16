@@ -12,12 +12,8 @@
 
 #define TRUE 1
 #define FALSE 0
-/* Max length of the buffer used for the password. Longer than the 24
-character limit so we can check if the user is entering a password that
-is too long for the system. */
-#define BUFFER 35
 
-void password_checker();
+void password_checker(const char* str, size_t length);
 int check_upper(const char* str);
 int check_lower(const char* str);
 int check_digit(const char* str);

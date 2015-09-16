@@ -9,30 +9,13 @@
  * through all the requirements checks for a valid password and will
  * output if the password is valid or invalid.
  */
-void password_checker()
+void password_checker(const char* pass, size_t len)
 {
-	char pass[BUFFER] = { '\0' };
 	int valid_password = FALSE;
-	size_t len;
 
-	len = 0;
-
-	printf("Enter your new password: ");
-	if(fgets(pass, sizeof(pass), stdin) != NULL) {
-		
-		len = strlen(pass);
-
-		if(len > 0 && pass[len-1] == '\n') {
-			pass[--len] = '\0';
-		}
-	} else {
-		fprintf(stderr, "Error reading input.\n");
-		exit(EXIT_FAILURE);
-	}
-	
 	/* If the password entered is not long enough or too long, then we will
 	not bother to check if it's valid. */
-	if(len < 9 || len > 24) {
+	if(len < 9 || len > 50) {
 		printf("Invalid password length.\n");
 		exit(EXIT_FAILURE);
 	}
@@ -160,4 +143,9 @@ int check_special(const char* str)
 	} else {
 		return FALSE;
 	}
+}
+
+void save_passwords(const char* str)
+{
+	FILE
 }
