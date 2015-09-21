@@ -9,9 +9,11 @@
  * through all the requirements checks for a valid password and will
  * output if the password is valid or invalid.
  */
-void password_checker(const char* pass, size_t len)
+void password_checker(const char* pass)
 {
 	int valid_password = FALSE;
+	int len = strlen(pass);
+	int i = 0;
 
 	/* If the password entered is not long enough or too long, then we will
 	not bother to check if it's valid. */
@@ -25,6 +27,7 @@ void password_checker(const char* pass, size_t len)
 	if(check_upper(pass) && check_lower(pass) && check_digit(pass)
 		&& check_special(pass) && check_no_space(pass)) {
 		valid_password = TRUE;
+		save_passwords(pass);
 	}
 
 	if(valid_password) {
@@ -52,6 +55,7 @@ int check_upper(const char* str)
 	if(count >= 2) {
 		return TRUE;
 	} else {
+		printf("Not enough upper case letters.\n");
 		return FALSE;
 	}
 }
@@ -74,6 +78,7 @@ int check_lower(const char* str)
 	if(count >= 2) {
 		return TRUE;
 	} else {
+		printf("Not enough lower case letters.\n");
 		return FALSE;
 	}
 }
@@ -111,6 +116,7 @@ int check_digit(const char* str)
 	if(count >= 2) {
 		return TRUE;
 	} else {
+		printf("Not enough digits.\n");
 		return FALSE;
 	}
 }
@@ -147,5 +153,11 @@ int check_special(const char* str)
 
 void save_passwords(const char* str)
 {
-	FILE
+	FILE* fp;
+
+	fp = fopen("pass_storage.txt", "w+");
+	
+	fprintf(fp, "Testing...\n");
+
+	fclose(fp);
 }

@@ -27,7 +27,7 @@ int main()
 		exit(EXIT_FAILURE);
 	}
 
-	password_checker(pass, len);
+	password_checker(pass);
 
 	return EXIT_SUCCESS;
 }
