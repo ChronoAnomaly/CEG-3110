@@ -83,10 +83,6 @@ int check_lower(const char* str)
 	}
 }
 
-/* TODO: Fix reading the input. The \n character is being place in the
- * char array, thus causing this function to fail.
- */
-
 /*
  * Checks the given string for any whitespace characters.
  * If one is found, it returns false; else it returns true.
@@ -163,7 +159,7 @@ void save_passwords(const char* str)
 
 	fp = fopen("pass_storage.txt", "w+");
 	
-	fprintf(fp, "Testing...\n");
+	fprintf(fp, "Testing... %s\n", str);
 
 	fclose(fp);
 }
