@@ -83,6 +83,10 @@ int check_lower(const char* str)
 	}
 }
 
+/* TODO: Fix reading the input. The \n character is being place in the
+ * char array, thus causing this function to fail.
+ */
+
 /*
  * Checks the given string for any whitespace characters.
  * If one is found, it returns false; else it returns true.
@@ -92,6 +96,7 @@ int check_no_space(const char* str)
 	while(*str) {
 
 		if(isspace(*str++)) {
+			printf("Space character found.\n");
 			return FALSE;
 		}
 	}
@@ -147,6 +152,7 @@ int check_special(const char* str)
 	if(count >= 2) {
 		return TRUE;
 	} else {
+		printf("Not enough special characters.\n");
 		return FALSE;
 	}
 }
