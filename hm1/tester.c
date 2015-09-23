@@ -20,7 +20,7 @@ int main()
 		len = strlen(pass);
 
 		if(len > 0 && pass[len-1] == '\n') {
-			pass[--len] == '\0';
+			pass[--len] = '\0';
 		}
 	} else {
 		fprintf(stderr, "Error reading input.\n");
