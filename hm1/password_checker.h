@@ -5,6 +5,7 @@
 #ifndef __PASSWORD__
 #define __PASSWORD__
 
+#include <assert.h>
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>

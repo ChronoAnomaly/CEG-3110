@@ -157,9 +157,11 @@ void save_passwords(const char* str)
 {
 	FILE* fp;
 
-	fp = fopen("pass_storage.txt", "w+");
-	
+	fp = fopen("pass_storage.txt", "a");
+	assert(fp != NULL);
+	printf("Before printing anything to the file: %p\n", fp);
 	fprintf(fp, "Testing... %s\n", str);
 
+	printf("after printing anything to the file: %p\n", fp);
 	fclose(fp);
 }
