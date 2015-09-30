@@ -1,0 +1,272 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[left=1.00in, right=1.00in, top=1.00in, bottom=1.00in]{geometry}
+\author{Brett Worley}
+\title{Pairwise Testing}
+
+\begin{document}
+
+Brett Worley
+
+CEG-3110-01 
+
+\centerline{Pairwise Testing}
+
+The first use of a pairwise testing tool was used to gather an initial test case sample that contains all possible combinations.  The data was structured into the following three sets shown in figure 1.
+\begin{center}
+	\begin{tabular}{|| c c c ||}
+	\hline
+	Component & Burner Setting & Oven Setting \\
+	\hline\hline
+	Burner 1 & Off & Off \\
+	\hline
+	Burner 2 & Regulated & Bake \\
+	\hline
+	Burner 3 & High & Broil \\
+	\hline
+	Burner 4 & & Clean \\
+	\hline
+	Oven & & \\
+	\hline
+	\end{tabular}
+	
+	Figure 1.
+\end{center}
+This produced a list of 60 possible test cases (as shown in figure 1).  This initial test plan provides full coverage for every combination, but has redundancies and some test cases that don't make much sense and has far too many cases to provide a minimized test plan to save time and provide quicker testing on each item.
+
+Using the AETG algorithm with the pairwise testing tool provides us with a test plan of 20 cases. This plan only contains a few redundant cases or cases that are not needed.  While this plan provides good coverage, we will try to create a customized plan to remove any redundancies and condense some of the test cases together.
+
+Using the customized plans ended up producing more test cases then the AETG produced plan.  After trying to customizing the plan to reduce the test cases, I ended up going back to how the data was being structured and realized that the Component:Oven set item was redundant.  I removed that set item and re-ran the pairwise tester for all possible combinations and it produced a test plan of 48 cases.  The AETG algorithm now provides a test plan of 16 cases with the data being updated.  After looking at the test plan, I saw that it needed revised more due to only one burner being used at a time, we want to allow multiple burners to be active at the same time.
+
+With the final revision, we come up with a test plan that has 16 test cases using the AETG algorithm.  These cases provide full test coverage on the entire device.  While there is a test case that could be opted for removal, the everything set to off case, we include to ensure there is nothing strange happening even while everything is supposed to be turned off.  The finalized data set is shown in Figure 2 and the resulting test plan is shown in the tables after the data set.
+\newline\newline
+
+\begin{center}
+	\begin{tabular}{|| c c c c c ||}
+	\hline
+	Burner 1 & Burner 2 & Burner 3 & Burner 4 & Oven Setting \\
+	\hline\hline
+	Off & Off & Off & Off & Off \\
+	\hline
+	Regulated & Regulated & Regulated & Regulated & Bake \\
+	\hline
+	High & High & High & High & Broil \\
+	\hline
+	& & & & Clean \\
+	\hline
+	\end{tabular}
+	
+	Figure 2.
+\end{center}
+\begin{center}
+
+Resulting Test Plan
+
+
+	\begin{tabular}{| c | c |}
+	\hline
+	\multicolumn{2}{| c |}{Test Case 1} \\
+	\hline\hline
+	Burner 1 & Off \\ \cline{1-1}
+	Burner 2 & Off \\ \cline{1-1}
+	Burner 3 & Off \\ \cline{1-1}
+	Burner 4 & Off \\ \cline{1-1}
+	Oven Setting & Off \\
+	\hline
+	\end{tabular}
+	\hspace*{.5 cm}
+	\begin{tabular}{| c | c |}
+	\hline
+	\multicolumn{2}{| c |}{Test Case 2} \\
+	\hline\hline
+	Burner 1 & Off \\ \cline{1-1}
+	Burner 2 & Off \\ \cline{1-1}
+	Burner 3 & Off \\ \cline{1-1}
+	Burner 4 & Regulated \\ \cline{1-1}
+	Oven Setting & Clean \\
+	\hline
+	\end{tabular}
+	\hspace*{.5 cm}
+	\begin{tabular}{| c | c |}
+	\hline
+	\multicolumn{2}{| c |}{Test Case 3} \\
+	\hline\hline
+	Burner 1 & Off \\ \cline{1-1}
+	Burner 2 & Off \\ \cline{1-1}
+	Burner 3 & Off \\ \cline{1-1}
+	Burner 4 & High \\ \cline{1-1}
+	Oven Setting & Off \\
+	\hline
+	\end{tabular}
+	\newline
+	\vspace*{1 cm}
+	\newline
+	\begin{tabular}{| c | c |}
+	\hline
+	\multicolumn{2}{| c |}{Test Case 4} \\
+	\hline\hline
+	Burner 1 & Off \\ \cline{1-1}
+	Burner 2 & Off \\ \cline{1-1}
+	Burner 3 & Off \\ \cline{1-1}
+	Burner 4 & High \\ \cline{1-1}
+	Oven Setting & Bake \\
+	\hline
+	\end{tabular}	
+	\hspace*{.5 cm}
+	\begin{tabular}{| c | c |}
+	\hline
+	\multicolumn{2}{| c |}{Test Case 5} \\
+	\hline\hline
+	Burner 1 & Off \\ \cline{1-1}
+	Burner 2 & Regulated \\ \cline{1-1}
+	Burner 3 & Regulated \\ \cline{1-1}
+	Burner 4 & High \\ \cline{1-1}
+	Oven Setting & Clean \\
+	\hline
+	\end{tabular}
+	\hspace*{.5 cm}
+	\begin{tabular}{| c | c |}
+	\hline
+	\multicolumn{2}{| c |}{Test Case 6} \\
+	\hline\hline
+	Burner 1 & Off \\ \cline{1-1}
+	Burner 2 & High \\ \cline{1-1}
+	Burner 3 & Regulated \\ \cline{1-1}
+	Burner 4 & Regulated \\ \cline{1-1}
+	Oven Setting & Broil \\
+	\hline
+	\end{tabular}
+	\newline
+	\vspace*{1 cm}
+	\newline
+	\begin{tabular}{| c | c |}
+	\hline
+	\multicolumn{2}{| c |}{Test Case 7} \\
+	\hline\hline
+	Burner 1 & Off \\ \cline{1-1}
+	Burner 2 & High \\ \cline{1-1}
+	Burner 3 & High \\ \cline{1-1}
+	Burner 4 & Off \\ \cline{1-1}
+	Oven Setting & Bake \\
+	\hline
+	\end{tabular}
+	\hspace*{.5 cm}
+	\begin{tabular}{| c | c |}
+	\hline
+	\multicolumn{2}{| c |}{Test Case 8} \\
+	\hline\hline
+	Burner 1 & Off \\ \cline{1-1}
+	Burner 2 & High \\ \cline{1-1}
+	Burner 3 & High \\ \cline{1-1}
+	Burner 4 & Regulated \\ \cline{1-1}
+	Oven Setting & Off \\
+	\hline
+	\end{tabular}
+	\hspace*{.5 cm}
+	\begin{tabular}{| c | c |}
+	\hline
+	\multicolumn{2}{| c |}{Test Case 9} \\
+	\hline\hline
+	Burner 1 & Regulated \\ \cline{1-1}
+	Burner 2 & Off \\ \cline{1-1}
+	Burner 3 & Regulated \\ \cline{1-1}
+	Burner 4 & Regulated \\ \cline{1-1}
+	Oven Setting & Bake \\
+	\hline
+	\end{tabular}
+	\newline
+	\vspace*{1 cm}
+	\newline
+	\begin{tabular}{| c | c |}
+	\hline
+	\multicolumn{2}{| c |}{Test Case 10} \\
+	\hline\hline
+	Burner 1 & Regulated \\ \cline{1-1}
+	Burner 2 & Regulated \\ \cline{1-1}
+	Burner 3 & Off \\ \cline{1-1}
+	Burner 4 & Off \\ \cline{1-1}
+	Oven Setting & Broil \\
+	\hline
+	\end{tabular}
+	\hspace*{.5 cm}
+	\begin{tabular}{| c | c |}
+	\hline
+	\multicolumn{2}{| c |}{Test Case 11} \\
+	\hline\hline
+	Burner 1 & Regulated \\ \cline{1-1}
+	Burner 2 & Regulated \\ \cline{1-1}
+	Burner 3 & High \\ \cline{1-1}
+	Burner 4 & Off \\ \cline{1-1}
+	Oven Setting & Off \\
+	\hline
+	\end{tabular}
+	\newline
+	\vspace*{1 cm}
+	\newline
+	\begin{tabular}{| c | c |}
+	\hline
+	\multicolumn{2}{| c |}{Test Case 12} \\
+	\hline\hline
+	Burner 1 & Regulated \\ \cline{1-1}
+	Burner 2 & High \\ \cline{1-1}
+	Burner 3 & Off \\ \cline{1-1}
+	Burner 4 & High \\ \cline{1-1}
+	Oven Setting & Clean \\
+	\hline
+	\end{tabular}
+	\hspace*{.5 cm}
+	\begin{tabular}{| c | c |}
+	\hline
+	\multicolumn{2}{| c |}{Test Case 13} \\
+	\hline\hline
+	Burner 1 & High \\ \cline{1-1}
+	Burner 2 & Off \\ \cline{1-1}
+	Burner 3 & High \\ \cline{1-1}
+	Burner 4 & Off \\ \cline{1-1}
+	Oven Setting & Clean \\
+	\hline
+	\end{tabular}
+	\hspace*{.5 cm}
+	\begin{tabular}{| c | c |}
+	\hline
+	\multicolumn{2}{| c |}{Test Case 14} \\
+	\hline\hline
+	Burner 1 & High \\ \cline{1-1}
+	Burner 2 & Off \\ \cline{1-1}
+	Burner 3 & High \\ \cline{1-1}
+	Burner 4 & High \\ \cline{1-1}
+	Oven Setting & Broil \\
+	\hline
+	\end{tabular}
+	\newline
+	\vspace*{1 cm}
+	\newline
+	\begin{tabular}{| c | c |}
+	\hline
+	\multicolumn{2}{| c |}{Test Case 15} \\
+	\hline\hline
+	Burner 1 & High \\ \cline{1-1}
+	Burner 2 & Regulated \\ \cline{1-1}
+	Burner 3 & Off \\ \cline{1-1}
+	Burner 4 & Regulated \\ \cline{1-1}
+	Oven Setting & Bake \\
+	\hline
+	\end{tabular}
+	\hspace*{.5 cm}
+	\begin{tabular}{| c | c |}
+	\hline
+	\multicolumn{2}{| c |}{Test Case 16} \\
+	\hline\hline
+	Burner 1 & High \\ \cline{1-1}
+	Burner 2 & High \\ \cline{1-1}
+	Burner 3 & Regulated \\ \cline{1-1}
+	Burner 4 & Off \\ \cline{1-1}
+	Oven Setting & Off \\
+	\hline
+	\end{tabular}
+\end{center}
+
+\end{document}

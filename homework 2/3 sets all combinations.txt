@@ -1,0 +1,60 @@
+Burner 1	Off	Off
+Burner 1	Off	Bake
+Burner 1	Off	Broil
+Burner 1	Off	Clean
+Burner 1	Regulated	Off
+Burner 1	Regulated	Bake
+Burner 1	Regulated	Broil
+Burner 1	Regulated	Clean
+Burner 1	High	Off
+Burner 1	High	Bake
+Burner 1	High	Broil
+Burner 1	High	Clean
+Burner 2	Off	Off
+Burner 2	Off	Bake
+Burner 2	Off	Broil
+Burner 2	Off	Clean
+Burner 2	Regulated	Off
+Burner 2	Regulated	Bake
+Burner 2	Regulated	Broil
+Burner 2	Regulated	Clean
+Burner 2	High	Off
+Burner 2	High	Bake
+Burner 2	High	Broil
+Burner 2	High	Clean
+Burner 3	Off	Off
+Burner 3	Off	Bake
+Burner 3	Off	Broil
+Burner 3	Off	Clean
+Burner 3	Regulated	Off
+Burner 3	Regulated	Bake
+Burner 3	Regulated	Broil
+Burner 3	Regulated	Clean
+Burner 3	High	Off
+Burner 3	High	Bake
+Burner 3	High	Broil
+Burner 3	High	Clean
+Burner 4	Off	Off
+Burner 4	Off	Bake
+Burner 4	Off	Broil
+Burner 4	Off	Clean
+Burner 4	Regulated	Off
+Burner 4	Regulated	Bake
+Burner 4	Regulated	Broil
+Burner 4	Regulated	Clean
+Burner 4	High	Off
+Burner 4	High	Bake
+Burner 4	High	Broil
+Burner 4	High	Clean
+Oven	Off	Off
+Oven	Off	Bake
+Oven	Off	Broil
+Oven	Off	Clean
+Oven	Regulated	Off
+Oven	Regulated	Bake
+Oven	Regulated	Broil
+Oven	Regulated	Clean
+Oven	High	Off
+Oven	High	Bake
+Oven	High	Broil
+Oven	High	Clean
