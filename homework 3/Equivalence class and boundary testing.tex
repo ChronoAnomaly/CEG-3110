@@ -4,7 +4,6 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{array}
-\usepackage{multirow}
 \usepackage[left=1.00in, right=1.00in, top=1.00in, bottom=1.00in]{geometry}
 \author{Brett Worley}
 \title{Homework 3: Equivalence class and Boundary testing}
@@ -66,22 +65,37 @@ for the system and develop equivalence classes that will show the border values 
 
 
 % Table for the special characters allowed in the password program
-\begin{table}[h!]
-  \begin{center}
-    \caption{Special Characters Allowed}
-    \label{tab:specials}
-    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
-    \hline
-    ! & @ & \# & \$ & \% & \& & * &  ) & ( & ] & [ & \} & \{ & $>$ & $<$ & ; 
-    & : & . & , & / & $|$ &  \textbackslash & \~{} & ? & \_ & $-$ & $+$ & $=$ \\
-    \hline
-    \end{tabular}
-  \end{center}
-\end{table}
+%\begin{table}[h!]
+%  \begin{center}
+%    \caption{Special Characters Allowed}
+%    \label{tab:specials}
+%    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+%    \hline
+%    ! & @ & \# & \$ & \% & \& & * &  ) & ( & ] & [ & \} & \{ & $>$ & $<$ & ; 
+%    & : & . & , & / & $|$ &  \textbackslash & \~{} & ? & \_ & $-$ & $+$ & $=$ \\
+%    \hline
+%    \end{tabular}
+%  \end{center}
+%\end{table}
 
 \newcommand{\specialcell}[2][c]{% Custom talbe lines, set for 3 rows in one table cell
   \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
 
+% Valid Password samples
+
+% GUha891))
+% \#558\#\&;DoGs
+% AVery990\#\^{}
+% SimPass12!!
+% ToT86635ss/\textless
+%
+%
+%
+%
+%
+%
+
+% Valid case
 \begin{center}
   \begin{tabular}{||c|c||}
   \hline
@@ -92,6 +106,93 @@ for the system and develop equivalence classes that will show the border values 
   Input & DahatB2559\_@ \\
   \hline
   Previous Passwords & \specialcell{test\\this\\crapeiie} \\% UolD2663!#
+  \hline
+  Expected Output & ACCEPTED \\
+  \hline
+  \end{tabular}
+\end{center}
+
+% Too Similar case
+\begin{center}
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 2} \\
+  \hline
+  Purpose & Testing against a similar password \\
+  \hline
+  Input & SsaPmis628@@ \\
+  \hline
+  Previous Passwords &  \specialcell{\#558\#\&;DoGs\\AVery990\#\^{}\\SimPass12!!} \\
+  \hline
+  Expected Output & REJECTED: password too similar to a previous password \\
+  \hline
+  \end{tabular}
+\end{center}
+
+% Space fail case
+\begin{center}
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 3} \\
+  \hline
+  Purpose & Testing against password containing a space\\
+  \hline
+  Input & \&\^{}!aaCH91 chat \\
+  \hline
+  Previous Passwords &  \specialcell{\#558\#\&;DoGs\\AVery990\#\^{}\\SimPass12!!} \\
+  \hline
+  Expected Output & REJECTED: password too similar to a previous password \\
+  \hline
+  \end{tabular}
+\end{center}
+
+% Lower case test
+\begin{center}
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 4} \\
+  \hline
+  Purpose & Testing against a similar password \\
+  \hline
+  Input & SsaPmis628@@ \\
+  \hline
+  Previous Passwords &  \specialcell{\#558\#\&;DoGs\\AVery990\#\^{}\\SimPass12!!} \\
+  \hline
+  Expected Output & REJECTED: password too similar to a previous password \\
+  \hline
+  \end{tabular}
+\end{center}
+
+% Upper case test
+\begin{center}
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 5} \\
+  \hline
+  Purpose & Testing against a similar password \\
+  \hline
+  Input & SsaPmis628@@ \\
+  \hline
+  Previous Passwords &  \specialcell{\#558\#\&;DoGs\\AVery990\#\^{}\\SimPass12!!} \\
+  \hline
+  Expected Output & REJECTED: password too similar to a previous password \\
+  \hline
+  \end{tabular}
+\end{center}
+
+% Number test
+\begin{center}
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 2} \\
+  \hline
+  Purpose & Testing against a similar password \\
+  \hline
+  Input & SsaPmis628@@ \\
+  \hline
+  Previous Passwords &  \specialcell{\#558\#\&;DoGs\\AVery990\#\^{}\\SimPass12!!} \\
+  \hline
+  Expected Output & REJECTED: password too similar to a previous password \\
   \hline
   \end{tabular}
 \end{center}
