@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.1.22)  7 OCT 2015 16:53
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.1.22)  7 OCT 2015 17:06
 entering extended mode
 **Equivalence*class*and*boundary*testing.tex
 
@@ -410,13 +410,13 @@ Overfull \hbox (56.83841pt too wide) in paragraph at lines 28--63
  [] 
  []
 
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 125.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 142.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omlcmr.fd"
 File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 125.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 142.
  [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
@@ -433,7 +433,7 @@ Here is how much of TeX's memory you used:
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
 m/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.
 pfb>
-Output written on "Equivalence class and boundary testing.pdf" (2 pages, 32678 
+Output written on "Equivalence class and boundary testing.pdf" (2 pages, 33864 
 bytes).
 PDF statistics:
  17 PDF objects out of 1000 (max. 8388607)

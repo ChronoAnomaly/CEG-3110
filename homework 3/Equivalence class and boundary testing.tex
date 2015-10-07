@@ -135,13 +135,13 @@ for the system and develop equivalence classes that will show the border values 
   \hline
   \multicolumn{2}{||c||}{Test Case 3} \\
   \hline
-  Purpose & Testing against password containing a space\\
+  Purpose & Testing against a password containing a space\\
   \hline
   Input & \&\^{}!aaCH91 chat \\
   \hline
-  Previous Passwords &  \specialcell{\#558\#\&;DoGs\\AVery990\#\^{}\\SimPass12!!} \\
+  Previous Passwords &  \specialcell{\#558\#\&;DoGs\\AVery990\#\^{}\\ToT86635ss/\textless} \\
   \hline
-  Expected Output & REJECTED: password too similar to a previous password \\
+  Expected Output & REJECTED: password contains a space \\
   \hline
   \end{tabular}
 \end{center}
@@ -152,13 +152,13 @@ for the system and develop equivalence classes that will show the border values 
   \hline
   \multicolumn{2}{||c||}{Test Case 4} \\
   \hline
-  Purpose & Testing against a similar password \\
+  Purpose & Testing against a password with not enough lower case letters \\
   \hline
-  Input & SsaPmis628@@ \\
+  Input & \#\$678123HOUSE \\
   \hline
-  Previous Passwords &  \specialcell{\#558\#\&;DoGs\\AVery990\#\^{}\\SimPass12!!} \\
+  Previous Passwords &  \specialcell{ToT86635ss/\textless\\AVery990\#\^{}\\SimPass12!!} \\
   \hline
-  Expected Output & REJECTED: password too similar to a previous password \\
+  Expected Output & REJECTED: password does not have enough lower case letters \\
   \hline
   \end{tabular}
 \end{center}
@@ -169,13 +169,13 @@ for the system and develop equivalence classes that will show the border values 
   \hline
   \multicolumn{2}{||c||}{Test Case 5} \\
   \hline
-  Purpose & Testing against a similar password \\
+  Purpose & Testing against password with not enough upper case letters \\
   \hline
-  Input & SsaPmis628@@ \\
+  Input & lowercasepasswords!;123 \\
   \hline
   Previous Passwords &  \specialcell{\#558\#\&;DoGs\\AVery990\#\^{}\\SimPass12!!} \\
   \hline
-  Expected Output & REJECTED: password too similar to a previous password \\
+  Expected Output & REJECTED: password does not have enough upper case letters \\
   \hline
   \end{tabular}
 \end{center}
@@ -184,15 +184,15 @@ for the system and develop equivalence classes that will show the border values 
 \begin{center}
   \begin{tabular}{||c|c||}
   \hline
-  \multicolumn{2}{||c||}{Test Case 2} \\
+  \multicolumn{2}{||c||}{Test Case 6} \\
   \hline
-  Purpose & Testing against a similar password \\
+  Purpose & Testing against not enough numbers \\
   \hline
-  Input & SsaPmis628@@ \\
+  Input & NumberBoycott!! \\
   \hline
   Previous Passwords &  \specialcell{\#558\#\&;DoGs\\AVery990\#\^{}\\SimPass12!!} \\
   \hline
-  Expected Output & REJECTED: password too similar to a previous password \\
+  Expected Output & REJECTED: password does not have enough numbers \\
   \hline
   \end{tabular}
 \end{center}
