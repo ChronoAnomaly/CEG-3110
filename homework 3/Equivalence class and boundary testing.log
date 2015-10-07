@@ -1,7 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.1.26)  7 OCT 2015 02:58
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.1.22)  7 OCT 2015 15:43
 entering extended mode
-**"Equivalence class and boundary testing.tex"
-("Equivalence class and boundary testing.tex"
+**Equivalence*class*and*boundary*testing.tex
+
+("C:\Users\Brett\Documents\WSU\CEG-3110-01\homework 3\Equivalence class and bou
+ndary testing.tex"
 LaTeX2e <2014/05/01>
 Babel <3.9l> and hyphenation patterns for 68 languages loaded.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
@@ -346,7 +348,8 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@dimlist=\toks23
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
-("Equivalence class and boundary testing.aux")
+("C:\Users\Brett\Documents\WSU\CEG-3110-01\homework 3\Equivalence class and bou
+ndary testing.aux")
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
@@ -394,47 +397,47 @@ LaTeX Font Info:    ... okay on input line 10.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 29.
+LaTeX Font Info:    Try loading font information for U+msa on input line 28.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 29.
+LaTeX Font Info:    Try loading font information for U+msb on input line 28.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 6608) in paragraph at lines 32--33
-[]|\OT1/cmr/m/n/12 More than 24
+Overfull \hbox (56.83841pt too wide) in paragraph at lines 28--63
+ [] 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 70.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 74.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 70.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 74.
 
-Overfull \hbox (48.19148pt too wide) in paragraph at lines 68--74
+Overfull \hbox (48.19148pt too wide) in paragraph at lines 72--78
  [] 
  []
 
 [1
 
-{C:/Users/brett/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-("Equivalence class and boundary testing.aux") ) 
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
+("C:\Users\Brett\Documents\WSU\CEG-3110-01\homework 3\Equivalence class and bou
+ndary testing.aux") ) 
 Here is how much of TeX's memory you used:
- 1908 strings out of 493698
- 23128 string characters out of 3144412
- 84793 words of memory out of 3000000
- 5234 multiletter control sequences out of 15000+200000
+ 1911 strings out of 493705
+ 23497 string characters out of 3144570
+ 85793 words of memory out of 3000000
+ 5232 multiletter control sequences out of 15000+200000
  8285 words of font info for 32 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 27i,10n,24p,257b,278s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmsy10.pfb>
-Output written on "Equivalence class and boundary testing.pdf" (1 page, 38723 b
+ 27i,12n,24p,302b,278s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on "Equivalence class and boundary testing.pdf" (1 page, 40285 b
 ytes).
 PDF statistics:
  18 PDF objects out of 1000 (max. 8388607)

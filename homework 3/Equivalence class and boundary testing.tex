@@ -16,7 +16,7 @@ CEG-3110-01
 \centerline{Homework 3: Equivalence class and Boundary testing}
 
 To implement equivalence classes and boundary testing, we will need to analyze the requirements
-for the system and develop equivalence classes that will show the border values to test against.
+for the system and develop equivalence classes that will show the border values to test against. By going through the requirements for the system, we can identify the border conditions and come up with the following equivalence partitions shown in table 1.
 
 % Possibly import the class partitions as figures from the powerpoint slides
 \begin{table}[h!]
@@ -25,8 +25,7 @@ for the system and develop equivalence classes that will show the border values 
     \label{tab:table1}
     
     % Length settings
-    
-    \begin{tabular}{||c|m{4cm}|m{3cm}||}
+    \begin{tabular}{||c|m{4cm}|m{5cm}||}
     \hline
     Less than 9 characters & At least 9 characters and not more than 24
     characters & More than 24 characters \\
@@ -54,6 +53,11 @@ for the system and develop equivalence classes that will show the border values 
     \hline \hline
     \multicolumn{1}{||c|}{Contains insufficient special characters} 
     & \multicolumn{2}{c||}{Contains sufficient special characters} \\
+    
+    % Previous password settings
+    \hline \hline
+    \multicolumn{1}{||c|}{Contains a identical five-character substring}
+    & \multicolumn{2}{c||}{Does not contain a indentical five-character subtring} \\
     \hline
     \end{tabular}
   \end{center}
@@ -73,5 +77,22 @@ for the system and develop equivalence classes that will show the border values 
     \end{tabular}
   \end{center}
 \end{table}
+
+\newcommand{\specialcell}[2][c]{% Custom talbe lines, set for 3 rows in one table cell
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+\begin{center}
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 1} \\
+  \hline
+  Purpose & Testing a valid password \\
+  \hline
+  Input & DahatB2559\_@ \\
+  \hline
+  Previous Passwords & \specialcell{45tegrtdg\\23904vn239r8} \\% UolD2663!#
+  \hline
+  \end{tabular}
+\end{center}
 
 \end{document}
