@@ -173,7 +173,7 @@ for the system and develop equivalence classes that will show the border values 
   \hline
   Input & lowercasepasswords!;123 \\
   \hline
-  Previous Passwords &  \specialcell{\#558\#\&;DoGs\\AVery990\#\^{}\\SimPass12!!} \\
+  Previous Passwords &  \specialcell{\#558\#\&;DoGs\\AVery990\#\^{}\\ToT86635ss/\textless} \\
   \hline
   Expected Output & REJECTED: password does not have enough upper case letters \\
   \hline
@@ -188,11 +188,45 @@ for the system and develop equivalence classes that will show the border values 
   \hline
   Purpose & Testing against not enough numbers \\
   \hline
-  Input & NumberBoycott!! \\
+  Input & NumberBoycott\_? \\
   \hline
-  Previous Passwords &  \specialcell{\#558\#\&;DoGs\\AVery990\#\^{}\\SimPass12!!} \\
+  Previous Passwords &  \specialcell{\#558\#\&;DoGs\\GUha891))\\SimPass12!!} \\
   \hline
   Expected Output & REJECTED: password does not have enough numbers \\
+  \hline
+  \end{tabular}
+\end{center}
+
+% Short password test
+\begin{center}
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 7} \\
+  \hline
+  Purpose & Testing against a short password \\
+  \hline
+  Input & Do12ah\_$=$ \\
+  \hline
+  Previous Passwords &  \specialcell{\#558\#\&;DoGs\\GUha891))\\SimPass12!!} \\
+  \hline
+  Expected Output & REJECTED: password is too short \\
+  \hline
+  \end{tabular}
+\end{center}
+
+% Long password test
+\begin{center}
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 8} \\
+  \hline
+  Purpose & Testing against not enough numbers \\
+  \hline
+  Input & WAYtooLong\_\_$+$$=$8835houseing40 \\
+  \hline
+  Previous Passwords &  \specialcell{\#558\#\&;DoGs\\GUha891))\\SimPass12!!} \\
+  \hline
+  Expected Output & REJECTED: password is too long \\
   \hline
   \end{tabular}
 \end{center}
