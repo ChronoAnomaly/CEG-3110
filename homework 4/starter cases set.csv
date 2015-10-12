@@ -1,0 +1,58 @@
+
+
+
+
+
+upper	upper	upper	upper	upper	upper	upper	upper	upper
+upper	upper	upper	upper	upper	number	upper	upper	upper
+upper	upper	upper	lower	upper	upper	upper	upper	upper
+upper	upper	upper	space	upper	upper	upper	upper	upper
+upper	upper	upper	space	upper	upper	upper	lower	upper
+upper	upper	upper	space	upper	upper	upper	number	upper
+upper	upper	upper	special	upper	upper	upper	space	upper
+upper	upper	upper	special	upper	upper	space	lower	number
+upper	upper	upper	special	upper	number	upper	special	upper
+upper	upper	upper	special	upper	space	number	lower	space
+upper	upper	number	upper	upper	upper	upper	upper	space
+upper	upper	special	number	lower	upper	space	space	upper
+upper	lower	upper	special	space	lower	upper	upper	upper
+upper	lower	lower	lower	lower	lower	lower	lower	lower
+upper	number	number	number	number	number	number	number	number
+upper	number	number	space	lower	upper	special	special	number
+upper	space	upper	upper	special	upper	upper	upper	upper
+upper	space	space	space	space	space	space	space	space
+upper	special	upper	upper	space	upper	upper	upper	lower
+upper	special	space	number	number	lower	lower	lower	upper
+upper	special	special	special	special	special	lower	upper	space
+lower	upper	upper	upper	upper	upper	lower	upper	upper
+lower	upper	upper	upper	number	space	upper	upper	upper
+lower	upper	lower	number	space	special	special	special	upper
+lower	lower	upper	space	special	number	number	space	lower
+lower	lower	special	upper	upper	number	special	lower	lower
+lower	number	space	lower	upper	upper	space	lower	upper
+lower	space	number	special	upper	lower	special	upper	number
+lower	special	upper	upper	lower	space	special	number	space
+number	upper	upper	upper	upper	lower	upper	upper	space
+number	upper	number	lower	special	space	upper	lower	number
+number	upper	space	upper	special	upper	special	space	space
+number	lower	space	upper	number	special	space	special	lower
+number	number	special	special	space	space	upper	upper	upper
+number	space	upper	number	lower	upper	space	upper	lower
+number	space	lower	upper	space	number	lower	lower	space
+number	space	special	lower	upper	special	upper	number	number
+number	special	lower	space	upper	upper	number	space	number
+space	upper	upper	upper	upper	upper	space	upper	upper
+space	upper	lower	upper	upper	space	lower	upper	lower
+space	upper	space	special	lower	number	upper	number	lower
+space	lower	number	upper	space	upper	lower	number	number
+space	number	upper	lower	number	special	special	lower	space
+space	number	number	space	lower	special	lower	space	lower
+space	space	special	lower	space	lower	number	special	upper
+space	special	lower	number	special	lower	upper	special	upper
+special	upper	upper	upper	space	upper	special	lower	lower
+special	upper	space	upper	lower	special	number	upper	number
+special	upper	special	space	number	lower	upper	space	upper
+special	lower	upper	number	upper	space	lower	special	space
+special	number	lower	upper	special	lower	space	number	upper
+special	space	lower	special	number	upper	upper	upper	space
+special	special	number	lower	lower	number	space	space	upper
