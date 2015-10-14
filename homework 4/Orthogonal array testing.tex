@@ -3,6 +3,8 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{pgfplotstable} % Generates table from .csv
+\usepackage{booktabs} % For \toprule, \midrule and \bottomrule
 \usepackage[left=1.00in, right=1.00in, top=1.00in, bottom=1.00in]{geometry}
 \author{Brett Worley}
 \title{Orthogonal array}
@@ -14,15 +16,106 @@ CEG-3110-01
 
 \centerline{ Homework 4: Orthogonal array}
 
-Creating test cases with the Orthogonal array method required more thought about
-how to layout the sets for the program to make test cases. Originally I had just
-made the testing sets such that I had 9 sets and each had the choice from the
-requirements.
+In order to create a test plan from an orthogonal array, we need to look back at our equivalence classes
+based off of the requirements.  The orthogonal array method of creating test cases is based off of equivalence partitions
+and the boundary cases that come from that.
 
-% TODO: place in a pciture maybe for the original test case/plan setup
-%
-%
-%
+
+\begin{table}[h!]
+  \begin{center}
+    \caption{Equivalence Partitions.}
+    \label{tab:table1}
+    
+    % Length settings
+    \begin{tabular}{||c|m{4cm}|m{5cm}||}
+    \hline
+    Less than 9 characters & At least 9 characters and not more than 24
+    characters & More than 24 characters \\
+    
+    % Space settings
+    \hline \hline
+    \multicolumn{1}{||c|}{Contains no blank spaces} & \multicolumn{2}{c||}{Contains no blank spaces} \\
+    
+    % Lower case settings
+    \hline \hline
+    \multicolumn{1}{||c|}{Contains insufficient lower case} 
+    & \multicolumn{2}{c||}{Contains sufficient lower case} \\
+    
+    % Upper case settings
+    \hline \hline
+    \multicolumn{1}{||c|}{Contains insufficient upper case} 
+    & \multicolumn{2}{c||}{Contains sufficient upper case} \\
+    
+    % Number settings
+    \hline \hline
+    \multicolumn{1}{||c|}{Contains insufficient numbers} 
+    & \multicolumn{2}{c||}{Contains sufficient numbers} \\
+    
+    % Special character settings
+    \hline \hline
+    \multicolumn{1}{||c|}{Contains insufficient special characters} 
+    & \multicolumn{2}{c||}{Contains sufficient special characters} \\
+    
+    % Previous password settings
+    \hline \hline
+    \multicolumn{1}{||c|}{Contains a identical five-character substring}
+    & \multicolumn{2}{c||}{Does not contain a identical five-character substring} \\
+    \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+From our previous Equivalence classes, we can make the following border cases.
+
+\begin{enumerate}
+\item Less than 9 characters
+\item 9 characters
+\item 24 characters
+\item More than 24 characters
+\item Contains insufficient lower case
+\item Contains sufficient lower case
+\item Contains insufficient upper case
+\item Contains sufficient upper case
+\item Contains insufficient numbers
+\item Contains sufficient numbers
+\item Contains insufficient special characters
+\item Contains sufficient special characters
+\item Contains a identical five-character substring (Similar)
+\item Does not contain a identical five-character substring (Not similar)
+\end{enumerate}
+
+By using these border conditions, we are able to generate generic orthogonal array test cases.  The orthogonal arrays will be based on the setup
+shown in table 2. Using a program to generate the orthogonal arrays, I created test plans that ran on different numbers of
+strength for pairwise testing used to create orthogonal arrays. I tested n1, n2, n3, ,6, and n7 and made separate test plans for each
+just to see how many test cases each plan contained. The n1 test plan consisted of 4 test cases. The n2 plan consisted of 11 test cases.
+The n3 plan consisted of 27 cases. The n6 plan consisted of 184 cases. The n7 plan consisted of 256 cases.
+
+\begin{table}[h!]
+  \begin{center}
+    \caption{Order of Orthogonal array results.}
+    \label{tab:table1}
+    
+    % Length settings
+    \begin{tabular}{||c|c||}
+    \hline
+	Number of characters & \# of characters \\
+	\hline
+	Contains a space & True/False \\
+	\hline
+	Sufficient Lower case & True/False \\
+	\hline
+	Sufficient Upper case& True/False \\
+	\hline
+	Sufficient numbers & True/False \\
+	\hline
+	Sufficient Special characters & True/False \\
+	Similar & True/False \\
+    \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+
 
 
 \end{document}
