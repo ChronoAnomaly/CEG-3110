@@ -40,7 +40,30 @@ to be used in the Decision table.
 \item Does not contain a identical five-character substring (Not similar)
 \end{enumerate}
 
-testing one two
+The broken down cases into simple logic for the Decision table would look like the following.
+These cases would be True/False options that correspond to the logic of the system.
+
+\begin{itemize}
+\item 9-24 characters
+\item Upper case
+\item Lower case
+\item Numbers
+\item Special Characters
+\item Space
+\item Similar to previous password(s)
+\end{itemize}
+
+This list of the simplified logic could be used in the Decision table except that the similar to is vague based on the
+requirements for the system. The requirements define similar to as: containing an identical five-character
+substring (either forwar or backward), independent of letter case.
+Using this, we will break down the case into seperate cases. While we could break down the case into
+four seperate cases (forward, backward, equals case, ignore case), the equals and
+ignore cases would be redundant, as the ignore case would still catch situations that the equals
+case is used for. The similar to we will broken into the two following seperate cases in which the ingore case is implied.
+\begin{itemize}
+\item Similar five-character substring forwards
+\item Similar five-character substring backwards
+\end{itemize}
 
 \begin{table}[h]
   \begin{center}
@@ -80,4 +103,129 @@ testing one two
 testing one two
 testing one two
 testing one two
+
+\begin{table}[h]
+  \caption{Test Plan}
+  \label{tab:Test Plan}
+\begin{centering}
+  % test case 1
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 1} \\
+  \hline
+  New Password & blahsomething \\
+  \hline
+  Current Password & askldjfkdl \\
+  \hline
+  Previous Password & oiadjoqwidjow \\
+  \hline
+  Expected Output & Accepted \\
+  \hline
+  \end{tabular}
+  % test case 2
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 2} \\
+  \hline
+  New Password & blahsomething \\
+  \hline
+  Current Password & askldjfkdl \\
+  \hline
+  Previous Password & oiadjoqwidjow \\
+  \hline
+  Expected Output & Accepted \\
+  \hline
+  \end{tabular}
+  % test case 3
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 3} \\
+  \hline
+  New Password & blahsomething \\
+  \hline
+  Current Password & askldjfkdl \\
+  \hline
+  Previous Password & oiadjoqwidjow \\
+  \hline
+  Expected Output & Accepted \\
+  \hline
+  \end{tabular}
+  % test case 4
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 4} \\
+  \hline
+  New Password & blahsomething \\
+  \hline
+  Current Password & askldjfkdl \\
+  \hline
+  Previous Password & oiadjoqwidjow \\
+  \hline
+  Expected Output & Accepted \\
+  \hline
+  \end{tabular}
+  % test case 5
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 5} \\
+  \hline
+  New Password & blahsomething \\
+  \hline
+  Current Password & askldjfkdl \\
+  \hline
+  Previous Password & oiadjoqwidjow \\
+  \hline
+  Expected Output & Accepted \\
+  \hline
+  \end{tabular}
+  % test case 6
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 6} \\
+  \hline
+  New Password & blahsomething \\
+  \hline
+  Current Password & askldjfkdl \\
+  \hline
+  Previous Password & oiadjoqwidjow \\
+  \hline
+  Expected Output & Accepted \\
+  \hline
+  \end{tabular}
+  % test case 7
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 7} \\
+  \hline
+  New Password & blahsomething \\
+  \hline
+  Current Password & askldjfkdl \\
+  \hline
+  Previous Password & oiadjoqwidjow \\
+  \hline
+  Expected Output & Accepted \\
+  \hline
+  \end{tabular}
+  % test case 8
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 8} \\
+  \hline
+  New Password & blahsomething \\
+  \hline
+  Current Password & askldjfkdl \\
+  \hline
+  Previous Password & oiadjoqwidjow \\
+  \hline
+  Expected Output & Accepted \\
+  \hline
+  \end{tabular}
+
+
+
+
+\end{centering}
+
+
+\end{table}
 \end{document}
