@@ -73,25 +73,25 @@ case is used for. The similar to we will broken into the two following seperate 
     \begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|c}
     & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12\\
     \hline
-    9-24 chars & T & F & T & - & T & T & T & & & & & \\
+    9-24 chars & T & F & T & - & T & T & T & T & & & & \\
     \hline
-    Upper case & T & T & T & - & T & T & F & & & & & \\
+    Upper case & T & T & T & - & T & T & F & F & & & & \\
     \hline
-    Lower case & F & T & T & - & T & T & T & & & & & \\
+    Lower case & F & T & T & - & T & T & T & F & & & & \\
     \hline
-    Numbers & T & T & T & - & T & T & T & & & & & \\
+    Numbers & T & T & T & - & T & T & T & T & & & & \\
     \hline
-    Special characters & F & T & T & - & T & T & F & & & & & \\
+    Special characters & F & T & T & - & T & T & F & T & & & & \\
     \hline
-    Space & F & F & F & T & F & F & T & & & & & \\
+    Space & F & F & F & T & F & F & T & F & & & & \\
     \hline 
-    Similar to forwards & F & - & - & - & F & T & T & & & & & \\
+    Similar to forwards & F & - & - & - & F & T & T & T & & & & \\
     \hline
-    Similar to backwards & F & - & T & - & F & - & T & & & & & \\
+    Similar to backwards & F & - & T & - & F & - & T & T & & & & \\
     \midrule
     Accept & & & & & x & & & & & & & \\
     \hline
-    Reject & x & x & x & x & & x & x & & & & & \\
+    Reject & x & x & x & x & & x & x & x & & & & \\
     \end{tabular}
     
     Legend: T = True, F = False, - = Don't care, x = Expected output
@@ -209,13 +209,13 @@ testing one two
   \hline
   \multicolumn{2}{||c||}{Test Case 8} \\
   \hline
-  New Password & blahsomething \\
+  New Password & !\%01010144444$-$$-$= \\
   \hline
-  Current Password & askldjfkdl \\
+  Current Password & $-$$-$=DarkHorse!\%444 \\
   \hline
-  Previous Password & oiadjoqwidjow \\
+  Previous Password & 992\^{}\_CallCenter \\
   \hline
-  Expected Output & Accepted \\
+  Expected Output & Rejected \\
   \hline
   \end{tabular}
 
