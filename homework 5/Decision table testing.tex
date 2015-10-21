@@ -18,12 +18,37 @@ CEG-3110-01
 
 \centerline{ Homework 5: Decision table}
 
+In order to make a Decision table for testing, we need to get the basic logic of the system. We can take the system requirements and 
+find the border cases for the system, this will lay out some of the conditions for
+the system. By looking at the following cases, we can break down the cases to a smaller number
+to be used in the Decision table.
+
+\begin{enumerate}
+\item Less than 9 characters
+\item 9 characters
+\item 24 characters
+\item More than 24 characters
+\item Contains insufficient lower case
+\item Contains sufficient lower case
+\item Contains insufficient upper case
+\item Contains sufficient upper case
+\item Contains insufficient numbers
+\item Contains sufficient numbers
+\item Contains insufficient special characters
+\item Contains sufficient special characters
+\item Contains a identical five-character substring (Similar)
+\item Does not contain a identical five-character substring (Not similar)
+\end{enumerate}
+
+testing one two
+
 \begin{table}[h]
   \begin{center}
     \caption{Decision table}
     \label{tab:Main table}
     
-    \begin{tabular}{c|c|c|c|c|c|c|c}
+    \begin{tabular}{c|c|c|c|c|c|c|c|c}
+    & 1 & 2 & 3 & 4 & 5 & 6 & 7 & \\
     \hline
     9-24 chars & & & & & & & \\
     \hline
@@ -37,7 +62,13 @@ CEG-3110-01
     \hline
     Space & & & & & & & \\
     \hline
-    Similar to & & & & & & & \\
+    Similar to forwards & & & & & & & \\
+    \hline
+    Similar to backwards & & & & & & & \\
+    \hline
+    Similar to equals case & & & & & & & \\
+    \hline
+    Similar to ignore case & & & & & & & \\
     \midrule
     Accept & & & & & & & \\
     \hline
@@ -46,4 +77,7 @@ CEG-3110-01
   \end{center}
 \end{table}
 
+testing one two
+testing one two
+testing one two
 \end{document}
