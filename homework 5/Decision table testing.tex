@@ -104,6 +104,11 @@ that are similar across different types of characters, this will allow any possi
 flaws to be caught that occur in the logic of checking for similar cases in the
 various passwords.
 
+I had originally thought that, while the Decision table method could make making test cases easier based on the logic
+of the system, that it was a little odd to do in the beginning.
+After thinking about the first few test cases and putting them into the chart, I found that i was focusing more heavily on test cases
+that could trip up the similar to logic.
+
 \begin{table}[h]
   \caption{Test Plan}
   \label{tab:Test Plan}
@@ -183,11 +188,11 @@ various passwords.
   \hline
   \multicolumn{2}{||c||}{Test Case 6} \\
   \hline
-  New Password & blahsomething \\
+  New Password &  ;:03Fires10001 \\
   \hline
-  Current Password & askldjfkdl \\
+  Current Password & Snake8,2Dl \\
   \hline
-  Previous Password & oiadjoqwidjow \\
+  Previous Password & 234+.;AntFires \\
   \hline
   Expected Output & Rejected \\
   \hline
