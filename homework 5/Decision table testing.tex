@@ -70,37 +70,34 @@ case is used for. The similar to we will broken into the two following seperate 
     \caption{Decision table}
     \label{tab:Main table}
     
-    \begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|c}
-    & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12\\
+    \begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|}
+    & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
     \hline
-    9-24 chars & T & F & T & - & T & T & T & T & & & & \\
+    9-24 chars & T & F & T & - & T & T & T & T & F & T \\
     \hline
-    Upper case & T & T & T & - & T & T & F & F & & & & \\
+    Upper case & T & T & T & - & T & T & F & F & T & T \\
     \hline
-    Lower case & F & T & T & - & T & T & T & F & & & & \\
+    Lower case & F & T & T & - & T & T & T & F & F & T \\
     \hline
-    Numbers & T & T & T & - & T & T & T & T & & & & \\
+    Numbers & T & T & T & - & T & T & T & T & F & T \\
     \hline
-    Special characters & F & T & T & - & T & T & F & T & & & & \\
+    Special characters & F & T & T & - & T & T & F & T & T & T \\
     \hline
-    Space & F & F & F & T & F & F & T & F & & & & \\
+    Space & F & F & F & T & F & F & T & F & F & F \\
     \hline 
-    Similar to forwards & F & - & - & - & F & T & T & T & & & & \\
+    Similar to forwards & F & - & - & - & F & T & T & T & F & T \\
     \hline
-    Similar to backwards & F & - & T & - & F & - & T & T & & & & \\
+    Similar to backwards & F & - & T & - & F & - & T & T & T & T \\
     \midrule
-    Accept & & & & & x & & & & & & & \\
+    Accept & & & & & x & & & & & \\
     \hline
-    Reject & x & x & x & x & & x & x & x & & & & \\
+    Reject & x & x & x & x & & x & x & x & x & x \\
     \end{tabular}
     
     Legend: T = True, F = False, - = Don't care, x = Expected output
   \end{center}
 \end{table}
 
-testing one two
-testing one two
-testing one two
 
 \begin{table}[h]
   \caption{Test Plan}
@@ -153,9 +150,9 @@ testing one two
   \hline
   \multicolumn{2}{||c||}{Test Case 4} \\
   \hline
-  New Password & blahsomething \\
+  New Password & @@!90 horse \\
   \hline
-  Current Password & askldjfkdl \\
+  Current Password & NOTapassword01+= \\
   \hline
   Previous Password & oiadjoqwidjow \\
   \hline
@@ -167,11 +164,11 @@ testing one two
   \hline
   \multicolumn{2}{||c||}{Test Case 5} \\
   \hline
-  New Password & blahsomething \\
+  New Password & 2OH\_/5io \\
   \hline
-  Current Password & askldjfkdl \\
+  Current Password & 8888\#*daHI\\
   \hline
-  Previous Password & oiadjoqwidjow \\
+  Previous Password & CorectBat760=! \\
   \hline
   Expected Output & Accepted \\
   \hline
@@ -218,7 +215,34 @@ testing one two
   Expected Output & Rejected \\
   \hline
   \end{tabular}
-
+  % test case 9
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 9} \\
+  \hline
+  New Password & \$\$!@PROJECTHOUSES//=CELL\&\% \\
+  \hline
+  Current Password & !@pR344\$\%\&lLed=/ \\
+  \hline
+  Previous Password & 992\^{}\_CallCenter \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  \end{tabular}
+  % test case 10
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 10} \\
+  \hline
+  New Password & 23AcrobatSstABorca!! \\
+  \hline
+  Current Password & orca28!\_Acrobatsstab \\
+  \hline
+  Previous Password & 992\^{}\_CallCenter \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  \end{tabular}
 
 
 
