@@ -55,11 +55,11 @@ These cases would be True/False options that correspond to the logic of the syst
 
 This list of the simplified logic could be used in the Decision table except that the similar to is vague based on the
 requirements for the system. The requirements define similar to as: containing an identical five-character
-substring (either forwar or backward), independent of letter case.
-Using this, we will break down the case into seperate cases. While we could break down the case into
-four seperate cases (forward, backward, equals case, ignore case), the equals and
+substring (either forward or backward), independent of letter case.
+Using this, we will break down the case into separate cases. While we could break down the case into
+four separate cases (forward, backward, equals case, ignore case), the equals and
 ignore cases would be redundant, as the ignore case would still catch situations that the equals
-case is used for. The similar to we will broken into the two following seperate cases in which the ingore case is implied.
+case is used for. The similar to we will broken into the two following separate cases in which the ignore case is implied.
 \begin{itemize}
 \item Similar five-character substring forwards
 \item Similar five-character substring backwards
@@ -98,6 +98,11 @@ case is used for. The similar to we will broken into the two following seperate 
   \end{center}
 \end{table}
 
+When making the Decision table I worked on mainly focusing on test cases that can trip up the
+system possibly by using multiple types of similar to cases.  I also had worked in similar to cases
+that are similar across different types of characters, this will allow any possible
+flaws to be caught that occur in the logic of checking for similar cases in the
+various passwords.
 
 \begin{table}[h]
   \caption{Test Plan}
