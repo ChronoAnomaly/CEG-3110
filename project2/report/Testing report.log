@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2015.10.17)  23 OCT 2015 12:58
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2015.10.17)  23 OCT 2015 17:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -844,41 +844,69 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@toc=\write4
 \openout4 = `"Testing report.toc"'.
 
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 37.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 37.
+! Misplaced \noalign.
+\hline ->\noalign 
+                  {\ifnum 0=`}\fi \hrule \@height \arrayrulewidth \futurelet...
+l.44   \hline
+             
+? 
+! You can't use `\hrule' here except with leaders.
+\hline ->\noalign {\ifnum 0=`}\fi \hrule 
+                                         \@height \arrayrulewidth \futurelet...
+l.44   \hline
+             
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   \futurelet 
+l.44   \hline
+             
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \futurelet 
+l.44   \hline
+             
+? 
 
-Overfull \hbox (56.83841pt too wide) in paragraph at lines 35--70
+Overfull \hbox (110.27834pt too wide) in paragraph at lines 35--46
+ [] 
+ []
+
+[1
+
+]
+Overfull \hbox (56.83841pt too wide) in paragraph at lines 67--102
  [] 
  []
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 73--89
+Underfull \hbox (badness 10000) in paragraph at lines 105--121
 
  []
 
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 112.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 144.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 112.
- [1
-
-] [2] [3]
-(./Testing report.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 144.
+ [2] [3] [4]
+(./Testing report.aux) ) 
 Here is how much of TeX's memory you used:
- 18308 strings out of 495029
- 442026 string characters out of 6181522
+ 18328 strings out of 495029
+ 442373 string characters out of 6181522
  583610 words of memory out of 5000000
- 21145 multiletter control sequences out of 15000+600000
- 12096 words of font info for 47 fonts, out of 8000000 for 9000
+ 21162 multiletter control sequences out of 15000+600000
+ 12403 words of font info for 48 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  70i,13n,76p,775b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on "Testing report.dvi" (3 pages, 15612 bytes).
+Output written on "Testing report.dvi" (4 pages, 18468 bytes).

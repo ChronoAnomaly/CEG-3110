@@ -18,6 +18,38 @@
 
 \section{Introduction}
 
+\subsection{Requirements}
+
+
+\begin{enumerate}
+
+\item The new password shall be at least 9 characters long, and no longer than
+24 characters.
+\item New passwords cannot contain any blank spaces, and must contain only numberals, upper-case and lower-case letters, and
+the specials characters listed in Requirement 4.
+\item All new passwords must contain at least two upper case letters, at least two lower case
+letters, and at least two numerals.
+\item New passwords must contain at least two special characters from the following list:
+% Table for the special characters allowed in the password program
+\begin{center}
+  \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+  \hline
+  ! & @ & \# & \$ & \% & \& & * &  ) & ( & ] & [ & \} & \{ & $>$ & $<$ & ; 
+  & : & . & , & / & $|$ &  \textbackslash \\
+    \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    \~{} & ? & \_ & $-$ & $+$ & $=$ \\
+    \hline
+    \end{tabular}
+  \hline
+  \end{tabular}
+\end{center}
+
+\item New passwords cannot be similar to any of the other two previous passwords, with ``similar to'' defined
+as ``containing an identical five-character substring (either forward or backward), independent of letter
+case (for example, a5\%Km and a5\%kM would be considered identical substrings).
+
+\end{enumerate}
 
 \section{Equivalence class and boundary testing}
 
