@@ -1,0 +1,247 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pgfplotstable} % Generates table from .csv
+\usepackage{booktabs} % For \toprule, \midrule and \bottomrule
+\usepackage[left=1.00in, right=1.00in, top=1.00in, bottom=1.00in]{geometry}
+\author{Brett Worley}
+\title{Project 2: Password checker testing}
+\date{version: \today}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+
+\section{Introduction}
+
+
+\section{Equivalence class and boundary testing}
+
+To implement equivalence classes and boundary testing, we will need to analyze the requirements
+for the system and develop equivalence classes that will show the border values to test against. By going through the requirements for the system, we can identify the border conditions and come up with the following equivalence partitions shown in table 1.
+The border conditions are important, as they are the most likely place that the system will fail on and around.  Having these cases also enables testers to trim down similar or equivalent test cases that essentially test the same values, compared against the border conditions.
+
+% Possibly import the class partitions as figures from the powerpoint slides
+\begin{table}[h!]
+  \begin{center}
+    \caption{Equivalence Partitions.}
+    \label{tab:table1}
+    
+    % Length settings
+    \begin{tabular}{||c|m{4cm}|m{5cm}||}
+    \hline
+    Less than 9 characters & At least 9 characters and not more than 24
+    characters & More than 24 characters \\
+    
+    % Space settings
+    \hline \hline
+    \multicolumn{1}{||c|}{Contains no blank spaces} & \multicolumn{2}{c||}{Contains no blank spaces} \\
+    
+    % Lower case settings
+    \hline \hline
+    \multicolumn{1}{||c|}{Contains insufficient lower case} 
+    & \multicolumn{2}{c||}{Contains sufficient lower case} \\
+    
+    % Upper case settings
+    \hline \hline
+    \multicolumn{1}{||c|}{Contains insufficient upper case} 
+    & \multicolumn{2}{c||}{Contains sufficient upper case} \\
+    
+    % Number settings
+    \hline \hline
+    \multicolumn{1}{||c|}{Contains insufficient numbers} 
+    & \multicolumn{2}{c||}{Contains sufficient numbers} \\
+    
+    % Special character settings
+    \hline \hline
+    \multicolumn{1}{||c|}{Contains insufficient special characters} 
+    & \multicolumn{2}{c||}{Contains sufficient special characters} \\
+    
+    % Previous password settings
+    \hline \hline
+    \multicolumn{1}{||c|}{Contains a identical five-character substring}
+    & \multicolumn{2}{c||}{Does not contain a indentical five-character subtring} \\
+    \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+With these equivalence partitions, we are able to generate simple test cases based on passing or failing the classes one at a time.
+The following test plan is made up of 8 test cases that are designed to fail a certain requirement of the system.
+\newline
+% Table for the special characters allowed in the password program
+%\begin{table}[h!]
+%  \begin{center}
+%    \caption{Special Characters Allowed}
+%    \label{tab:specials}
+%    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+%    \hline
+%    ! & @ & \# & \$ & \% & \& & * &  ) & ( & ] & [ & \} & \{ & $>$ & $<$ & ; 
+%    & : & . & , & / & $|$ &  \textbackslash & \~{} & ? & \_ & $-$ & $+$ & $=$ \\
+%    \hline
+%    \end{tabular}
+%  \end{center}
+%\end{table}
+
+\newcommand{\specialcell}[2][c]{% Custom talbe lines, set for 3 rows in one table cell
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+\centering Equivalence class and Boundary Test Plan
+% Valid Password samples
+
+% GUha891))
+% \#558\#\&;DoGs
+% AVery990\#\^{}
+% SimPass12!!
+% ToT86635ss/\textless
+
+% Valid case
+\begin{center}
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 1} \\
+  \hline
+  Purpose & Testing a valid password \\
+  \hline
+  Input & DahatB2559\_@ \\
+  \hline
+  Previous Passwords & \specialcell{ToT86635ss/\textless\\AVery990\#\^{}\\\#558\#\&;DoGs} \\% UolD2663!#
+  \hline
+  Expected Output & ACCEPTED \\
+  \hline
+  \end{tabular}
+\end{center}
+\vspace{1mm}
+% Too Similar case
+\begin{center}
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 2} \\
+  \hline
+  Purpose & Testing against a similar password \\
+  \hline
+  Input & SsaPmis628@@ \\
+  \hline
+  Previous Passwords &  \specialcell{\#558\#\&;DoGs\\AVery990\#\^{}\\SimPass12!!} \\
+  \hline
+  Expected Output & REJECTED: password too similar to a previous password \\
+  \hline
+  \end{tabular}
+\end{center}
+\vspace{1mm}
+% Space fail case
+\begin{center}
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 3} \\
+  \hline
+  Purpose & Testing against a password containing a space\\
+  \hline
+  Input & \&\^{}!aaCH91 chat \\
+  \hline
+  Previous Passwords &  \specialcell{\#558\#\&;DoGs\\AVery990\#\^{}\\ToT86635ss/\textless} \\
+  \hline
+  Expected Output & REJECTED: password contains a space \\
+  \hline
+  \end{tabular}
+\end{center}
+\vspace{1mm}
+% Lower case test
+\begin{center}
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 4} \\
+  \hline
+  Purpose & Testing against a password with not enough lower case letters \\
+  \hline
+  Input & \#\$678123HOUSE \\
+  \hline
+  Previous Passwords &  \specialcell{ToT86635ss/\textless\\AVery990\#\^{}\\SimPass12!!} \\
+  \hline
+  Expected Output & REJECTED: password does not have enough lower case letters \\
+  \hline
+  \end{tabular}
+\end{center}
+\vspace{1mm}
+% Upper case test
+\begin{center}
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 5} \\
+  \hline
+  Purpose & Testing against password with not enough upper case letters \\
+  \hline
+  Input & lowercasepasswords!;123 \\
+  \hline
+  Previous Passwords &  \specialcell{\#558\#\&;DoGs\\AVery990\#\^{}\\ToT86635ss/\textless} \\
+  \hline
+  Expected Output & REJECTED: password does not have enough upper case letters \\
+  \hline
+  \end{tabular}
+\end{center}
+\vspace{1mm}
+% Number test
+\begin{center}
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 6} \\
+  \hline
+  Purpose & Testing against not enough numbers \\
+  \hline
+  Input & NumberBoycott\_? \\
+  \hline
+  Previous Passwords &  \specialcell{\#558\#\&;DoGs\\GUha891))\\SimPass12!!} \\
+  \hline
+  Expected Output & REJECTED: password does not have enough numbers \\
+  \hline
+  \end{tabular}
+\end{center}
+\vspace{1mm}
+% Short password test
+\begin{center}
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 7} \\
+  \hline
+  Purpose & Testing against a short password \\
+  \hline
+  Input & Do12ah\_$=$ \\
+  \hline
+  Previous Passwords &  \specialcell{\#558\#\&;DoGs\\GUha891))\\SimPass12!!} \\
+  \hline
+  Expected Output & REJECTED: password is too short \\
+  \hline
+  \end{tabular}
+\end{center}
+\vspace{1mm}
+% Long password test
+\begin{center}
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 8} \\
+  \hline
+  Purpose & Testing against not enough numbers \\
+  \hline
+  Input & WAYtooLong\_\_$+$$=$8835houseing40 \\
+  \hline
+  Previous Passwords &  \specialcell{\#558\#\&;DoGs\\GUha891))\\SimPass12!!} \\
+  \hline
+  Expected Output & REJECTED: password is too long \\
+  \hline
+  \end{tabular}
+\end{center}
+
+
+
+\section{Ortogonal array testing}
+
+
+\section{Decision table testing}
+
+
+
+\end{document}
