@@ -17,8 +17,8 @@ int password_checker(const char* new_pass, const char* cur_pass, const char* pre
 	/* If the password entered is not long enough or too long, then we will
 	not bother to check if it's valid. */
 	if(len < 9 || len > 50) {
-		printf("Invalid password length.\n");
-		exit(EXIT_FAILURE);
+		printf("Rejected: Invalied password length.\n");
+		return valid_password;
 	}
 
 	/* Check that all the requirements are met for the currently entered
