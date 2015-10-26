@@ -168,7 +168,8 @@ int check_similar(const char* new_pass, const char* cur_pass,
 
 			if((isalpha(new_pass[i])) && (isalpha(cur_pass[j]))) {
 				if(lettercmp(new_pass, i, cur_pass, j)) {
-					count++;
+					found_match_char(new_pass, newlen,
+						i, cur_pass, curlen, j);
 				} else {
 					count = 0;
 				}
@@ -197,9 +198,56 @@ int check_similar(const char* new_pass, const char* cur_pass,
 		}
 	}
 }
+int found_match_char(const char* new_pass, int newlen, int new_index,
+		const char* old_pass, int oldlen, int old_index)
+{
+	if(chk_forward(new_pass, newlen, new_index, old_pass,
+	oldlen, old_index)|| chk_backward(new_pass, newlen, new_index,
+	old_pass, oldlen, old_index)) {
+		
+		return true;
+	} else {
+		return false;
+	}
+}
+int chk_forward(const char* new_pass, int newlen, int new_index,
+		const char* old_pass, int oldlen, int old_index)
+{
+	int i, j;
+	int count = 1;
+	new_index++; old_index++;
 
-int chk_forward(
+	for(i = 0; i < newlen; i++) {
+	
+		for(j = 0; j < oldlen; j++) {
 
+			if((isalpha(new_pass[new_index])) &&
+			(isalpha(old_pass[old_index]))) {
+				if(lettercmp(new_pass, new_index, old_pas,
+				old_index)) {
+					count++;
+				} else {
+					count = 1;
+				}
+
+			} else {
+
+				if(othercmp(new_pass, i, cur_pass, j)) {
+			
+					
+				}
+			}
+			old_index = (old_index + 1) % oldlen;
+		}
+			new_index = (new_index + 1) % newlen;
+	}
+}
+
+int chk_backward(const char* new_pass, int newlen, int new_index,
+		const char* old_pass, int oldlen, int old_index)
+{
+
+}
 /*
  * Function used to compare letter to see if they are the same.
  * It will pull one character each from both of the strings and convert
