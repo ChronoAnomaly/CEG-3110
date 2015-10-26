@@ -213,39 +213,86 @@ int found_match_char(const char* new_pass, int newlen, int new_index,
 int chk_forward(const char* new_pass, int newlen, int new_index,
 		const char* old_pass, int oldlen, int old_index)
 {
-	int i, j;
+	int i;
+	int same = false;
 	int count = 1;
+	const int substrlen = 5;
 	new_index++; old_index++;
 
-	for(i = 0; i < newlen; i++) {
-	
-		for(j = 0; j < oldlen; j++) {
+	for(i = 1; i < substrlen; i++) {
 
-			if((isalpha(new_pass[new_index])) &&
-			(isalpha(old_pass[old_index]))) {
-				if(lettercmp(new_pass, new_index, old_pas,
-				old_index)) {
-					count++;
-				} else {
-					count = 1;
-				}
-
+		if((isalpha(new_pass[new_index])) &&
+		(isalpha(old_pass[old_index]))) {
+			if(lettercmp(new_pass, new_index, old_pas,
+			old_index)) {
+				count++;
 			} else {
-
-				if(othercmp(new_pass, i, cur_pass, j)) {
-			
-					
-				}
+				count = 1;
 			}
-			old_index = (old_index + 1) % oldlen;
+		} else {
+
+			if(!strncmp(&new_pass[new_index],
+			old_pass[old_index], sizeof(char))) {
+				count++;
+			} else {
+				count = 1;
+			}
 		}
-			new_index = (new_index + 1) % newlen;
+		old_index = (old_index + 1) % oldlen;
+		new_index = (new_index + 1) % newlen;
 	}
+
+	if(count >= 5) {
+		same = true;
+	}
+	
+	return same;
 }
 
 int chk_backward(const char* new_pass, int newlen, int new_index,
 		const char* old_pass, int oldlen, int old_index)
 {
+	int i;
+	int same = false;
+	int count = 1;
+	const int substrlen = 5;
+	new_index++; old_index++;
+
+	for(i = 1; i < substrlen; i++) {
+
+		if((isalpha(new_pass[new_index])) &&
+		(isalpha(old_pass[old_index]))) {
+			if(lettercmp(new_pass, new_index, old_pas,
+			old_index)) {
+				count++;
+			} else {
+				count = 1;
+			}
+		} else {
+
+			if(!strncmp(&new_pass[new_index],
+			old_pass[old_index], sizeof(char))) {
+				count++;
+			} else {
+				count = 1;
+			}
+		}
+		old_index = (old_index - 1) % oldlen;
+		new_index = (new_index - 1) % newlen;
+
+		if(old_index < 0) {
+			old_index = oldlen - 1;
+		}
+		if(new_index < 0) {
+			new_index = newlen - 1;
+		}
+	}
+
+	if(count >= 5) {
+		same = true;
+	}
+	
+	return same;
 
 }
 /*
