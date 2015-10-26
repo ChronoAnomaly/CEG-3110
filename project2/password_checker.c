@@ -154,9 +154,9 @@ int check_similar(const char* new_pass, const char* cur_pass,
 	int similar = FALSE;
 	int count, i, j;
 	size_t newlen, curlen, prelen;
-printf("TESTING SECTION: %d\n", similar);
-similar = TRUE;
-printf("TESTING SECTION: %d\n", similar);
+/*TODO: printf("TESTING SECTION: %d\n", similar);*/
+/*TODO: similar = TRUE;*/
+/*TODO: printf("TESTING SECTION: %d\n", similar);*/
 	newlen = strlen(new_pass);
 	curlen = strlen(cur_pass);
 	prelen = strlen(pre_pass);
@@ -168,10 +168,10 @@ printf("TESTING SECTION: %d\n", similar);
 			/* detect a matching letter */
 			if((isalpha(new_pass[i])) && (isalpha(cur_pass[j]))) {
 				if(lettercmp(new_pass, i, cur_pass, j)) {
-printf("TESTING SECTION LOOP: %d\n", similar);
+/*TODO: printf("TESTING SECTION LOOP: %d\n", similar);*/
 					similar = found_match_char(new_pass,
 						newlen, i, cur_pass, curlen, j);
-printf("TESTING SECTION LOOP: %d\n", similar);
+/*TODO: printf("TESTING SECTION LOOP: %d\n", similar);*/
 				}
 			} else {
 				/* detect a matching non-letter*/
@@ -217,7 +217,9 @@ int found_match_char(const char* new_pass, int newlen, int new_index,
 {
 	if(chk_forward(new_pass, newlen, new_index, old_pass,
 	oldlen, old_index) || chk_backward(new_pass, newlen, new_index,
-	old_pass, oldlen, old_index)) {
+	old_pass, oldlen, old_index) || chk_bforward(new_pass, newlen,
+	new_index, old_pass, oldlen, old_index) || chk_fbackward(new_pass,
+	newlen, new_index, old_pass, oldlen, old_index)) {
 		
 		return TRUE;
 	} else {
@@ -270,7 +272,7 @@ int chk_backward(const char* new_pass, int newlen, int new_index,
 	int same = FALSE;
 	int count = 1;
 	const int substrlen = 5;
-	new_index++; old_index++;
+	new_index--; old_index--;
 
 	for(i = 1; i < substrlen; i++) {
 
@@ -309,6 +311,94 @@ int chk_backward(const char* new_pass, int newlen, int new_index,
 	return same;
 
 }
+
+int chk_bforward(const char* new_pass, int newlen, int new_index,
+		const char* old_pass, int oldlen, int old_index)
+{
+	int i;
+	int same = FALSE;
+	int count = 1;
+	const int substrlen = 5;
+	new_index++; old_index--;
+
+	for(i = 1; i < substrlen; i++) {
+
+		if((isalpha(new_pass[new_index])) &&
+		(isalpha(old_pass[old_index]))) {
+			if(lettercmp(new_pass, new_index, old_pass,
+			old_index)) {
+				count++;
+			} else {
+				count = 1;
+			}
+		} else {
+
+			if(!strncmp(&new_pass[new_index],
+			&old_pass[old_index], sizeof(char))) {
+				count++;
+			} else {
+				count = 1;
+			}
+		}
+		old_index = (old_index - 1) % oldlen;
+		new_index = (new_index + 1) % newlen;
+
+		if(old_index < 0) {
+			old_index = oldlen -1;
+		}
+	}
+
+	if(count >= 5) {
+		same = TRUE;
+	}
+	
+	return same;
+}
+
+int chk_fbackward(const char* new_pass, int newlen, int new_index,
+		const char* old_pass, int oldlen, int old_index)
+{
+	int i;
+	int same = FALSE;
+	int count = 1;
+	const int substrlen = 5;
+	new_index--; old_index++;
+
+	for(i = 1; i < substrlen; i++) {
+
+		if((isalpha(new_pass[new_index])) &&
+		(isalpha(old_pass[old_index]))) {
+			if(lettercmp(new_pass, new_index, old_pass,
+			old_index)) {
+				count++;
+			} else {
+				count = 1;
+			}
+		} else {
+
+			if(!strncmp(&new_pass[new_index],
+			&old_pass[old_index], sizeof(char))) {
+				count++;
+			} else {
+				count = 1;
+			}
+		}
+		old_index = (old_index + 1) % oldlen;
+		new_index = (new_index - 1) % newlen;
+
+		if(new_index < 0) {
+			new_index = newlen - 1;
+		}
+	}
+
+	if(count >= 5) {
+		same = TRUE;
+	}
+	
+	return same;
+
+}
+
 /*
  * Function used to compare letter to see if they are the same.
  * It will pull one character each from both of the strings and convert

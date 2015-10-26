@@ -25,6 +25,10 @@ int check_similar(const char* new_pass, const char* cur_pass,
 		const char* pre_pass);
 int chk_forward(const char* new_pass, int newlen, int new_index,
                 const char* old_pass, int oldlen, int old_index);
+int chk_bforward(const char* new_pass, int newlen, int new_index,
+                const char* old_pass, int oldlen, int old_index);
+int chk_fbackward(const char* new_pass, int newlen, int new_index,
+                const char* old_pass, int oldlen, int old_index);
 int chk_backward(const char* new_pass, int newlen, int new_index,
                 const char* old_pass, int oldlen, int old_index);
 int found_match_char(const char* new_pass, int newlen, int new_index,
