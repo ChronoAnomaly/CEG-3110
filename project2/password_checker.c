@@ -17,14 +17,15 @@ int password_checker(const char* new_pass, const char* cur_pass, const char* pre
 	/* If the password entered is not long enough or too long, then we will
 	not bother to check if it's valid. */
 	if(len < 9 || len > 50) {
-		printf("Rejected: Invalied password length.\n");
+		printf("Rejected: Invalid password length.\n");
 		return valid_password;
 	}
 
 	/* Check that all the requirements are met for the currently entered
 	password */
 	if(check_upper(new_pass) && check_lower(new_pass) && check_digit(new_pass)
-		&& check_special(new_pass) && check_no_space(new_pass)) {
+		&& check_special(new_pass) && check_no_space(new_pass)
+		&& check_similar(new_pass, cur_pass, pre_pass)) {
 		valid_password = TRUE;
 	}
 
@@ -154,10 +155,10 @@ int check_special(const char* str)
 int check_similar(const char* new_pass, const char* cur_pass,
 		const char* pre_pass)
 {
+	int similar = FALSE;
 	int count, i, j;
 	size_t newlen, curlen, prelen;
 
-	count = 0;
 	newlen = strlen(new_pass);
 	curlen = strlen(cur_pass);
 	prelen = strlen(pre_pass);
@@ -166,55 +167,68 @@ int check_similar(const char* new_pass, const char* cur_pass,
 	
 		for(j = 0; j < curlen; j++) {
 
+			/* detect a matching letter */
 			if((isalpha(new_pass[i])) && (isalpha(cur_pass[j]))) {
 				if(lettercmp(new_pass, i, cur_pass, j)) {
-					found_match_char(new_pass, newlen,
-						i, cur_pass, curlen, j);
-				} else {
-					count = 0;
+					similar = found_match_char(new_pass,
+						newlen, i, cur_pass, curlen, j);
 				}
 			} else {
-				if(othercmp(new_pass, i, cur_pass, j)) {
-					count++;
-				} else {
-					count = 0;
+				/* detect a matching non-letter*/
+				if(!strncmp(&new_pass[i],
+				&cur_pass[j], sizeof(char))) {
+					similar = found_match_char(new_pass,
+						newlen, i, cur_pass, curlen, j);
 				}
+			}
+			if(similar) {
+				printf("Rejected: passwords too similar.\n");
+				return TRUE;
+			}
 		}
 
 		for(j = 0; j < prelen; j++) {
-
-			if((isalpha(new_pass[i])) && (isalpha(cur_pass[j]))) {
-				if(lettercmp(new_pass, i, cur_pass, j)) {
-					count++;
-				} else {
-					count = 0;
+		
+			/* detect a matching letter */
+			if((isalpha(new_pass[i])) && (isalpha(pre_pass[j]))) {
+				if(lettercmp(new_pass, i, pre_pass, j)) {
+					similar = found_match_char(new_pass,
+						newlen, i, pre_pass, prelen, j);
 				}
 			} else {
-				if(othercmp(new_pass, i, cur_pass, j)) {
-					count++;
-				} else {
-					count = 0;
+				/* detect a matching non-letter*/
+				if(!strncmp(&new_pass[i],
+				&pre_pass[j], sizeof(char))) {
+					similar = found_match_char(new_pass,
+						newlen, i, pre_pass, prelen, j);
 				}
+			}
+			if(similar) {
+				printf("Rejected: passwords too similar.\n");
+				return TRUE;
+			}
 		}
 	}
+
+	return FALSE;
 }
 int found_match_char(const char* new_pass, int newlen, int new_index,
 		const char* old_pass, int oldlen, int old_index)
 {
 	if(chk_forward(new_pass, newlen, new_index, old_pass,
-	oldlen, old_index)|| chk_backward(new_pass, newlen, new_index,
+	oldlen, old_index) || chk_backward(new_pass, newlen, new_index,
 	old_pass, oldlen, old_index)) {
 		
-		return true;
+		return TRUE;
 	} else {
-		return false;
+		return FALSE;
 	}
 }
 int chk_forward(const char* new_pass, int newlen, int new_index,
 		const char* old_pass, int oldlen, int old_index)
 {
 	int i;
-	int same = false;
+	int same = FALSE;
 	int count = 1;
 	const int substrlen = 5;
 	new_index++; old_index++;
@@ -223,7 +237,7 @@ int chk_forward(const char* new_pass, int newlen, int new_index,
 
 		if((isalpha(new_pass[new_index])) &&
 		(isalpha(old_pass[old_index]))) {
-			if(lettercmp(new_pass, new_index, old_pas,
+			if(lettercmp(new_pass, new_index, old_pass,
 			old_index)) {
 				count++;
 			} else {
@@ -232,7 +246,7 @@ int chk_forward(const char* new_pass, int newlen, int new_index,
 		} else {
 
 			if(!strncmp(&new_pass[new_index],
-			old_pass[old_index], sizeof(char))) {
+			&old_pass[old_index], sizeof(char))) {
 				count++;
 			} else {
 				count = 1;
@@ -243,7 +257,7 @@ int chk_forward(const char* new_pass, int newlen, int new_index,
 	}
 
 	if(count >= 5) {
-		same = true;
+		same = TRUE;
 	}
 	
 	return same;
@@ -253,7 +267,7 @@ int chk_backward(const char* new_pass, int newlen, int new_index,
 		const char* old_pass, int oldlen, int old_index)
 {
 	int i;
-	int same = false;
+	int same = FALSE;
 	int count = 1;
 	const int substrlen = 5;
 	new_index++; old_index++;
@@ -262,7 +276,7 @@ int chk_backward(const char* new_pass, int newlen, int new_index,
 
 		if((isalpha(new_pass[new_index])) &&
 		(isalpha(old_pass[old_index]))) {
-			if(lettercmp(new_pass, new_index, old_pas,
+			if(lettercmp(new_pass, new_index, old_pass,
 			old_index)) {
 				count++;
 			} else {
@@ -271,7 +285,7 @@ int chk_backward(const char* new_pass, int newlen, int new_index,
 		} else {
 
 			if(!strncmp(&new_pass[new_index],
-			old_pass[old_index], sizeof(char))) {
+			&old_pass[old_index], sizeof(char))) {
 				count++;
 			} else {
 				count = 1;
@@ -289,7 +303,7 @@ int chk_backward(const char* new_pass, int newlen, int new_index,
 	}
 
 	if(count >= 5) {
-		same = true;
+		same = TRUE;
 	}
 	
 	return same;
@@ -310,9 +324,9 @@ int lettercmp(const char* new_pass, int new_index, const char* old_pass,
 	b = tolower(old_pass[old_index]);
 
 	if( a == b) {
-		return true;
+		return TRUE;
 	} else {
-		return false;
+		return FALSE;
 	}
 }
 
@@ -325,8 +339,8 @@ int othercmp(const char* new_pass, int new_index, const char* old_pass,
 		int old_index)
 {
 	if(new_pass[new_index] == old_pass[old_index]) {
-		return true;
+		return TRUE;
 	} else {
-		return false;
+		return FALSE;
 	}
 }
