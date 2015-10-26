@@ -97,11 +97,7 @@ void process_file(char* argv[], char* new_pass, char* cur_pass, char* pre_pass)
 			} else {
 				printf("Test case #%d passed.\n",test_case);
 			}
-
-
 		}
-
-
 	}
 }
 
@@ -147,7 +143,8 @@ void process_manual(char* new_pass, char* cur_pass, char* pre_pass)
 		fprintf(stderr, "Error reading input.\n");
 	}
 
-
-
+	if(password_checker(new_pass, cur_pass, pre_pass)) {
+		printf("Accepted.\n");
+	}
 }
 

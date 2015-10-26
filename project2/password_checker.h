@@ -22,6 +22,9 @@ int check_digit(const char* str);
 int check_no_space(const char* str);
 int check_special(const char* str);
 int check_similar(const char* new_pass, const char* cur_pass,
-		const char* pre_pass)
-
+		const char* pre_pass);
+int lettercmp(const char* new_pass, int new_index, const char* old_pass,
+		int old_index);
+int othercmp(const char* new_pass, int new_index, const char* old_pass,
+		int old_index);
 #endif

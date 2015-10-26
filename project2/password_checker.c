@@ -166,13 +166,39 @@ int check_similar(const char* new_pass, const char* cur_pass,
 	
 		for(j = 0; j < curlen; j++) {
 
+			if((isalpha(new_pass[i])) && (isalpha(cur_pass[j]))) {
+				if(lettercmp(new_pass, i, cur_pass, j)) {
+					count++;
+				} else {
+					count = 0;
+				}
+			} else {
+				if(othercmp(new_pass, i, cur_pass, j)) {
+					count++;
+				} else {
+					count = 0;
+				}
 		}
 
 		for(j = 0; j < prelen; j++) {
 
+			if((isalpha(new_pass[i])) && (isalpha(cur_pass[j]))) {
+				if(lettercmp(new_pass, i, cur_pass, j)) {
+					count++;
+				} else {
+					count = 0;
+				}
+			} else {
+				if(othercmp(new_pass, i, cur_pass, j)) {
+					count++;
+				} else {
+					count = 0;
+				}
 		}
 	}
 }
+
+int chk_forward(
 
 /*
  * Function used to compare letter to see if they are the same.
