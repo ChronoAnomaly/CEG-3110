@@ -58,6 +58,7 @@ void process_file(char* argv[], char* new_pass, char* cur_pass, char* pre_pass)
 {
 	char expected_result = NULL;
 	int test_case, result;
+	char discard[BUFFER];
 	FILE* fp;
 
 	test_case = result = 0;
@@ -80,7 +81,8 @@ void process_file(char* argv[], char* new_pass, char* cur_pass, char* pre_pass)
 
 		/*fscanf(fp, "%s", expected_result);*/
 		expected_result = fgetc(fp);
-		fgetc(fp); /* clear the \n char from the buffer */
+		fgets(discard, BUFFER, fp);
+		/*fgetc(fp);*/ /* clear the \n char from the buffer */
 		test_case++;
 
 		/* begin checking the passwords */
