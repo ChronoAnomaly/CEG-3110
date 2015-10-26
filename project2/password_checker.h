@@ -20,6 +20,5 @@ int check_lower(const char* str);
 int check_digit(const char* str);
 int check_no_space(const char* str);
 int check_special(const char* str);
-void save_passwords(const char* str);
 
 #endif

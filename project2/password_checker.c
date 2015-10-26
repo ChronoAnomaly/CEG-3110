@@ -27,7 +27,6 @@ void password_checker(const char* pass)
 	if(check_upper(pass) && check_lower(pass) && check_digit(pass)
 		&& check_special(pass) && check_no_space(pass)) {
 		valid_password = TRUE;
-		save_passwords(pass);
 	}
 
 	if(valid_password) {
@@ -153,15 +152,3 @@ int check_special(const char* str)
 	}
 }
 
-void save_passwords(const char* str)
-{
-	FILE* fp;
-
-	fp = fopen("pass_storage.txt", "a");
-	assert(fp != NULL);
-	printf("Before printing anything to the file: %p\n", fp);
-	fprintf(fp, "Testing... %s\n", str);
-
-	printf("after printing anything to the file: %p\n", fp);
-	fclose(fp);
-}
