@@ -1,0 +1,55 @@
+
+
+IMPORTANT=========
+allow the array to circle around (so index % strlen)
+=================
+
+func similar start:
+
+for forward and backward
+keep count of matching in a row
+cycle through each char - if a sub func returns 1 then increment counter
+			if a sub func returns 0 then reset counter
+check type for each char
+
+if letter
+then send to letter checking func
+endif
+
+if number
+then send to number checking func
+endif
+
+else
+send to special char checking function
+
+if counter >= 5
+then return true
+else return false
+endif
+
+
+func letter check:
+check against upper and lower case
+
+if match
+then return 1
+else return 0
+endif
+
+func number check:
+check against each number
+
+if match
+then return 1
+else return 0
+endif
+
+
+func special check:
+check against each special character
+
+if match
+then return 1
+else return 0
+endif
