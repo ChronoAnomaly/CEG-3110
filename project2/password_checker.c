@@ -148,15 +148,18 @@ int check_special(const char* str)
 	}
 }
 
+/*
+ * Begins checking the passwords to see if they contain a 5 character
+ * substring. If a matching character is found, then it calls the other
+ * checking functions.
+*/
 int check_similar(const char* new_pass, const char* cur_pass,
 		const char* pre_pass)
 {
 	int similar = FALSE;
 	int count, i, j;
 	size_t newlen, curlen, prelen;
-/*TODO: printf("TESTING SECTION: %d\n", similar);*/
-/*TODO: similar = TRUE;*/
-/*TODO: printf("TESTING SECTION: %d\n", similar);*/
+	
 	newlen = strlen(new_pass);
 	curlen = strlen(cur_pass);
 	prelen = strlen(pre_pass);
@@ -168,10 +171,8 @@ int check_similar(const char* new_pass, const char* cur_pass,
 			/* detect a matching letter */
 			if((isalpha(new_pass[i])) && (isalpha(cur_pass[j]))) {
 				if(lettercmp(new_pass, i, cur_pass, j)) {
-/*TODO: printf("TESTING SECTION LOOP: %d\n", similar);*/
 					similar = found_match_char(new_pass,
 						newlen, i, cur_pass, curlen, j);
-/*TODO: printf("TESTING SECTION LOOP: %d\n", similar);*/
 				}
 			} else {
 				/* detect a matching non-letter*/
@@ -212,6 +213,10 @@ int check_similar(const char* new_pass, const char* cur_pass,
 
 	return FALSE;
 }
+
+/*
+ *
+*/
 int found_match_char(const char* new_pass, int newlen, int new_index,
 		const char* old_pass, int oldlen, int old_index)
 {
@@ -226,6 +231,10 @@ int found_match_char(const char* new_pass, int newlen, int new_index,
 		return FALSE;
 	}
 }
+
+/*
+ *
+*/
 int chk_forward(const char* new_pass, int newlen, int new_index,
 		const char* old_pass, int oldlen, int old_index)
 {
@@ -396,7 +405,6 @@ int chk_fbackward(const char* new_pass, int newlen, int new_index,
 	}
 	
 	return same;
-
 }
 
 /*
@@ -414,21 +422,6 @@ int lettercmp(const char* new_pass, int new_index, const char* old_pass,
 	b = tolower(old_pass[old_index]);
 
 	if( a == b) {
-		return TRUE;
-	} else {
-		return FALSE;
-	}
-}
-
-/*
- * Function used to compare non-letter characters.
- * Checks to see if they are equal or noth.
- * returns: true if they are the same, false if not
-*/
-int othercmp(const char* new_pass, int new_index, const char* old_pass,
-		int old_index)
-{
-	if(new_pass[new_index] == old_pass[old_index]) {
 		return TRUE;
 	} else {
 		return FALSE;

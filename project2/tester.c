@@ -27,6 +27,10 @@ int main(int argc, char* argv[])
 	return EXIT_SUCCESS;
 }
 
+/*
+ * Remove the newline ('\n') character from the end of
+ * the string read in from the buffer
+*/
 void rm_newline(char* buff)
 {
 	size_t len = 0;
@@ -37,6 +41,7 @@ void rm_newline(char* buff)
 		buff[--len] = '\0';
 	}
 }
+
 /*
  * Processes a file if the program is passed command line arguments.
  *
