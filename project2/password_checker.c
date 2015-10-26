@@ -9,11 +9,10 @@
  * through all the requirements checks for a valid password and will
  * output if the password is valid or invalid.
  */
-void password_checker(const char* pass)
+int password_checker(const char* new_pass, const char* cur_pass, const char* pre_pass)
 {
 	int valid_password = FALSE;
-	int len = strlen(pass);
-	int i = 0;
+	int len = strlen(new_pass);
 
 	/* If the password entered is not long enough or too long, then we will
 	not bother to check if it's valid. */
@@ -24,15 +23,15 @@ void password_checker(const char* pass)
 
 	/* Check that all the requirements are met for the currently entered
 	password */
-	if(check_upper(pass) && check_lower(pass) && check_digit(pass)
-		&& check_special(pass) && check_no_space(pass)) {
+	if(check_upper(new_pass) && check_lower(new_pass) && check_digit(new_pass)
+		&& check_special(new_pass) && check_no_space(new_pass)) {
 		valid_password = TRUE;
 	}
 
 	if(valid_password) {
-		printf("Valid password.\n");
+		return valid_password;
 	} else {
-		printf("Invalid password.\n");
+		return valid_password;
 	}
 }
 
@@ -54,7 +53,7 @@ int check_upper(const char* str)
 	if(count >= 2) {
 		return TRUE;
 	} else {
-		printf("Not enough upper case letters.\n");
+		printf("Rejected: Not enough Upper case.\n");
 		return FALSE;
 	}
 }
@@ -77,7 +76,7 @@ int check_lower(const char* str)
 	if(count >= 2) {
 		return TRUE;
 	} else {
-		printf("Not enough lower case letters.\n");
+		printf("Rejected: Not enough Lower case.\n");
 		return FALSE;
 	}
 }
@@ -91,7 +90,7 @@ int check_no_space(const char* str)
 	while(*str) {
 
 		if(isspace(*str++)) {
-			printf("Space character found.\n");
+			printf("Rejected: Space found.\n");
 			return FALSE;
 		}
 	}
@@ -116,7 +115,7 @@ int check_digit(const char* str)
 	if(count >= 2) {
 		return TRUE;
 	} else {
-		printf("Not enough digits.\n");
+		printf("Rejected: Not enough numbers.\n");
 		return FALSE;
 	}
 }
@@ -147,7 +146,7 @@ int check_special(const char* str)
 	if(count >= 2) {
 		return TRUE;
 	} else {
-		printf("Not enough special characters.\n");
+		printf("Rejected: Not enough special characters.\n");
 		return FALSE;
 	}
 }

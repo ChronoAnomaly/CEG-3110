@@ -8,8 +8,8 @@
 
 #define BUFFER 48
 
-void proccess_file(char* argv[], char* new_pass, char* cur_pass, char* pre_pass);
-void process_manual();
+void process_file(char* argv[], char* new_pass, char* cur_pass, char* pre_pass);
+void process_manual(char* new_pass, char* cur_pass, char* pre_pass);
 
 int main(int argc, char* argv[])
 {
@@ -18,16 +18,27 @@ int main(int argc, char* argv[])
 	char pre_pass[BUFFER] = {'\0'};
 
 	if (argc < 2 ) {
-
+		process_manual(new_pass, cur_pass, pre_pass);
 	} else if (argc == 2) {
-		proccess_file(argv, new_pass, cur_pass, pre_pass);
+		process_file(argv, new_pass, cur_pass, pre_pass);
 	}
 
 	return EXIT_SUCCESS;
 }
 
-
-void proccess_file(char* argv[], char* new_pass, char* cur_pass, char* pre_pass)
+/*
+ * Processes a file if the program is passed command line arguments.
+ *
+ * Format for the file: 
+ * 			new password
+ *			current password
+ *			previous password
+ *			A or R ( for accepted or rejected)
+ *
+ * This function will scan through the file for each test case and continue
+ * to read in the test cases until it reaches the end of the file.
+*/
+void process_file(char* argv[], char* new_pass, char* cur_pass, char* pre_pass)
 {
 	char expected_result = NULL;
 	FILE* fp;
@@ -50,8 +61,24 @@ void proccess_file(char* argv[], char* new_pass, char* cur_pass, char* pre_pass)
 	}
 }
 
-void process_manual()
+/*
+ * Processes manual imput from the users if no command line args
+ * are passed while running.
+*/
+void process_manual(char* new_pass, char* cur_pass, char* pre_pass)
 {
+	size_t len = 0;
 
+
+	printf("Enter your new password: ");
+	if(fgets(new_pass, BUFFER, stdin) != NULL) {
+		len = strlen(new_pass);
+
+		if(len > 0 && new_pass[len-1] == '\n') {
+			new_pass[--len] = '\0';
+		}
+	} else {
+		fprintf(stderr, "Error reading input.\n");
+	}
 }
 
