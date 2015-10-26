@@ -25,15 +25,11 @@ int password_checker(const char* new_pass, const char* cur_pass, const char* pre
 	password */
 	if(check_upper(new_pass) && check_lower(new_pass) && check_digit(new_pass)
 		&& check_special(new_pass) && check_no_space(new_pass)
-		&& check_similar(new_pass, cur_pass, pre_pass)) {
+		&& !check_similar(new_pass, cur_pass, pre_pass)) {
 		valid_password = TRUE;
 	}
 
-	if(valid_password) {
-		return valid_password;
-	} else {
-		return valid_password;
-	}
+	return valid_password;
 }
 
 /*
@@ -158,7 +154,9 @@ int check_similar(const char* new_pass, const char* cur_pass,
 	int similar = FALSE;
 	int count, i, j;
 	size_t newlen, curlen, prelen;
-
+printf("TESTING SECTION: %d\n", similar);
+similar = TRUE;
+printf("TESTING SECTION: %d\n", similar);
 	newlen = strlen(new_pass);
 	curlen = strlen(cur_pass);
 	prelen = strlen(pre_pass);
@@ -170,8 +168,10 @@ int check_similar(const char* new_pass, const char* cur_pass,
 			/* detect a matching letter */
 			if((isalpha(new_pass[i])) && (isalpha(cur_pass[j]))) {
 				if(lettercmp(new_pass, i, cur_pass, j)) {
+printf("TESTING SECTION LOOP: %d\n", similar);
 					similar = found_match_char(new_pass,
 						newlen, i, cur_pass, curlen, j);
+printf("TESTING SECTION LOOP: %d\n", similar);
 				}
 			} else {
 				/* detect a matching non-letter*/
