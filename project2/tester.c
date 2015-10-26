@@ -62,7 +62,7 @@ void process_file(char* argv[], char* new_pass, char* cur_pass, char* pre_pass)
 }
 
 /*
- * Processes manual imput from the users if no command line args
+ * Processes manual input from the users if no command line args
  * are passed while running.
 */
 void process_manual(char* new_pass, char* cur_pass, char* pre_pass)
