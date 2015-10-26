@@ -151,3 +151,61 @@ int check_special(const char* str)
 	}
 }
 
+int check_similar(const char* new_pass, const char* cur_pass,
+		const char* pre_pass)
+{
+	int count, i, j;
+	size_t newlen, curlen, prelen;
+
+	count = 0;
+	newlen = strlen(new_pass);
+	curlen = strlen(cur_pass);
+	prelen = strlen(pre_pass);
+
+	for(i = 0; i < newlen; i++) {
+	
+		for(j = 0; j < curlen; j++) {
+
+		}
+
+		for(j = 0; j < prelen; j++) {
+
+		}
+	}
+}
+
+/*
+ * Function used to compare letter to see if they are the same.
+ * It will pull one character each from both of the strings and convert
+ * them into lower case, and then see if they are the same letter.
+ * returns: true if they are the same, false if not
+*/
+int lettercmp(const char* new_pass, int new_index, const char* old_pass,
+		int old_index)
+{
+	char a, b;
+
+	a = tolower(new_pass[new_index]);
+	b = tolower(old_pass[old_index]);
+
+	if( a == b) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+/*
+ * Function used to compare non-letter characters.
+ * Checks to see if they are equal or noth.
+ * returns: true if they are the same, false if not
+*/
+int othercmp(const char* new_pass, int new_index, const char* old_pass,
+		int old_index)
+{
+	if(new_pass[new_index] == old_pass[old_index]) {
+		return true;
+	} else {
+		return false;
+	}
+}

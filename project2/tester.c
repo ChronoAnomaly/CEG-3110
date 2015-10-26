@@ -27,36 +27,6 @@ int main(int argc, char* argv[])
 	return EXIT_SUCCESS;
 }
 
-void read_line(FILE* fp, char* line)
-{
-	const int max_length = 256;
-	char* line_buffer = malloc(sizeof(char) * max_length);
-	char c;
-	int count;
-
-	if(fp == NULL) {
-		fprintf(stderr, "Error: file pointer is null.\n");
-		exit(EXIT_FAILURE);
-	}
-
-	if(line_buffer == NULL) {
-		fprintf(stderr, "Error: allocating memory for line buffer.\n");
-		exit(EXIT_FAILURE);
-	}
-
-	count = 0;
-	c = fgetc(fp);
-	while((c != '\n') && (c != EOF)) {
-		line_buffer[count] = c;
-		count++;
-		c = fgetc(fp);
-	}
-	
-	line_buffer[count] = '\0';
-	strncpy(line, line_buffer, ++count);
-
-}
-
 void rm_newline(char* buff)
 {
 	size_t len = 0;
@@ -154,5 +124,30 @@ void process_manual(char* new_pass, char* cur_pass, char* pre_pass)
 	} else {
 		fprintf(stderr, "Error reading input.\n");
 	}
+
+	printf("Enter your current password: ");
+	if(fgets(new_pass, BUFFER, stdin) != NULL) {
+		len = strlen(cur_pass);
+
+		if(len > 0 && cur_pass[len-1] == '\n') {
+			cur_pass[--len] = '\0';
+		}
+	} else {
+		fprintf(stderr, "Error reading input.\n");
+	}
+
+	printf("Enter your previous password: ");
+	if(fgets(new_pass, BUFFER, stdin) != NULL) {
+		len = strlen(pre_pass);
+
+		if(len > 0 && pre_pass[len-1] == '\n') {
+			pre_pass[--len] = '\0';
+		}
+	} else {
+		fprintf(stderr, "Error reading input.\n");
+	}
+
+
+
 }
 

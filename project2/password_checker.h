@@ -14,11 +14,14 @@
 #define TRUE 1
 #define FALSE 0
 
-int password_checker(const char* new_pass, const char* cur_pass, const char* pre_pass);
+int password_checker(const char* new_pass, const char* cur_pass,
+		const char* pre_pass);
 int check_upper(const char* str);
 int check_lower(const char* str);
 int check_digit(const char* str);
 int check_no_space(const char* str);
 int check_special(const char* str);
+int check_similar(const char* new_pass, const char* cur_pass,
+		const char* pre_pass)
 
 #endif
