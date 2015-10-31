@@ -49,7 +49,10 @@ void rm_newline(char* buff)
  * 			new password
  *			current password
  *			previous password
- *			A or R ( for accepted or rejected)
+ *			A or R ( for accepted or rejected) and comment section
+ * NOTE: the comment section is read in but just discarded, as it is only
+ * used for the user to help keep track of what the test case is for/used
+ * to test against.
  *
  * This function will scan through the file for each test case and continue
  * to read in the test cases until it reaches the end of the file.
@@ -114,44 +117,37 @@ void process_file(char* argv[], char* new_pass, char* cur_pass, char* pre_pass)
 */
 void process_manual(char* new_pass, char* cur_pass, char* pre_pass)
 {
+	char line[BUFFER];
 	size_t len = 0;
 
+	printf("Entering manual mode. (Enter exit to stop)\n");
 
-	printf("Enter your new password: ");
-	if(fgets(new_pass, BUFFER, stdin) != NULL) {
-		len = strlen(new_pass);
+	printf("Enter your new password: \n");
+	fgets(line, BUFFER, stdin);
 
-		if(len > 0 && new_pass[len-1] == '\n') {
-			new_pass[--len] = '\0';
+	/* loop through manual mode until the user wants to exit */
+	while(strcmp(line, "exit")) {
+		
+		rm_newline(line);
+		strcpy(new_pass, line);
+
+		printf("Enter your current password: \n");
+		fgets(line, BUFFER, stdin);
+		rm_newline(line);
+		strcpy(cur_pass, line);
+
+		printf("Enter your previous password: \n");
+		fgets(line, BUFFER, stdin);
+		rm_newline(line);
+		strcpy(pre_pass, line);
+
+		if(password_checker(new_pass, cur_pass, pre_pass)) {
+			printf("Accepted.\n");
 		}
-	} else {
-		fprintf(stderr, "Error reading input.\n");
-	}
-
-	printf("Enter your current password: ");
-	if(fgets(new_pass, BUFFER, stdin) != NULL) {
-		len = strlen(cur_pass);
-
-		if(len > 0 && cur_pass[len-1] == '\n') {
-			cur_pass[--len] = '\0';
-		}
-	} else {
-		fprintf(stderr, "Error reading input.\n");
-	}
-
-	printf("Enter your previous password: ");
-	if(fgets(new_pass, BUFFER, stdin) != NULL) {
-		len = strlen(pre_pass);
-
-		if(len > 0 && pre_pass[len-1] == '\n') {
-			pre_pass[--len] = '\0';
-		}
-	} else {
-		fprintf(stderr, "Error reading input.\n");
-	}
-
-	if(password_checker(new_pass, cur_pass, pre_pass)) {
-		printf("Accepted.\n");
+	
+		/* Begins reading password loop again */
+		printf("Enter your new password: \n");
+		fgets(line, BUFFER, stdin);
 	}
 }
 

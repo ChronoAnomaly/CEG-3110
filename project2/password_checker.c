@@ -124,21 +124,40 @@ int check_digit(const char* str)
 int check_special(const char* str)
 {
 	int i, len, count = 0;
+	int valid_char = FALSE;
+	const char* ptr;
 	char special[] = { '!', '@', '#', '$', '%', '&', '*', ')', '(', ']', '[',
 			'}', '{', '>', '<', ';', ':', '.', ',', '/', '|',
 			'\\' , '~', '?', '_', '-', '+', '='};
 	len = sizeof(special) / sizeof(char);
 
-	while(*str) {
+	ptr = str;
+
+	while(*ptr) {
 		
+		valid_char = FALSE;
+
+		if(isalnum(*ptr)) {
+			valid_char = TRUE;
+		}
+
 		for(i = 0; i < len; i++) {
-			if(*str == special[i]) {
+			if(*ptr == special[i]) {
 				count++;
+				valid_char = TRUE;
 			}
 		}
 
-		str++;
+		if(!valid_char) {
+			printf("Rejected: Invalid character found.\n");
+			return FALSE;
+		}
+
+		ptr++;
 	}
+
+	ptr = str;
+
 
 	if(count >= 2) {
 		return TRUE;
@@ -157,7 +176,7 @@ int check_similar(const char* new_pass, const char* cur_pass,
 		const char* pre_pass)
 {
 	int similar = FALSE;
-	int count, i, j;
+	int i, j;
 	size_t newlen, curlen, prelen;
 	
 	newlen = strlen(new_pass);
