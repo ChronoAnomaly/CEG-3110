@@ -18,8 +18,16 @@
 
 \section{Introduction}
 
+The program to be developed is a password checking module. It will be used to check if a password
+meets the requirements of the system shown in the requirements section. This document covers the 
+various testing strategies used to test the program. The finalized test plan was developed by using
+Equivalence class and boundary testing, Orthogonal array testing, and Decision table testing. Along
+with the code, a testing harness was created to provide automated testing and manual testing to check
+the coverage of the test cases.
+
 \subsection{Requirements}
 
+The requirements of the password checking program are as follows.
 
 \begin{enumerate}
 
@@ -29,21 +37,15 @@
 the specials characters listed in Requirement 4.
 \item All new passwords must contain at least two upper case letters, at least two lower case
 letters, and at least two numerals.
-\item New passwords must contain at least two special characters from the following list:
-% Table for the special characters allowed in the password program
-\begin{center}
-  \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
-  \hline
-  ! & @ & \# & \$ & \% & \& & * &  ) & ( & ] & [ & \} & \{ & $>$ & $<$ & ; 
-  & : & . & , & / & $|$ &  \textbackslash \\
-    \begin{tabular}{|c|c|c|c|c|c|}
-    \hline
-    \~{} & ? & \_ & $-$ & $+$ & $=$ \\
-    \hline
-    \end{tabular}
-  \hline
-  \end{tabular}
-\end{center}
+\item New passwords must contain at least two special characters from the following list: 
+  !  @  \#  \$  \%  \&  *  )  (  ]  [  \}  \{  $>$  $<$  ; 
+   :  .  ,  /  $|$   \textbackslash  \~{}  ?  \_  $-$  $+$  $=$ 
+
+\subsection{Automated testing format}
+
+The testing harness program was developed to allow automated testing. It reads in a file given to the
+program and will run through each test case, after each test case it will output whether it
+passed or failed.
 
 \item New passwords cannot be similar to any of the other two previous passwords, with ``similar to'' defined
 as ``containing an identical five-character substring (either forward or backward), independent of letter
@@ -53,6 +55,7 @@ case (for example, a5\%Km and a5\%kM would be considered identical substrings).
 
 \section{Equivalence class and boundary testing}
 
+\subsection{Introduction}
 To implement equivalence classes and boundary testing, we will need to analyze the requirements
 for the system and develop equivalence classes that will show the border values to test against. By going through the requirements for the system, we can identify the border conditions and come up with the following equivalence partitions shown in table 1.
 The border conditions are important, as they are the most likely place that the system will fail on and around.  Having these cases also enables testers to trim down similar or equivalent test cases that essentially test the same values, compared against the border conditions.
@@ -269,11 +272,13 @@ The following test plan is made up of 8 test cases that are designed to fail a c
 
 
 
-\section{Ortogonal array testing}
+\section{Orthogonal array testing}
 
+\subsection{Introduction}
 
 \section{Decision table testing}
 
+\subsection{Introduction}
 
 
 \end{document}
