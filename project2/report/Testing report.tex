@@ -43,11 +43,11 @@
 \section{Introduction}
 
 The program to be developed is a password checking module. It will be used to check if a password
-meets the requirements of the system shown in the requirements section. This document covers the 
-various testing strategies used to test the program. The finalized test plan was developed by using
-Equivalence class and boundary testing, Orthogonal array testing, and Decision table testing. Along
-with the code, a testing harness was created to provide automated testing and manual testing to check
-the coverage of the test cases.
+meets the requirements of the system. This document covers the various testing strategies
+used to test the program. The finalized test plan was developed by using Equivalence class
+and boundary testing, Orthogonal array testing, and Decision table testing. Along
+with the code, a testing harness was created to provide automated and manual testing to check
+the coverage of each test case.
 
 \subsection{Requirements}
 
@@ -95,6 +95,9 @@ To implement equivalence classes and boundary testing, we will need to analyze t
 for the system and develop equivalence classes that will show the border values to test against. By going through the requirements for the system, we can identify the border conditions and come up with the following equivalence partitions shown in table 1.
 The border conditions are important, as they are the most likely place that the system will fail on and around.  Having these cases also enables testers to trim down similar or equivalent test cases that essentially test the same values, compared against the border conditions.
 
+\subsection{Boundary conditions}
+
+From the requirements of the program, we can form a set of boundary conditions.
 % Possibly import the class partitions as figures from the powerpoint slides
 \begin{table}[h!]
   \begin{center}
@@ -315,11 +318,21 @@ The following test plan is made up of 8 test cases that are designed to fail a c
 
 \subsection{Introduction}
 
+% TODO: finish checking the code and move copys into this folder to 
+% enable code listing inport
 \section{Code}
 
-testing
+password\_checker.c
 
-\lstinputlisting{password_checker.c}
+%\lstinputlisting{password_checker.c}
 
+
+password\_checker.h
+
+%\lstinputlisting{password_checker.h}
+
+tester.c
+
+%\lstinputlisting{tester.c}
 
 \end{document}

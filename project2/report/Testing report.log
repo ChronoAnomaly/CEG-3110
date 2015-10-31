@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.1.26)  31 OCT 2015 17:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.1.26)  31 OCT 2015 17:54
 entering extended mode
 **"Testing report.tex"
 ("Testing report.tex"
@@ -935,27 +935,24 @@ File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 182.
- [2] [3] [4]
-(password_checker.c [5] [6] [7] [8] [9] [10] [11] [12] [13]) [14]
+ [2] [3] [4] [5]
 ("Testing report.aux") ) 
 Here is how much of TeX's memory you used:
- 23912 strings out of 493698
- 583433 string characters out of 3144412
- 779422 words of memory out of 3000000
- 26828 multiletter control sequences out of 15000+200000
- 12871 words of font info for 50 fonts, out of 3000000 for 9000
+ 23481 strings out of 493698
+ 579461 string characters out of 3144412
+ 740422 words of memory out of 3000000
+ 26402 multiletter control sequences out of 15000+200000
+ 12403 words of font info for 48 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 69i,13n,79p,776b,1708s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 69i,13n,79p,776b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
 s/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmm
-i12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><
-C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Progra
-m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on "Testing report.pdf" (14 pages, 121075 bytes).
+i12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><
+C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Progra
+m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on "Testing report.pdf" (5 pages, 76184 bytes).
 PDF statistics:
- 79 PDF objects out of 1000 (max. 8388607)
+ 41 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
