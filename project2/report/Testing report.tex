@@ -86,18 +86,64 @@ A or R (Case is ignored)
 
 For this file format, the A or R line is for the expected output for each test case. The expect output
 line also allows for a comment following the A or R, this is to help the tester keep track of
-what is being tested against in this case.
+what is being tested against in this case. The file should contain the resulting final
+test plan of 30 test cases, but any number of test cases will be allowed to be
+read and processed.
 
 \section{Equivalence class and boundary testing}
 
 \subsection{Introduction}
 To implement equivalence classes and boundary testing, we will need to analyze the requirements
-for the system and develop equivalence classes that will show the border values to test against. By going through the requirements for the system, we can identify the border conditions and come up with the following equivalence partitions shown in table 1.
-The border conditions are important, as they are the most likely place that the system will fail on and around.  Having these cases also enables testers to trim down similar or equivalent test cases that essentially test the same values, compared against the border conditions.
+for the system and develop equivalence classes that will show the border values to test against.
+By going through the requirements for the system, we can identify the border conditions and
+come up with the following equivalence partitions shown in table 1. The border conditions are important,
+as they are the most likely place that the system will fail on and around.  Having these
+cases also enables testers to trim down similar or equivalent test cases that essentially
+test the same values, compared against the border conditions.
 
 \subsection{Boundary conditions}
 
-From the requirements of the program, we can form a set of boundary conditions.
+From the requirements of the program, we can form a set of boundary conditions. These
+boundary conditions are the values that we will provides test for.
+
+\begin{enumerate}
+\item Contains 1 or less
+\begin{enumerate}
+\item testing sub items?
+\end{enumerate}
+\item Contains 2 or more 
+\item Contains 1 or less
+\item Contains 2 or more 
+\item Contains 1 or less
+\item Contains 2 or more 
+\item Contains 1 or less
+\item Contains 2 or more 
+\item Contains 1 or less
+\item Contains 2 or more 
+\item Contains 1 or less
+\item Contains
+\item Contains
+\item Contains
+\item Contains
+\item Contains
+\item Contains
+\item Contains
+\end{enumerate}
+% List the boundary conditions
+%\begin{table}[h!]
+  %\begin{center}
+   %\caption{Boundary Conditions}
+    %\%\label{tab:Boundaries}
+
+    %\begin{tabular}{|c|}
+
+  %\end{center}
+%\end{table}
+
+
+\subsection{Equivalence Partitions}
+
+
 % Possibly import the class partitions as figures from the powerpoint slides
 \begin{table}[h!]
   \begin{center}
@@ -143,22 +189,14 @@ From the requirements of the program, we can form a set of boundary conditions.
   \end{center}
 \end{table}
 
-With these equivalence partitions, we are able to generate simple test cases based on passing or failing the classes one at a time.
-The following test plan is made up of 8 test cases that are designed to fail a certain requirement of the system.
+With these equivalence partitions, we are able to generate simple test cases
+based on passing or failing the classes one at a time. The following test plan
+is made up of 8 test cases that are designed to fail a certain requirement of
+the system.
 \newline
-% Table for the special characters allowed in the password program
-%\begin{table}[h!]
-%  \begin{center}
-%    \caption{Special Characters Allowed}
-%    \label{tab:specials}
-%    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
-%    \hline
-%    ! & @ & \# & \$ & \% & \& & * &  ) & ( & ] & [ & \} & \{ & $>$ & $<$ & ; 
-%    & : & . & , & / & $|$ &  \textbackslash & \~{} & ? & \_ & $-$ & $+$ & $=$ \\
-%    \hline
-%    \end{tabular}
-%  \end{center}
-%\end{table}
+
+
+\subsection{Test plan}
 
 \newcommand{\specialcell}[2][c]{% Custom talbe lines, set for 3 rows in one table cell
   \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
@@ -314,25 +352,80 @@ The following test plan is made up of 8 test cases that are designed to fail a c
 
 \subsection{Introduction}
 
+
+
+\subsection{Test plan}
+
+
 \section{Decision table testing}
 
 \subsection{Introduction}
 
-% TODO: finish checking the code and move copys into this folder to 
-% enable code listing inport
+% Decision table part
+\begin{table}[h]
+  \begin{center}
+    \caption{Decision table}
+    \label{tab:Decision table}
+    
+    \begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|}
+    & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 \\
+    \hline
+    9-24 chars & & & & & & & & & & & \\
+    \hline
+    Upper case & & & & & & & & & & & \\
+    \hline
+    Lower case & & & & & & & & & & & \\
+    \hline
+    Numbers & & & & & & & & & & & \\
+    \hline
+    Special characters & & & & & & & & & & & \\
+    \hline
+    Space & & & & & & & & & & & \\
+    \hline 
+    Similar to forwards & & & & & & & & & & & \\
+    \hline
+    Similar to backwards & & & & & & & & & & & \\
+    \midrule
+    Accept & & & & & & & & & & & \\
+    \hline
+    Reject & & & & & & & & & & & \\
+    Impossible & & & & & & & & & & & \\
+    \end{tabular}
+    
+    Legend: T = True, F = False, - = Don't care, x = Expected output
+  \end{center}
+\end{table}
+
+
+
+\subsection{Test plan}
+
+\section{Test Plan}
+
+\subsection{Results}
+
+From the various testing methods that were used for testing this program,
+we can combine the resulting test cases into a single test plan. This final
+test plan will provide comprehinsive coverage of the program.
+
+% Finalized test plan table area
+
+
+
+% Final section for the report
 \section{Code}
 
-password\_checker.c
+\subsection{password\_checker.c}
 
 \lstinputlisting{code/password_checker.c}
 
 
-password\_checker.h
+\subsection{password\_checker.h}
 
-%\lstinputlisting{password_checker.h}
+\lstinputlisting{code/password_checker.h}
 
-tester.c
+\subsection{tester.c}
 
-%\lstinputlisting{tester.c}
+\lstinputlisting{code/tester.c}
 
 \end{document}
