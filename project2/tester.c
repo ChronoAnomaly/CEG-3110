@@ -50,6 +50,7 @@ void rm_newline(char* buff)
  *			current password
  *			previous password
  *			A or R ( for accepted or rejected) and comment section
+ *
  * NOTE: the comment section is read in but just discarded, as it is only
  * used for the user to help keep track of what the test case is for/used
  * to test against.
@@ -141,13 +142,10 @@ void process_manual(char* new_pass, char* cur_pass, char* pre_pass)
 		rm_newline(line);
 		strcpy(pre_pass, line);
 
-		if(password_checker(new_pass, cur_pass, pre_pass)) {
-			printf("Accepted.\n");
-		}
+		password_checker(new_pass, cur_pass, pre_pass)
 	
 		/* Begins reading password loop again */
 		printf("Enter your new password: \n");
 		fgets(line, BUFFER, stdin);
 	}
 }
-

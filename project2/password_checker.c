@@ -7,7 +7,9 @@
 /*
  * Main function for processing a password entered by the user. It runs
  * through all the requirements checks for a valid password and will
- * output if the password is valid or invalid.
+ * output if the password is rejected or accepted. In the functions that
+ * it will call, if it fails the function, it will print out rejected
+ * and the reason why it failed.
  */
 int password_checker(const char* new_pass, const char* cur_pass, const char* pre_pass)
 {
@@ -27,6 +29,10 @@ int password_checker(const char* new_pass, const char* cur_pass, const char* pre
 		&& check_special(new_pass) && check_no_space(new_pass)
 		&& !check_similar(new_pass, cur_pass, pre_pass)) {
 		valid_password = TRUE;
+	}
+
+	if(valid_password) {
+		printf("Accepted.\n");
 	}
 
 	return valid_password;
@@ -125,24 +131,21 @@ int check_special(const char* str)
 {
 	int i, len, count = 0;
 	int valid_char = FALSE;
-	const char* ptr;
 	char special[] = { '!', '@', '#', '$', '%', '&', '*', ')', '(', ']', '[',
 			'}', '{', '>', '<', ';', ':', '.', ',', '/', '|',
 			'\\' , '~', '?', '_', '-', '+', '='};
 	len = sizeof(special) / sizeof(char);
 
-	ptr = str;
-
-	while(*ptr) {
+	while(*str) {
 		
 		valid_char = FALSE;
 
-		if(isalnum(*ptr)) {
+		if(isalnum(*str)) {
 			valid_char = TRUE;
 		}
 
 		for(i = 0; i < len; i++) {
-			if(*ptr == special[i]) {
+			if(*str == special[i]) {
 				count++;
 				valid_char = TRUE;
 			}
@@ -153,11 +156,8 @@ int check_special(const char* str)
 			return FALSE;
 		}
 
-		ptr++;
+		str++;
 	}
-
-	ptr = str;
-
 
 	if(count >= 2) {
 		return TRUE;
@@ -169,8 +169,9 @@ int check_special(const char* str)
 
 /*
  * Begins checking the passwords to see if they contain a 5 character
- * substring. If a matching character is found, then it calls the other
- * checking functions.
+ * substring. If a matching character is found, it calls the other
+ * checking functions used to search for a substring in different
+ * directions.
 */
 int check_similar(const char* new_pass, const char* cur_pass,
 		const char* pre_pass)
@@ -234,7 +235,12 @@ int check_similar(const char* new_pass, const char* cur_pass,
 }
 
 /*
+ * This function is used to call the substring searching functions.
+ * It will be called if a matching character happens to be found
+ * inside of a string.
  *
+ * Returns: true if a matching substring is found; else returns
+ * false
 */
 int found_match_char(const char* new_pass, int newlen, int new_index,
 		const char* old_pass, int oldlen, int old_index)
@@ -252,7 +258,11 @@ int found_match_char(const char* new_pass, int newlen, int new_index,
 }
 
 /*
+ * This function searches for a match by going forward through
+ * both strings and counts matching characters.
  *
+ * Returns: true if 5 of more matching characters are found; else
+ * it returns false.
 */
 int chk_forward(const char* new_pass, int newlen, int new_index,
 		const char* old_pass, int oldlen, int old_index)
@@ -293,6 +303,13 @@ int chk_forward(const char* new_pass, int newlen, int new_index,
 	return same;
 }
 
+/*
+ * This function searches for a match by going backward through
+ * both strings and counts matching characters.
+ *
+ * Returns: true if 5 of more matching characters are found; else
+ * it returns false.
+*/
 int chk_backward(const char* new_pass, int newlen, int new_index,
 		const char* old_pass, int oldlen, int old_index)
 {
@@ -339,7 +356,13 @@ int chk_backward(const char* new_pass, int newlen, int new_index,
 	return same;
 
 }
-
+/*
+ * This function searches for a match by going forward through
+ * new_pass and backwards through old_pass and counts matching characters.
+ *
+ * Returns: true if 5 of more matching characters are found; else
+ * it returns false.
+*/
 int chk_bforward(const char* new_pass, int newlen, int new_index,
 		const char* old_pass, int oldlen, int old_index)
 {
@@ -382,7 +405,13 @@ int chk_bforward(const char* new_pass, int newlen, int new_index,
 	
 	return same;
 }
-
+/*
+ * This function searches for a match by going backward through new_pass
+ * and backward through old_pass and counts matching characters.
+ *
+ * Returns: true if 5 of more matching characters are found; else
+ * it returns false.
+*/
 int chk_fbackward(const char* new_pass, int newlen, int new_index,
 		const char* old_pass, int oldlen, int old_index)
 {
@@ -430,7 +459,8 @@ int chk_fbackward(const char* new_pass, int newlen, int new_index,
  * Function used to compare letter to see if they are the same.
  * It will pull one character each from both of the strings and convert
  * them into lower case, and then see if they are the same letter.
- * returns: true if they are the same, false if not
+ *
+ * Returns: true if they are the same, false if not
 */
 int lettercmp(const char* new_pass, int new_index, const char* old_pass,
 		int old_index)
