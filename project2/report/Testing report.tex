@@ -143,7 +143,8 @@ boundary conditions are the values that we will provides test for.
 
 \subsection{Equivalence Partitions}
 
-
+From the previous boundary conditions, we can form a set of equivalence classes. Each equivalence
+class represents a set of data that is related.
 % Possibly import the class partitions as figures from the powerpoint slides
 \begin{table}[h!]
   \begin{center}
@@ -218,9 +219,11 @@ the system.
   \hline
   Purpose & Testing a valid password \\
   \hline
-  Input & DahatB2559\_@ \\
+  New Password & DahatB2559\_@ \\
   \hline
-  Previous Passwords & \specialcell{ToT86635ss/\textless\\AVery990\#\^{}\\\#558\#\&;DoGs} \\% UolD2663!#
+  Current Password & ToT86635ss/\textless \\
+  \hline
+  Previous Password & AVery990\#\^{} \\
   \hline
   Expected Output & ACCEPTED \\
   \hline
@@ -235,9 +238,11 @@ the system.
   \hline
   Purpose & Testing against a similar password \\
   \hline
-  Input & SsaPmis628@@ \\
+  New Password & SsaPmis628@@ \\
   \hline
-  Previous Passwords &  \specialcell{\#558\#\&;DoGs\\AVery990\#\^{}\\SimPass12!!} \\
+  Current Password & \#558\#\&;DoGs \\
+  \hline
+  Previous Password & SimPass12!! \\
   \hline
   Expected Output & REJECTED: password too similar to a previous password \\
   \hline
@@ -252,9 +257,11 @@ the system.
   \hline
   Purpose & Testing against a password containing a space\\
   \hline
-  Input & \&\^{}!aaCH91 chat \\
+  New Password & \&\^{}!aaCH91 chat \\
   \hline
-  Previous Passwords &  \specialcell{\#558\#\&;DoGs\\AVery990\#\^{}\\ToT86635ss/\textless} \\
+  Current Password & \#558\#\&;DoGs \\
+  \hline
+  Previous Password & ToT86635ss/\textless \\
   \hline
   Expected Output & REJECTED: password contains a space \\
   \hline
@@ -269,9 +276,11 @@ the system.
   \hline
   Purpose & Testing against a password with not enough lower case letters \\
   \hline
-  Input & \#\$678123HOUSE \\
+  New Password & \#\$678123HOUSE \\
   \hline
-  Previous Passwords &  \specialcell{ToT86635ss/\textless\\AVery990\#\^{}\\SimPass12!!} \\
+  Current Password & ToT86635ss/\textless \\
+  \hline
+  Previous Password & SimPass12!! \\
   \hline
   Expected Output & REJECTED: password does not have enough lower case letters \\
   \hline
@@ -286,9 +295,11 @@ the system.
   \hline
   Purpose & Testing against password with not enough upper case letters \\
   \hline
-  Input & lowercasepasswords!;123 \\
+  New Password & lowercasepasswords!;123 \\
   \hline
-  Previous Passwords &  \specialcell{\#558\#\&;DoGs\\AVery990\#\^{}\\ToT86635ss/\textless} \\
+  Current Password & 445HAtter(( \\
+  \hline
+  Previous Password & \#558\#\&;DoGs \\
   \hline
   Expected Output & REJECTED: password does not have enough upper case letters \\
   \hline
@@ -303,9 +314,11 @@ the system.
   \hline
   Purpose & Testing against not enough numbers \\
   \hline
-  Input & NumberBoycott\_? \\
+  New Password & NumberBoycott\_? \\
   \hline
-  Previous Passwords &  \specialcell{\#558\#\&;DoGs\\GUha891))\\SimPass12!!} \\
+  Current Password & SimPass12!! \\
+  \hline
+  Previous Password & 445HAtter(( \\
   \hline
   Expected Output & REJECTED: password does not have enough numbers \\
   \hline
@@ -320,9 +333,11 @@ the system.
   \hline
   Purpose & Testing against a short password \\
   \hline
-  Input & Do12ah\_$=$ \\
+  New Password & Do12ah\_$=$ \\
   \hline
-  Previous Passwords &  \specialcell{\#558\#\&;DoGs\\GUha891))\\SimPass12!!} \\
+  Current Password & GUha891)) \\
+  \hline
+  Previous Password & \_CAThat22$=$ \\
   \hline
   Expected Output & REJECTED: password is too short \\
   \hline
@@ -337,9 +352,11 @@ the system.
   \hline
   Purpose & Testing against not enough numbers \\
   \hline
-  Input & WAYtooLong\_\_$+$$=$8835houseing40 \\
+  New Password & WAYtooLong\_\_$+$$=$8835houseing40 \\
   \hline
-  Previous Passwords &  \specialcell{\#558\#\&;DoGs\\GUha891))\\SimPass12!!} \\
+  Current Password & \#558\#\&;DoGs \\
+  \hline
+  Previous Password & lowerCASEpasswords!;123 \\
   \hline
   Expected Output & REJECTED: password is too long \\
   \hline
@@ -352,6 +369,13 @@ the system.
 
 \subsection{Introduction}
 
+In order to create a test plan from an orthogonal array, we need to look back at our equivalence classes
+based off of the requirements. The orthogonal array method of creating test cases is based off of equivalence partitions
+and the boundary cases that come from that. Using the orthogonal array method to generate test plans requires more thought
+as to how to setup the program to actually generate an orthogonal array. While originally looking at how to layout
+the sets of rules to create the orthogonal array, I had put each rule based on the equivalence partitions into
+a 9 character password set. This setup was not usable, as the number of test cases created this way was too large
+and a majority of the cases did not provide good testing or make much sense when looking at the requirements.
 
 
 \subsection{Test plan}
@@ -366,6 +390,48 @@ We can take the system requirements and find the border cases for the system, th
 out some of the conditions for the system. By looking at the following cases, we
 can break down the cases to a smaller number to be used in the Decision table.
 
+\subsection{Test method development}
+
+\begin{enumerate}
+\item Less than 9 characters
+\item 9 characters
+\item 24 characters
+\item More than 24 characters
+\item Contains sufficient lower case
+\item Contains sufficient upper case
+\item Contains sufficient numbers
+\item Contains sufficient special characters
+\item Contains a identical five-character substring (Similar)
+\item Does not contain a identical five-character substring (Not similar)
+\end{enumerate}
+
+The broken down cases into simple logic for the Decision table would look like the following.
+These cases would be True/False options that correspond to the logic of the system.
+
+\begin{itemize}
+\item 9-24 characters
+\item Upper case
+\item Lower case
+\item Numbers
+\item Special Characters
+\item Space
+\item Similar to previous password(s)
+\end{itemize}
+
+This list of the simplified logic could be used in the Decision table except that the similar to is vague based on the
+requirements for the system. The requirements define similar to as: containing an identical five-character
+substring (either forward or backward), independent of letter case.
+Using this, we will break down the case into separate cases. While we could break down the case into
+four separate cases (forward, backward, equals case, ignore case), the equals and
+ignore cases would be redundant, as the ignore case would still catch situations that the equals
+case is used for. The similar to we will broken into the two following separate cases in which the ignore case is implied.
+\begin{itemize}
+\item Similar five-character substring forwards
+\item Similar five-character substring backwards
+\end{itemize}
+
+\subsection{Resulting Decision table}
+
 % Decision table part
 \begin{table}[h]
   \begin{center}
@@ -375,23 +441,23 @@ can break down the cases to a smaller number to be used in the Decision table.
     \begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|}
     & 1 & 2 - 26 & 26 & 27 - 63 & 64 - 100 & 101 & 7 & 8 & 9 & 10 & 11 \\
     \hline
-    9-24 chars & F & F & T & - & - & & & & & & \\
+    9-24 chars & F & F & T &  &  & T & & & & & \\
     \hline
-    Upper case & F & - & F & - & - & & & & & & \\
+    Upper case & F & - & F &  &  & T & & & & & \\
     \hline
-    Lower case & F & - & F & - & - & & & & & & \\
+    Lower case & F & - & F &  &  & T & & & & & \\
     \hline
-    Numbers & F & - & F & - & - & & & & & & \\
+    Numbers & F & - & F &  &  & T & & & & & \\
     \hline
-    Special characters & F & - & T & - & - & & & & & & \\
+    Special characters & F & - & T &  &  & T & & & & & \\
     \hline
-    Space & T & - & T & - & - & & & & & & \\
+    Space & T & - & T &  &  & F & & & & & \\
     \hline 
-    Similar to forwards & T & F & F & T & F & & & & & & \\
+    Similar to, forwards & T & F & F & T & F & F & & & & & \\
     \hline
-    Similar to backwards & F & F & T & F & T & & & & & & \\
+    Similar to, backwards & F & F & T & F & T & F & & & & & \\
     \midrule
-    Accept & & & & & & & & & & & \\
+    Accept & & & & & & X & & & & & \\
     \hline
     Reject & & X & X & X & X & & & & & & \\
     \hline
@@ -402,11 +468,30 @@ can break down the cases to a smaller number to be used in the Decision table.
   \end{center}
 \end{table}
 
-
+% Decision table test cases
+\begin{table}[h]
+  \caption{Test Plan}
+  \label{tab:Decision test cases}
+  
+  \begin{tabular}{||c|c||}
+    \hline
+    \multicolumn{2}{||c||}{Test Case 1} \\
+    \hline
+    New Password & SOLID9019 \\
+    \hline
+    Current Password & catHOUsing24\_! \\
+    \hline
+    Previous Password & 9926CAdo\%\& \\
+    \hline
+    Expected Output & Rejected \\
+    \hline
+  \end{tabular}
+\end{table}
 
 \subsection{Test plan}
 
-\section{Test Plan}
+
+\section{Combined Test Plan}
 
 \subsection{Results}
 
