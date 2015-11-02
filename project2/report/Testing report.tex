@@ -440,11 +440,11 @@ cases to produce a good test plan.
 By using these border conditions, we are able to generate generic orthogonal array test cases.  The orthogonal arrays will be based on the setup
 shown in table 2. Using a program to generate the orthogonal arrays, I created test plans that ran on different numbers of
 strength for pairwise testing used to create orthogonal arrays. I tested n1, n2, n3, ,6, and n7 and made separate test plans for each
-just to see how many test cases each plan contained. The n1 test plan consisted of 4 test cases. The n2 plan consisted of 11 test cases.
-The n3 plan consisted of 27 cases. The n6 plan consisted of 184 cases. The n7 plan consisted of 256 cases. While this method produces
-test cases that may not be thought of, it can generate some odd test plans. Such as in the n1, n2 test plans, which does not
+just to see how many test cases each plan contained. The n1 test plan consisted of 3 test cases. The n2 plan consisted of 11 test cases.
+The n3 plan consisted of 27 cases. The n6 plan consisted of 195 cases. The n7 plan consisted of 288 cases. While this method produces
+test cases that may not be thought of, it can generate some odd test plans. Such as in the n1, n2, n3 test plans, which does not
 contain a test case that actually passes the program based on the requirements. The n6 n7 generated plans produces at least one
-test case that passes the program. In the following table I will list 8 of the possible test cases that resulted from the n3 orthogonal array.
+test case that passes the program. In the following table I will list the test plan that resulted from the n3 orthogonal array.
 This layout for the rule sets that creates an orthogonal array seems to produce decent test plans, although some of the test cases
 do show failed passwords that will not pass the requirements but they are also similar to previous passwords.
 \newline
@@ -456,8 +456,6 @@ do show failed passwords that will not pass the requirements but they are also s
   \hline
   Number of characters & Low/Medium/High \\
   \hline
-  Contains a space & True/False \\
-  \hline
   Sufficient Lower case & True/False \\
   \hline
   Sufficient Upper case& True/False \\
@@ -468,11 +466,45 @@ do show failed passwords that will not pass the requirements but they are also s
   \hline
   Similar & False/Forward/Backward \\
   \hline
+  Contains a space & True/False \\
+  \hline
   \end{tabular}
 \end{center}
 
 
 \subsection{Test plan}
+
+\begin{tabular}{|r|c|c|c|c|c|c|c|}
+\hline
+\multicolumn{1}{|l|}{Test Case} & Num Chars & Upper & Lower & Numbers & Special & Space & Similar  \\ \hline
+1                               & low       & False & False & False   & False   & True  & False    \\ \hline
+2                               & medium    & True  & True  & True    & True    & False & Forward  \\ \hline
+3                               & high      & True  & False & True    & False   & True  & Backward \\ \hline
+4                               & medium    & False & False & False   & True    & False & Backward \\ \hline
+5                               & low       & False & True  & False   & False   & True  & Forward  \\ \hline
+6                               & high      & False & True  & True    & True    & False & False    \\ \hline
+7                               & low       & True  & True  & True    & True    & True  & Backward \\ \hline
+8                               & medium    & True  & False & False   & False   & False & False    \\ \hline
+9                               & high      & True  & False & False   & True    & False & Forward  \\ \hline
+10                              & low       & False & True  & True    & False   & False & Backward \\ \hline
+11                              & medium    & False & False & True    & False   & True  & Forward  \\ \hline
+12                              & low       & True  & True  & False   & True    & True  & False    \\ \hline
+13                              & high      & True  & True  & False   & False   & False & Backward \\ \hline
+14                              & high      & False & False & True    & True    & True  & Forward  \\ \hline
+15                              & low       & True  & False & True    & True    & False & False    \\ \hline
+16                              & medium    & True  & True  & True    & False   & True  & False    \\ \hline
+17                              & high      & False & False & False   & False   & True  & False    \\ \hline
+18                              & medium    & False & True  & False   & False   & True  & Backward \\ \hline
+19                              & low       & True  & False & False   & False   & False & Forward  \\ \hline
+20                              & high      & True  & True  & True    & False   & True  & Forward  \\ \hline
+21                              & medium    & True  & True  & True    & True    & True  & Backward \\ \hline
+22                              & low       & False & False & False   & True    & True  & Backward \\ \hline
+23                              & medium    & False & False & False   & False   & False & Forward  \\ \hline
+24                              & high      & False & True  & False   & True    & True  & Backward \\ \hline
+25                              & medium    & False & False & True    & True    & False & False    \\ \hline
+26                              & low       & False & False & True    & True    & False & Forward  \\ \hline
+27                              & high      & True  & False & False   & False   & False & False    \\ \hline
+\end{tabular}
 
 
 \section{Decision table testing}
