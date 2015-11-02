@@ -47,7 +47,8 @@ meets the requirements of the system. This document covers the various testing s
 used to test the program. The finalized test plan was developed by using Equivalence class
 and boundary testing, Orthogonal array testing, and Decision table testing. Along
 with the code, a testing harness was created to provide automated and manual testing to check
-the coverage of each test case.
+the coverage of each test case. The purpose of using these various methods to test the program
+is to ensure good coverage of the system from the finalized test plan.
 
 \subsection{Requirements}
 
@@ -111,23 +112,22 @@ boundary conditions are the values that we will provides test for.
 \begin{enumerate}
 \item testing sub items?
 \end{enumerate}
-\item Contains 2 or more 
-\item Contains 1 or less
-\item Contains 2 or more 
-\item Contains 1 or less
-\item Contains 2 or more 
-\item Contains 1 or less
-\item Contains 2 or more 
-\item Contains 1 or less
-\item Contains 2 or more 
-\item Contains 1 or less
-\item Contains
-\item Contains
-\item Contains
-\item Contains
-\item Contains
-\item Contains
-\item Contains
+\item Contains less than 9 characters
+\item Contains 9 characters
+\item Contains 24 characters
+\item Contains more than 24 characters
+\item Contains 2 or more upper case
+\item Contains 1 or less upper case
+\item Contains 2 or more lower case
+\item Contains 1 or less lower case
+\item Contains 2 or more numbers
+\item Contains 1 or less numbers
+\item Contains 2 or more special characters
+\item Contains 1 or less special characters
+\item Contains no space
+\item Contains a space
+\item Contains a 5 character substring that is similar to a previous password
+\item Does not contain a 5 character substring that is similar to a previous password
 \end{enumerate}
 % List the boundary conditions
 %\begin{table}[h!]
@@ -361,6 +361,11 @@ the system.
 
 \subsection{Introduction}
 
+In order to make a Decision table for testing, we need to get the basic logic of the system.
+We can take the system requirements and find the border cases for the system, this will lay
+out some of the conditions for the system. By looking at the following cases, we
+can break down the cases to a smaller number to be used in the Decision table.
+
 % Decision table part
 \begin{table}[h]
   \begin{center}
@@ -368,28 +373,29 @@ the system.
     \label{tab:Decision table}
     
     \begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|}
-    & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 \\
+    & 1 & 2 - 26 & 26 & 27 - 63 & 64 - 100 & 101 & 7 & 8 & 9 & 10 & 11 \\
     \hline
-    9-24 chars & & & & & & & & & & & \\
+    9-24 chars & F & F & T & - & - & & & & & & \\
     \hline
-    Upper case & & & & & & & & & & & \\
+    Upper case & F & - & F & - & - & & & & & & \\
     \hline
-    Lower case & & & & & & & & & & & \\
+    Lower case & F & - & F & - & - & & & & & & \\
     \hline
-    Numbers & & & & & & & & & & & \\
+    Numbers & F & - & F & - & - & & & & & & \\
     \hline
-    Special characters & & & & & & & & & & & \\
+    Special characters & F & - & T & - & - & & & & & & \\
     \hline
-    Space & & & & & & & & & & & \\
+    Space & T & - & T & - & - & & & & & & \\
     \hline 
-    Similar to forwards & & & & & & & & & & & \\
+    Similar to forwards & T & F & F & T & F & & & & & & \\
     \hline
-    Similar to backwards & & & & & & & & & & & \\
+    Similar to backwards & F & F & T & F & T & & & & & & \\
     \midrule
     Accept & & & & & & & & & & & \\
     \hline
-    Reject & & & & & & & & & & & \\
-    Impossible & & & & & & & & & & & \\
+    Reject & & X & X & X & X & & & & & & \\
+    \hline
+    Impossible & X & & & & & & & & & & \\
     \end{tabular}
     
     Legend: T = True, F = False, - = Don't care, x = Expected output
