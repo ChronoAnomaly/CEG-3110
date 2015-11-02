@@ -129,16 +129,6 @@ boundary conditions are the values that we will provides test for.
 \item Contains a 5 character substring that is similar to a previous password
 \item Does not contain a 5 character substring that is similar to a previous password
 \end{enumerate}
-% List the boundary conditions
-%\begin{table}[h!]
-  %\begin{center}
-   %\caption{Boundary Conditions}
-    %\%\label{tab:Boundaries}
-
-    %\begin{tabular}{|c|}
-
-  %\end{center}
-%\end{table}
 
 
 \subsection{Equivalence Partitions}
@@ -203,15 +193,7 @@ the system.
   \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
 
 \centering Equivalence class and Boundary Test Plan
-% Valid Password samples
 
-% GUha891))
-% \#558\#\&;DoGs
-% AVery990\#\^{}
-% SimPass12!!
-% ToT86635ss/\textless
-
-% Valid case
 \begin{center}
   \begin{tabular}{||c|c||}
   \hline
@@ -390,6 +372,9 @@ We can take the system requirements and find the border cases for the system, th
 out some of the conditions for the system. By looking at the following cases, we
 can break down the cases to a smaller number to be used in the Decision table.
 
+The decision table method of testing is more involved on thinking on the basic cases to create
+test cases.
+
 \subsection{Test method development}
 
 \begin{enumerate}
@@ -405,19 +390,6 @@ can break down the cases to a smaller number to be used in the Decision table.
 \item Does not contain a identical five-character substring (Not similar)
 \end{enumerate}
 
-The broken down cases into simple logic for the Decision table would look like the following.
-These cases would be True/False options that correspond to the logic of the system.
-
-\begin{itemize}
-\item 9-24 characters
-\item Upper case
-\item Lower case
-\item Numbers
-\item Special Characters
-\item Space
-\item Similar to previous password(s)
-\end{itemize}
-
 This list of the simplified logic could be used in the Decision table except that the similar to is vague based on the
 requirements for the system. The requirements define similar to as: containing an identical five-character
 substring (either forward or backward), independent of letter case.
@@ -430,6 +402,24 @@ case is used for. The similar to we will broken into the two following separate 
 \item Similar five-character substring backwards
 \end{itemize}
 
+The broken down cases into simple logic for the Decision table would look like the following.
+These cases would be True/False options that correspond to the logic of the system.
+
+\begin{itemize}
+\item less than 9 characters
+\item 9 - 24 characters
+\item more than 24 characters
+\item Upper case
+\item Lower case
+\item Numbers
+\item Special Characters
+\item Space
+\item Similar five-character substring forwards
+\item Similar five-character substring backwards
+\end{itemize}
+
+
+
 \subsection{Resulting Decision table}
 
 % Decision table part
@@ -441,7 +431,11 @@ case is used for. The similar to we will broken into the two following separate 
     \begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|}
     & 1 & 2 - 26 & 26 & 27 - 63 & 64 - 100 & 101 & 7 & 8 & 9 & 10 & 11 \\
     \hline
-    9-24 chars & F & F & T &  &  & T & & & & & \\
+    less than 9 chars & T &  & T &  &  & T & & & & & \\
+    \hline
+    9-24 chars & T & F & T &  &  & T & & & & & \\
+    \hline
+    more than 24 chars & T &  & & & & & & & & & \\
     \hline
     Upper case & F & - & F &  &  & T & & & & & \\
     \hline
@@ -497,7 +491,7 @@ case is used for. The similar to we will broken into the two following separate 
 
 From the various testing methods that were used for testing this program,
 we can combine the resulting test cases into a single test plan. This final
-test plan will provide comprehinsive coverage of the program.
+test plan will provide comprehensive coverage of the program.
 
 % Finalized test plan table area
 
