@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.1.26)  2 NOV 2015 02:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.1.26)  2 NOV 2015 03:20
 entering extended mode
 **"Testing report.tex"
 ("Testing report.tex"
@@ -915,14 +915,9 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 66.
- [2]
+ [2] [3]
 Overfull \hbox (56.83841pt too wide) in paragraph at lines 145--180
  [] 
- []
-
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 183--188
-
  []
 
 LaTeX Font Info:    Try loading font information for OML+cmr on input line 203.
@@ -932,22 +927,27 @@ File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 203.
- [4] [5] [6]
-Overfull \hbox (22.46356pt too wide) in paragraph at lines 427--456
+ [4] [5]
+Overfull \hbox (55.10072pt too wide) in paragraph at lines 366--401
  [] 
  []
 
-[7] [8] (code/password_checker.c [9] [10] [11] [12] [13] [14] [15] [16]
-[17] [18]) (code/password_checker.h [19]) (code/tester.c [20] [21] [22])
-[23] ("Testing report.aux") ) 
+[6] [7]
+Overfull \hbox (22.46356pt too wide) in paragraph at lines 525--554
+ [] 
+ []
+
+[8] [9] (code/tester.c [10] [11] [12]) (code/password_checker.h [13])
+(code/password_checker.c [14] [15] [16] [17] [18] [19] [20] [21] [22] [23])
+[24] ("Testing report.aux") ) 
 Here is how much of TeX's memory you used:
- 23989 strings out of 493698
- 584353 string characters out of 3144412
- 791405 words of memory out of 3000000
- 26898 multiletter control sequences out of 15000+200000
+ 23987 strings out of 493698
+ 584325 string characters out of 3144412
+ 797405 words of memory out of 3000000
+ 26896 multiletter control sequences out of 15000+200000
  12871 words of font info for 50 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 69i,12n,79p,776b,1656s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 69i,9n,79p,776b,1692s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
 sfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
 m/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.
@@ -955,9 +955,9 @@ pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/P
 rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKT
 eX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on "Testing report.pdf" (23 pages, 144518 bytes).
+Output written on "Testing report.pdf" (24 pages, 148140 bytes).
 PDF statistics:
- 107 PDF objects out of 1000 (max. 8388607)
+ 110 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

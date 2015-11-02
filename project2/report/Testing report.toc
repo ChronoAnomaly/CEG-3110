@@ -1,4 +1,4 @@
-\contentsline {section}{\numberline {1}Introduction}{1}
+\contentsline {section}{\numberline {1}Introduction}{2}
 \contentsline {subsection}{\numberline {1.1}Requirements}{2}
 \contentsline {subsection}{\numberline {1.2}Automated testing file format}{2}
 \contentsline {section}{\numberline {2}Equivalence class and boundary testing}{3}
@@ -6,17 +6,18 @@
 \contentsline {subsection}{\numberline {2.2}Boundary conditions}{3}
 \contentsline {subsection}{\numberline {2.3}Equivalence Partitions}{4}
 \contentsline {subsection}{\numberline {2.4}Test plan}{4}
-\contentsline {section}{\numberline {3}Orthogonal array testing}{6}
-\contentsline {subsection}{\numberline {3.1}Introduction}{6}
-\contentsline {subsection}{\numberline {3.2}Test plan}{6}
-\contentsline {section}{\numberline {4}Decision table testing}{6}
-\contentsline {subsection}{\numberline {4.1}Introduction}{6}
-\contentsline {subsection}{\numberline {4.2}Test method development}{6}
-\contentsline {subsection}{\numberline {4.3}Resulting Decision table}{7}
-\contentsline {subsection}{\numberline {4.4}Test plan}{8}
-\contentsline {section}{\numberline {5}Combined Test Plan}{9}
-\contentsline {subsection}{\numberline {5.1}Results}{9}
-\contentsline {section}{\numberline {6}Code}{9}
-\contentsline {subsection}{\numberline {6.1}password\_checker.c}{9}
-\contentsline {subsection}{\numberline {6.2}password\_checker.h}{19}
-\contentsline {subsection}{\numberline {6.3}tester.c}{20}
+\contentsline {section}{\numberline {3}Orthogonal array testing}{5}
+\contentsline {subsection}{\numberline {3.1}Introduction}{5}
+\contentsline {subsection}{\numberline {3.2}}{6}
+\contentsline {subsection}{\numberline {3.3}Test plan}{7}
+\contentsline {section}{\numberline {4}Decision table testing}{7}
+\contentsline {subsection}{\numberline {4.1}Introduction}{7}
+\contentsline {subsection}{\numberline {4.2}Test method development}{7}
+\contentsline {subsection}{\numberline {4.3}Resulting Decision table}{9}
+\contentsline {subsection}{\numberline {4.4}Test plan}{9}
+\contentsline {section}{\numberline {5}Combined Test Plan}{10}
+\contentsline {subsection}{\numberline {5.1}Results}{10}
+\contentsline {section}{\numberline {6}Code}{10}
+\contentsline {subsection}{\numberline {6.1}tester.c}{10}
+\contentsline {subsection}{\numberline {6.2}password\_checker.h}{13}
+\contentsline {subsection}{\numberline {6.3}password\_checker.c}{14}

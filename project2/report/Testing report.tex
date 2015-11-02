@@ -108,10 +108,6 @@ From the requirements of the program, we can form a set of boundary conditions. 
 boundary conditions are the values that we will provides test for.
 
 \begin{enumerate}
-\item Contains 1 or less
-\begin{enumerate}
-\item testing sub items?
-\end{enumerate}
 \item Contains less than 9 characters
 \item Contains 9 characters
 \item Contains 24 characters
@@ -127,6 +123,10 @@ boundary conditions are the values that we will provides test for.
 \item Contains no space
 \item Contains a space
 \item Contains a 5 character substring that is similar to a previous password
+\begin{enumerate}
+\item Similar five-character substring forwards
+\item Similar five-character substring backwards
+\end{enumerate}
 \item Does not contain a 5 character substring that is similar to a previous password
 \end{enumerate}
 
@@ -136,49 +136,49 @@ boundary conditions are the values that we will provides test for.
 From the previous boundary conditions, we can form a set of equivalence classes. Each equivalence
 class represents a set of data that is related.
 % Possibly import the class partitions as figures from the powerpoint slides
-\begin{table}[h!]
-  \begin{center}
-    \caption{Equivalence Partitions.}
-    \label{tab:Equiv partitions}
+\centering Equivalence Partitions.
+
+\begin{center}
+
     
-    % Length settings
-    \begin{tabular}{||c|m{4cm}|m{5cm}||}
-    \hline
-    Less than 9 characters & At least 9 characters and not more than 24
-    characters & More than 24 characters \\
+  % Length settings
+  \begin{tabular}{||c|m{4cm}|m{5cm}||}
+  \hline
+  Less than 9 characters & At least 9 characters and not more than 24
+  characters & More than 24 characters \\
+  
+  % Space settings
+  \hline \hline
+  \multicolumn{1}{||c|}{Contains no blank spaces} & \multicolumn{2}{c||}{Contains no blank spaces} \\
+  
+  % Lower case settings
+  \hline \hline
+  \multicolumn{1}{||c|}{Contains insufficient lower case} 
+  & \multicolumn{2}{c||}{Contains sufficient lower case} \\
     
-    % Space settings
-    \hline \hline
-    \multicolumn{1}{||c|}{Contains no blank spaces} & \multicolumn{2}{c||}{Contains no blank spaces} \\
+  % Upper case settings
+  \hline \hline
+  \multicolumn{1}{||c|}{Contains insufficient upper case} 
+  & \multicolumn{2}{c||}{Contains sufficient upper case} \\
+  
+  % Number settings
+  \hline \hline
+  \multicolumn{1}{||c|}{Contains insufficient numbers} 
+  & \multicolumn{2}{c||}{Contains sufficient numbers} \\
     
-    % Lower case settings
-    \hline \hline
-    \multicolumn{1}{||c|}{Contains insufficient lower case} 
-    & \multicolumn{2}{c||}{Contains sufficient lower case} \\
-    
-    % Upper case settings
-    \hline \hline
-    \multicolumn{1}{||c|}{Contains insufficient upper case} 
-    & \multicolumn{2}{c||}{Contains sufficient upper case} \\
-    
-    % Number settings
-    \hline \hline
-    \multicolumn{1}{||c|}{Contains insufficient numbers} 
-    & \multicolumn{2}{c||}{Contains sufficient numbers} \\
-    
-    % Special character settings
-    \hline \hline
-    \multicolumn{1}{||c|}{Contains insufficient special characters} 
-    & \multicolumn{2}{c||}{Contains sufficient special characters} \\
-    
-    % Previous password settings
-    \hline \hline
-    \multicolumn{1}{||c|}{Contains a identical five-character substring}
-    & \multicolumn{2}{c||}{Does not contain a indentical five-character subtring} \\
-    \hline
-    \end{tabular}
-  \end{center}
-\end{table}
+  % Special character settings
+  \hline \hline
+  \multicolumn{1}{||c|}{Contains insufficient special characters} 
+  & \multicolumn{2}{c||}{Contains sufficient special characters} \\
+  
+  % Previous password settings
+  \hline \hline
+  \multicolumn{1}{||c|}{Contains a identical five-character substring}
+  & \multicolumn{2}{c||}{Does not contain a indentical five-character subtring} \\
+  \hline
+  \end{tabular}
+\end{center}
+
 
 With these equivalence partitions, we are able to generate simple test cases
 based on passing or failing the classes one at a time. The following test plan
@@ -357,6 +357,103 @@ a 9 character password set. This setup was not usable, as the number of test cas
 and a majority of the cases did not provide good testing or make much sense when looking at the requirements.
 
 
+\subsection{}
+
+\begin{center}
+
+    
+  % Length settings
+  \begin{tabular}{||c|m{4cm}|m{5cm}||}
+  \hline
+  Less than 9 characters & At least 9 characters and not more than 24
+  characters & More than 24 characters \\
+  
+  % Space settings
+  \hline \hline
+  \multicolumn{1}{||c|}{Contains no blank spaces} & \multicolumn{2}{c||}{Contains no blank spaces} \\
+  
+  % Lower case settings
+  \hline \hline
+  \multicolumn{1}{||c|}{Contains insufficient lower case} 
+  & \multicolumn{2}{c||}{Contains sufficient lower case} \\
+  
+  % Upper case settings
+  \hline \hline
+  \multicolumn{1}{||c|}{Contains insufficient upper case} 
+  & \multicolumn{2}{c||}{Contains sufficient upper case} \\
+  
+  % Number settings
+  \hline \hline
+  \multicolumn{1}{||c|}{Contains insufficient numbers} 
+  & \multicolumn{2}{c||}{Contains sufficient numbers} \\
+  
+  % Special character settings
+  \hline \hline
+  \multicolumn{1}{||c|}{Contains insufficient special characters} 
+  & \multicolumn{2}{c||}{Contains sufficient special characters} \\
+   
+  % Previous password settings
+  \hline \hline
+  \multicolumn{1}{||c|}{Contains a identical five-character substring}
+  & \multicolumn{2}{c||}{Does not contain a identical five-character substring} \\
+  \hline
+  \end{tabular}
+\end{center}
+  
+From our previous Equivalence classes, we can make the following border cases. These border conditions
+are what we will use to setup rules for our orthogonal array generator in order to create usable test
+cases to produce a good test plan.
+
+\begin{enumerate}
+\item Less than 9 characters
+\item 9 characters
+\item 24 characters
+\item More than 24 characters
+\item Contains insufficient lower case
+\item Contains sufficient lower case
+\item Contains insufficient upper case
+\item Contains sufficient upper case
+\item Contains insufficient numbers
+\item Contains sufficient numbers
+\item Contains insufficient special characters
+\item Contains sufficient special characters
+\item Contains a identical five-character substring (Similar)
+\item Does not contain a identical five-character substring (Not similar)
+\end{enumerate}
+
+By using these border conditions, we are able to generate generic orthogonal array test cases.  The orthogonal arrays will be based on the setup
+shown in table 2. Using a program to generate the orthogonal arrays, I created test plans that ran on different numbers of
+strength for pairwise testing used to create orthogonal arrays. I tested n1, n2, n3, ,6, and n7 and made separate test plans for each
+just to see how many test cases each plan contained. The n1 test plan consisted of 4 test cases. The n2 plan consisted of 11 test cases.
+The n3 plan consisted of 27 cases. The n6 plan consisted of 184 cases. The n7 plan consisted of 256 cases. While this method produces
+test cases that may not be thought of, it can generate some odd test plans. Such as in the n1, n2 test plans, which does not
+contain a test case that actually passes the program based on the requirements. The n6 n7 generated plans produces at least one
+test case that passes the program. In the following table I will list 8 of the possible test cases that resulted from the n3 orthogonal array.
+This layout for the rule sets that creates an orthogonal array seems to produce decent test plans, although some of the test cases
+do show failed passwords that will not pass the requirements but they are also similar to previous passwords.
+
+\centering Order of Orthogonal array results.
+\begin{center}  
+  % Length settings
+  \begin{tabular}{||c|c||}
+  \hline
+  Number of characters & Low/Medium/High \\
+  \hline
+  Contains a space & True/False \\
+  \hline
+  Sufficient Lower case & True/False \\
+  \hline
+  Sufficient Upper case& True/False \\
+  \hline
+  Sufficient numbers & True/False \\
+  \hline
+  Sufficient Special characters & True/False \\
+  Similar & False/Forward/Backward \\
+  \hline
+  \end{tabular}
+\end{center}
+
+
 \subsection{Test plan}
 
 
@@ -394,6 +491,7 @@ Using this, we will break down the case into separate cases. While we could brea
 four separate cases (forward, backward, equals case, ignore case), the equals and
 ignore cases would be redundant, as the ignore case would still catch situations that the equals
 case is used for. The similar to we will broken into the two following separate cases in which the ignore case is implied.
+
 \begin{itemize}
 \item Similar five-character substring forwards
 \item Similar five-character substring backwards
@@ -580,9 +678,9 @@ These cases would be True/False options that correspond to the logic of the syst
   \hline
   New Password & no!\#uppers24 \\
   \hline
-  Current Password &  \\
+  Current Password & \#Dog55Cat! \\
   \hline
-  Previous Password &  \\
+  Previous Password & H234\^{}.House \\
   \hline
   Expected Output & Rejected \\
   \hline
@@ -592,11 +690,11 @@ These cases would be True/False options that correspond to the logic of the syst
   \hline
   \multicolumn{2}{||c||}{Test Case 10} \\
   \hline
-  New Password &  \\
+  New Password & WHY3456LOWER \\
   \hline
   Current Password & NO10!\#uppers24 \\
   \hline
-  Previous Password &  \\
+  Previous Password & \#Dog55Cat! \\
   \hline
   Expected Output & Rejected \\
   \hline
@@ -605,11 +703,11 @@ These cases would be True/False options that correspond to the logic of the syst
   \hline
   \multicolumn{2}{||c||}{Test Case 11} \\
   \hline
-  New Password &  \\
+  New Password & WORKpassword \\
   \hline
-  Current Password &  \\
+  Current Password & 5Dark4Hors\#e= \\
   \hline
-  Previous Password &  \\
+  Previous Password & HoRs456-+ \\
   \hline
   Expected Output & Rejected \\
   \hline
@@ -634,17 +732,16 @@ test plan will provide comprehensive coverage of the program.
 % Final section for the report
 \section{Code}
 
-\subsection{password\_checker.c}
+\subsection{tester.c}
 
-\lstinputlisting{code/password_checker.c}
-
+\lstinputlisting{code/tester.c}
 
 \subsection{password\_checker.h}
 
 \lstinputlisting{code/password_checker.h}
 
-\subsection{tester.c}
+\subsection{password\_checker.c}
 
-\lstinputlisting{code/tester.c}
+\lstinputlisting{code/password_checker.c}
 
 \end{document}
