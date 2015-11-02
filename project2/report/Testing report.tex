@@ -91,6 +91,22 @@ what is being tested against in this case. The file should contain the resulting
 test plan of 30 test cases, but any number of test cases will be allowed to be
 read and processed.
 
+\subsection{Manual testing}
+
+The testing harness provides a means of manual testing. If the program is not passed a file
+in its arguments, then it will proceed into manual entry mode. It will present the user
+with a line on text stating how to exit this mode (the user must type exit), and then proceed
+to wait on the password entries. The user will enter the password as such:
+\begin{center}
+New password \\
+Current password \\
+Previous password \\
+\end{center}
+
+This process will repeat until the user enters the previously mentioned string to exit this mode.
+For each cycle of this, the program will process the given passwords and print out if the
+new password is accepted or rejected, and then wait for more input.
+
 \section{Equivalence class and boundary testing}
 
 \subsection{Introduction}
@@ -431,6 +447,7 @@ contain a test case that actually passes the program based on the requirements. 
 test case that passes the program. In the following table I will list 8 of the possible test cases that resulted from the n3 orthogonal array.
 This layout for the rule sets that creates an orthogonal array seems to produce decent test plans, although some of the test cases
 do show failed passwords that will not pass the requirements but they are also similar to previous passwords.
+\newline
 
 \centering Order of Orthogonal array results.
 \begin{center}  
@@ -468,7 +485,9 @@ out some of the conditions for the system. By looking at the following cases, we
 can break down the cases to a smaller number to be used in the Decision table.
 
 The decision table method of testing is more involved on thinking on the basic cases to create
-test cases.
+test cases. It breaks down the test cases into a semi-truth table format and allows you
+to think more carefully about the logic of what should happen in the system depending on what
+flags (values in the system) are true or false.
 
 \subsection{Test method development}
 
@@ -724,32 +743,616 @@ These cases would be True/False options that correspond to the logic of the syst
 
 From the various testing methods that were used for testing this program,
 we can combine the resulting test cases into a single test plan. This final
-test plan will provide comprehensive coverage of the program.
-
+test plan will provide comprehensive coverage of the program. The resulting test plan
+size contains a total of 30 test cases. As the more complex part of the system is checking
+if a password is similar to a previous password, this section will be tested more heavily
+from the test cases.
+\newline\newline
 % Finalized test plan table area
-\centering Test Plan
+\centering Final Test Plan
 
 \begin{center}
-  \begin{tabular}{||c|c||}
+  \begin{tabular}{|c|c|}
   \hline
-  \multicolumn{2}{||c||}{Test Case 1} \\
+  \multicolumn{2}{|c|}{Test Case 1} \\
   \hline
-  Purpose & Testing a valid password \\
+  Purpose & \begin{tabular}[c]{@{}l@{}}The purpose of this test case is\\ to test the ability of the\\ program to reject a password\\ that\end{tabular}  \\
   \hline
-  New Password & DahatB2559\_@ \\
+  New Password &  \\
   \hline
-  Current Password & ToT86635ss/\textless \\
+  Current Password &  \\
   \hline
-  Previous Password & AVery990\#\^{} \\
+  Previous Password &  \\
   \hline
-  Expected Output & ACCEPTED \\
+  Expected Output & Rejected \\
   \hline
   Output & \\
   \hline
-  Results & $\rule{0.5cm}{0.15mm}$ Pass  $\rule{0.5cm}{0.15mm}$Fail \\ 
+  Results & \multicolumn{1}{c|}{$\rule{0.5cm}{0.15mm}$Pass $\rule{0.5cm}{0.15mm}$Fail} \\ 
+  \hline
+  \end{tabular}
+  \vspace{10mm}
+  \begin{tabular}{|c|c|}
+  \hline
+  \multicolumn{2}{|c|}{Test Case 2} \\
+  \hline
+  Purpose & \begin{tabular}[c]{@{}l@{}}The purpose of this test case is\\ to test the ability of the\\ program to reject a password\\ that\end{tabular}  \\
+  \hline
+  New Password &  \\
+  \hline
+  Current Password &  \\
+  \hline
+  Previous Password &  \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  Output & \\
+  \hline
+  Results & \multicolumn{1}{c|}{$\rule{0.5cm}{0.15mm}$Pass $\rule{0.5cm}{0.15mm}$Fail} \\ 
+  \hline
+  \end{tabular}
+  \vspace{10mm}
+  \begin{tabular}{|c|c|}
+  \hline
+  \multicolumn{2}{|c|}{Test Case 3} \\
+  \hline
+  Purpose & \begin{tabular}[c]{@{}l@{}}The purpose of this test case is\\ to test the ability of the\\ program to reject a password\\ that\end{tabular}  \\
+  \hline
+  New Password &  \\
+  \hline
+  Current Password &  \\
+  \hline
+  Previous Password &  \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  Output & \\
+  \hline
+  Results & \multicolumn{1}{c|}{$\rule{0.5cm}{0.15mm}$Pass $\rule{0.5cm}{0.15mm}$Fail} \\ 
+  \hline
+  \end{tabular}
+  \vspace{10mm}
+  \begin{tabular}{|c|c|}
+  \hline
+  \multicolumn{2}{|c|}{Test Case 4} \\
+  \hline
+  Purpose & \begin{tabular}[c]{@{}l@{}}The purpose of this test case is\\ to test the ability of the\\ program to reject a password\\ that\end{tabular}  \\
+  \hline
+  New Password &  \\
+  \hline
+  Current Password &  \\
+  \hline
+  Previous Password &  \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  Output & \\
+  \hline
+  Results & \multicolumn{1}{c|}{$\rule{0.5cm}{0.15mm}$Pass $\rule{0.5cm}{0.15mm}$Fail} \\ 
+  \hline
+  \end{tabular}
+  \vspace{10mm}
+  \begin{tabular}{|c|c|}
+  \hline
+  \multicolumn{2}{|c|}{Test Case 5} \\
+  \hline
+  Purpose & \begin{tabular}[c]{@{}l@{}}The purpose of this test case is\\ to test the ability of the\\ program to reject a password\\ that\end{tabular}  \\
+  \hline
+  New Password &  \\
+  \hline
+  Current Password &  \\
+  \hline
+  Previous Password &  \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  Output & \\
+  \hline
+  Results & \multicolumn{1}{c|}{$\rule{0.5cm}{0.15mm}$Pass $\rule{0.5cm}{0.15mm}$Fail} \\ 
+  \hline
+  \end{tabular}
+  \vspace{10mm}
+  \begin{tabular}{|c|c|}
+  \hline
+  \multicolumn{2}{|c|}{Test Case 6} \\
+  \hline
+  Purpose & \begin{tabular}[c]{@{}l@{}}The purpose of this test case is\\ to test the ability of the\\ program to reject a password\\ that\end{tabular}  \\
+  \hline
+  New Password &  \\
+  \hline
+  Current Password &  \\
+  \hline
+  Previous Password &  \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  Output & \\
+  \hline
+  Results & \multicolumn{1}{c|}{$\rule{0.5cm}{0.15mm}$Pass $\rule{0.5cm}{0.15mm}$Fail} \\ 
+  \hline
+  \end{tabular}
+  \vspace{10mm}
+  \begin{tabular}{|c|c|}
+  \hline
+  \multicolumn{2}{|c|}{Test Case 7} \\
+  \hline
+  Purpose & \begin{tabular}[c]{@{}l@{}}The purpose of this test case is\\ to test the ability of the\\ program to reject a password\\ that\end{tabular}  \\
+  \hline
+  New Password &  \\
+  \hline
+  Current Password &  \\
+  \hline
+  Previous Password &  \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  Output & \\
+  \hline
+  Results & \multicolumn{1}{c|}{$\rule{0.5cm}{0.15mm}$Pass $\rule{0.5cm}{0.15mm}$Fail} \\ 
+  \hline
+  \end{tabular}
+  \vspace{10mm}
+  \begin{tabular}{|c|c|}
+  \hline
+  \multicolumn{2}{|c|}{Test Case 8} \\
+  \hline
+  Purpose & \begin{tabular}[c]{@{}l@{}}The purpose of this test case is\\ to test the ability of the\\ program to reject a password\\ that\end{tabular}  \\
+  \hline
+  New Password &  \\
+  \hline
+  Current Password &  \\
+  \hline
+  Previous Password &  \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  Output & \\
+  \hline
+  Results & \multicolumn{1}{c|}{$\rule{0.5cm}{0.15mm}$Pass $\rule{0.5cm}{0.15mm}$Fail} \\ 
+  \hline
+  \end{tabular}
+  \vspace{10mm}
+  \begin{tabular}{|c|c|}
+  \hline
+  \multicolumn{2}{|c|}{Test Case 9} \\
+  \hline
+  Purpose & \begin{tabular}[c]{@{}l@{}}The purpose of this test case is\\ to test the ability of the\\ program to reject a password\\ that\end{tabular}  \\
+  \hline
+  New Password &  \\
+  \hline
+  Current Password &  \\
+  \hline
+  Previous Password &  \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  Output & \\
+  \hline
+  Results & \multicolumn{1}{c|}{$\rule{0.5cm}{0.15mm}$Pass $\rule{0.5cm}{0.15mm}$Fail} \\ 
+  \hline
+  \end{tabular}
+  \vspace{10mm}
+  \begin{tabular}{|c|c|}
+  \hline
+  \multicolumn{2}{|c|}{Test Case 10} \\
+  \hline
+  Purpose & \begin{tabular}[c]{@{}l@{}}The purpose of this test case is\\ to test the ability of the\\ program to reject a password\\ that\end{tabular}  \\
+  \hline
+  New Password &  \\
+  \hline
+  Current Password &  \\
+  \hline
+  Previous Password &  \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  Output & \\
+  \hline
+  Results & \multicolumn{1}{c|}{$\rule{0.5cm}{0.15mm}$Pass $\rule{0.5cm}{0.15mm}$Fail} \\ 
+  \hline
+  \end{tabular}
+  \vspace{10mm}
+  \begin{tabular}{|c|c|}
+  \hline
+  \multicolumn{2}{|c|}{Test Case 11} \\
+  \hline
+  Purpose & \begin{tabular}[c]{@{}l@{}}The purpose of this test case is\\ to test the ability of the\\ program to reject a password\\ that\end{tabular}  \\
+  \hline
+  New Password &  \\
+  \hline
+  Current Password &  \\
+  \hline
+  Previous Password &  \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  Output & \\
+  \hline
+  Results & \multicolumn{1}{c|}{$\rule{0.5cm}{0.15mm}$Pass $\rule{0.5cm}{0.15mm}$Fail} \\ 
+  \hline
+  \end{tabular}
+  \vspace{10mm}
+  \begin{tabular}{|c|c|}
+  \hline
+  \multicolumn{2}{|c|}{Test Case 12} \\
+  \hline
+  Purpose & \begin{tabular}[c]{@{}l@{}}The purpose of this test case is\\ to test the ability of the\\ program to reject a password\\ that\end{tabular}  \\
+  \hline
+  New Password &  \\
+  \hline
+  Current Password &  \\
+  \hline
+  Previous Password &  \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  Output & \\
+  \hline
+  Results & \multicolumn{1}{c|}{$\rule{0.5cm}{0.15mm}$Pass $\rule{0.5cm}{0.15mm}$Fail} \\ 
+  \hline
+  \end{tabular}
+  \vspace{10mm}
+  \begin{tabular}{|c|c|}
+  \hline
+  \multicolumn{2}{|c|}{Test Case 13} \\
+  \hline
+  Purpose & \begin{tabular}[c]{@{}l@{}}The purpose of this test case is\\ to test the ability of the\\ program to reject a password\\ that\end{tabular}  \\
+  \hline
+  New Password &  \\
+  \hline
+  Current Password &  \\
+  \hline
+  Previous Password &  \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  Output & \\
+  \hline
+  Results & \multicolumn{1}{c|}{$\rule{0.5cm}{0.15mm}$Pass $\rule{0.5cm}{0.15mm}$Fail} \\ 
+  \hline
+  \end{tabular}
+  \vspace{10mm}
+  \begin{tabular}{|c|c|}
+  \hline
+  \multicolumn{2}{|c|}{Test Case 14} \\
+  \hline
+  Purpose & \begin{tabular}[c]{@{}l@{}}The purpose of this test case is\\ to test the ability of the\\ program to reject a password\\ that\end{tabular}  \\
+  \hline
+  New Password &  \\
+  \hline
+  Current Password &  \\
+  \hline
+  Previous Password &  \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  Output & \\
+  \hline
+  Results & \multicolumn{1}{c|}{$\rule{0.5cm}{0.15mm}$Pass $\rule{0.5cm}{0.15mm}$Fail} \\ 
+  \hline
+  \end{tabular}
+  \vspace{10mm}
+  \begin{tabular}{|c|c|}
+  \hline
+  \multicolumn{2}{|c|}{Test Case 15} \\
+  \hline
+  Purpose & \begin{tabular}[c]{@{}l@{}}The purpose of this test case is\\ to test the ability of the\\ program to reject a password\\ that\end{tabular}  \\
+  \hline
+  New Password &  \\
+  \hline
+  Current Password &  \\
+  \hline
+  Previous Password &  \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  Output & \\
+  \hline
+  Results & \multicolumn{1}{c|}{$\rule{0.5cm}{0.15mm}$Pass $\rule{0.5cm}{0.15mm}$Fail} \\ 
+  \hline
+  \end{tabular}
+  \vspace{10mm}
+  \begin{tabular}{|c|c|}
+  \hline
+  \multicolumn{2}{|c|}{Test Case 16} \\
+  \hline
+  Purpose & \begin{tabular}[c]{@{}l@{}}The purpose of this test case is\\ to test the ability of the\\ program to reject a password\\ that\end{tabular}  \\
+  \hline
+  New Password &  \\
+  \hline
+  Current Password &  \\
+  \hline
+  Previous Password &  \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  Output & \\
+  \hline
+  Results & \multicolumn{1}{c|}{$\rule{0.5cm}{0.15mm}$Pass $\rule{0.5cm}{0.15mm}$Fail} \\ 
+  \hline
+  \end{tabular}
+  \vspace{10mm}
+  \begin{tabular}{|c|c|}
+  \hline
+  \multicolumn{2}{|c|}{Test Case 17} \\
+  \hline
+  Purpose & \begin{tabular}[c]{@{}l@{}}The purpose of this test case is\\ to test the ability of the\\ program to reject a password\\ that\end{tabular}  \\
+  \hline
+  New Password &  \\
+  \hline
+  Current Password &  \\
+  \hline
+  Previous Password &  \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  Output & \\
+  \hline
+  Results & \multicolumn{1}{c|}{$\rule{0.5cm}{0.15mm}$Pass $\rule{0.5cm}{0.15mm}$Fail} \\ 
+  \hline
+  \end{tabular}
+  \vspace{10mm}
+  \begin{tabular}{|c|c|}
+  \hline
+  \multicolumn{2}{|c|}{Test Case 18} \\
+  \hline
+  Purpose & \begin{tabular}[c]{@{}l@{}}The purpose of this test case is\\ to test the ability of the\\ program to reject a password\\ that\end{tabular}  \\
+  \hline
+  New Password &  \\
+  \hline
+  Current Password &  \\
+  \hline
+  Previous Password &  \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  Output & \\
+  \hline
+  Results & \multicolumn{1}{c|}{$\rule{0.5cm}{0.15mm}$Pass $\rule{0.5cm}{0.15mm}$Fail} \\ 
+  \hline
+  \end{tabular}
+  \vspace{10mm}
+  \begin{tabular}{|c|c|}
+  \hline
+  \multicolumn{2}{|c|}{Test Case 19} \\
+  \hline
+  Purpose & \begin{tabular}[c]{@{}l@{}}The purpose of this test case is\\ to test the ability of the\\ program to reject a password\\ that\end{tabular}  \\
+  \hline
+  New Password &  \\
+  \hline
+  Current Password &  \\
+  \hline
+  Previous Password &  \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  Output & \\
+  \hline
+  Results & \multicolumn{1}{c|}{$\rule{0.5cm}{0.15mm}$Pass $\rule{0.5cm}{0.15mm}$Fail} \\ 
+  \hline
+  \end{tabular}
+  \vspace{10mm}
+  \begin{tabular}{|c|c|}
+  \hline
+  \multicolumn{2}{|c|}{Test Case 20} \\
+  \hline
+  Purpose & \begin{tabular}[c]{@{}l@{}}The purpose of this test case is\\ to test the ability of the\\ program to reject a password\\ that\end{tabular}  \\
+  \hline
+  New Password &  \\
+  \hline
+  Current Password &  \\
+  \hline
+  Previous Password &  \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  Output & \\
+  \hline
+  Results & \multicolumn{1}{c|}{$\rule{0.5cm}{0.15mm}$Pass $\rule{0.5cm}{0.15mm}$Fail} \\ 
+  \hline
+  \end{tabular}
+  \vspace{10mm}
+  \begin{tabular}{|c|c|}
+  \hline
+  \multicolumn{2}{|c|}{Test Case 21} \\
+  \hline
+  Purpose & \begin{tabular}[c]{@{}l@{}}The purpose of this test case is\\ to test the ability of the\\ program to reject a password\\ that\end{tabular}  \\
+  \hline
+  New Password &  \\
+  \hline
+  Current Password &  \\
+  \hline
+  Previous Password &  \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  Output & \\
+  \hline
+  Results & \multicolumn{1}{c|}{$\rule{0.5cm}{0.15mm}$Pass $\rule{0.5cm}{0.15mm}$Fail} \\ 
+  \hline
+  \end{tabular}
+  \vspace{10mm}
+  \begin{tabular}{|c|c|}
+  \hline
+  \multicolumn{2}{|c|}{Test Case 22} \\
+  \hline
+  Purpose & \begin{tabular}[c]{@{}l@{}}The purpose of this test case is\\ to test the ability of the\\ program to reject a password\\ that\end{tabular}  \\
+  \hline
+  New Password &  \\
+  \hline
+  Current Password &  \\
+  \hline
+  Previous Password &  \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  Output & \\
+  \hline
+  Results & \multicolumn{1}{c|}{$\rule{0.5cm}{0.15mm}$Pass $\rule{0.5cm}{0.15mm}$Fail} \\ 
+  \hline
+  \end{tabular}
+  \vspace{10mm}
+  \begin{tabular}{|c|c|}
+  \hline
+  \multicolumn{2}{|c|}{Test Case 23} \\
+  \hline
+  Purpose & \begin{tabular}[c]{@{}l@{}}The purpose of this test case is\\ to test the ability of the\\ program to reject a password\\ that\end{tabular}  \\
+  \hline
+  New Password &  \\
+  \hline
+  Current Password &  \\
+  \hline
+  Previous Password &  \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  Output & \\
+  \hline
+  Results & \multicolumn{1}{c|}{$\rule{0.5cm}{0.15mm}$Pass $\rule{0.5cm}{0.15mm}$Fail} \\ 
+  \hline
+  \end{tabular}
+  \vspace{10mm}
+  \begin{tabular}{|c|c|}
+  \hline
+  \multicolumn{2}{|c|}{Test Case 24} \\
+  \hline
+  Purpose & \begin{tabular}[c]{@{}l@{}}The purpose of this test case is\\ to test the ability of the\\ program to reject a password\\ that\end{tabular}  \\
+  \hline
+  New Password &  \\
+  \hline
+  Current Password &  \\
+  \hline
+  Previous Password &  \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  Output & \\
+  \hline
+  Results & \multicolumn{1}{c|}{$\rule{0.5cm}{0.15mm}$Pass $\rule{0.5cm}{0.15mm}$Fail} \\ 
+  \hline
+  \end{tabular}
+  \vspace{10mm}
+  \begin{tabular}{|c|c|}
+  \hline
+  \multicolumn{2}{|c|}{Test Case 25} \\
+  \hline
+  Purpose & \begin{tabular}[c]{@{}l@{}}The purpose of this test case is\\ to test the ability of the\\ program to reject a password\\ that\end{tabular}  \\
+  \hline
+  New Password &  \\
+  \hline
+  Current Password &  \\
+  \hline
+  Previous Password &  \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  Output & \\
+  \hline
+  Results & \multicolumn{1}{c|}{$\rule{0.5cm}{0.15mm}$Pass $\rule{0.5cm}{0.15mm}$Fail} \\ 
+  \hline
+  \end{tabular}
+  \vspace{10mm}
+  \begin{tabular}{|c|c|}
+  \hline
+  \multicolumn{2}{|c|}{Test Case 26} \\
+  \hline
+  Purpose & \begin{tabular}[c]{@{}l@{}}The purpose of this test case is\\ to test the ability of the\\ program to reject a password\\ that\end{tabular}  \\
+  \hline
+  New Password &  \\
+  \hline
+  Current Password &  \\
+  \hline
+  Previous Password &  \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  Output & \\
+  \hline
+  Results & \multicolumn{1}{c|}{$\rule{0.5cm}{0.15mm}$Pass $\rule{0.5cm}{0.15mm}$Fail} \\ 
+  \hline
+  \end{tabular}
+  \vspace{10mm}
+  \begin{tabular}{|c|c|}
+  \hline
+  \multicolumn{2}{|c|}{Test Case 27} \\
+  \hline
+  Purpose & \begin{tabular}[c]{@{}l@{}}The purpose of this test case is\\ to test the ability of the\\ program to reject a password\\ that\end{tabular}  \\
+  \hline
+  New Password &  \\
+  \hline
+  Current Password &  \\
+  \hline
+  Previous Password &  \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  Output & \\
+  \hline
+  Results & \multicolumn{1}{c|}{$\rule{0.5cm}{0.15mm}$Pass $\rule{0.5cm}{0.15mm}$Fail} \\ 
+  \hline
+  \end{tabular}
+  \vspace{10mm}
+  \begin{tabular}{|c|c|}
+  \hline
+  \multicolumn{2}{|c|}{Test Case 28} \\
+  \hline
+  Purpose & \begin{tabular}[c]{@{}l@{}}The purpose of this test case is\\ to test the ability of the\\ program to reject a password\\ that\end{tabular}  \\
+  \hline
+  New Password &  \\
+  \hline
+  Current Password &  \\
+  \hline
+  Previous Password &  \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  Output & \\
+  \hline
+  Results & \multicolumn{1}{c|}{$\rule{0.5cm}{0.15mm}$Pass $\rule{0.5cm}{0.15mm}$Fail} \\ 
+  \hline
+  \end{tabular}
+  \vspace{10mm}
+  \begin{tabular}{|c|c|}
+  \hline
+  \multicolumn{2}{|c|}{Test Case 29} \\
+  \hline
+  Purpose & \begin{tabular}[c]{@{}l@{}}The purpose of this test case is\\ to test the ability of the\\ program to reject a password\\ that\end{tabular}  \\
+  \hline
+  New Password &  \\
+  \hline
+  Current Password &  \\
+  \hline
+  Previous Password &  \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  Output & \\
+  \hline
+  Results & \multicolumn{1}{c|}{$\rule{0.5cm}{0.15mm}$Pass $\rule{0.5cm}{0.15mm}$Fail} \\ 
+  \hline
+  \end{tabular}
+  \vspace{10mm}
+  \begin{tabular}{|c|c|}
+  \hline
+  \multicolumn{2}{|c|}{Test Case 30} \\
+  \hline
+  Purpose & \begin{tabular}[c]{@{}l@{}}The purpose of this test case is\\ to test the ability of the\\ program to reject a password\\ that\end{tabular}  \\
+  \hline
+  New Password &  \\
+  \hline
+  Current Password &  \\
+  \hline
+  Previous Password &  \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  Output & \\
+  \hline
+  Results & \multicolumn{1}{c|}{$\rule{0.5cm}{0.15mm}$Pass $\rule{0.5cm}{0.15mm}$Fail} \\ 
   \hline
   \end{tabular}
 \end{center}
+
 
 % Final section for the report
 \section{Code}
