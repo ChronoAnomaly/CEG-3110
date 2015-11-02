@@ -58,7 +58,7 @@ The requirements of the password checking program are as follows.
 
 \item The new password shall be at least 9 characters long, and no longer than
 24 characters.
-\item New passwords cannot contain any blank spaces, and must contain only numberals, upper-case and lower-case letters, and
+\item New passwords cannot contain any blank spaces, and must contain only numerals, upper-case and lower-case letters, and
 the specials characters listed in Requirement 4.
 \item All new passwords must contain at least two upper case letters, at least two lower case
 letters, and at least two numerals.
@@ -190,7 +190,7 @@ class represents a set of data that is related.
   % Previous password settings
   \hline \hline
   \multicolumn{1}{||c|}{Contains a identical five-character substring}
-  & \multicolumn{2}{c||}{Does not contain a indentical five-character subtring} \\
+  & \multicolumn{2}{c||}{Does not contain a identical five-character subtring} \\
   \hline
   \end{tabular}
 \end{center}
@@ -1011,7 +1011,7 @@ multiple rules\end{tabular}  \\
   \hline
   Purpose & \begin{tabular}[c]{@{}l@{}}The purpose of this test case is\\ to test the ability of the\\ program to reject a password\\ that is similar to, backwards\end{tabular}  \\
   \hline
-  New Password & ;:03Fires10001 \\
+  New Password & ;:03FIres10001 \\
   \hline
   Current Password & Snake8,2Dl \\
   \hline
@@ -1149,13 +1149,13 @@ multiple rules\end{tabular}  \\
   \hline
   \multicolumn{2}{|c|}{Test Case 19} \\
   \hline
-  Purpose & \begin{tabular}[c]{@{}l@{}}The purpose of this test case is\\ to test the ability of the\\ program to reject a password\\ that\end{tabular}  \\
+  Purpose & \begin{tabular}[c]{@{}l@{}}The purpose of this test case is\\ to test the ability of the\\ program to reject a password\\ that fails multiple and is similar to\end{tabular}  \\
   \hline
   New Password & RACECAR \\
   \hline
-  Current Password & 36~RacecaR* \\
+  Current Password & 36*RacecaR* \\
   \hline
-  Previous Password & COrrect440\@\# \\
+  Previous Password & COrrect440!\# \\
   \hline
   Expected Output & Rejected \\
   \hline
@@ -1173,7 +1173,7 @@ multiple rules\end{tabular}  \\
   \hline
   New Password & ValidPass\#!110" \\
   \hline
-  Current Password & 36~RacecaR* \\
+  Current Password & 36!RacecaR* \\
   \hline
   Previous Password & vicLoaD1!9=ic \\
   \hline
@@ -1271,7 +1271,7 @@ multiple rules\end{tabular}  \\
   \hline
   Purpose & \begin{tabular}[c]{@{}l@{}}The purpose of this test case is\\ to test the ability of the\\ program to reject a password\\ that fails special characters and\\ is similar to, forwards\end{tabular}  \\
   \hline
-  New Password & LidOffadaffodil4 221 \\
+  New Password & LidOffadaffodil4221 \\
   \hline
   Current Password & 234+.;SErifant \\
   \hline
@@ -1291,7 +1291,7 @@ multiple rules\end{tabular}  \\
   \hline
   Purpose & \begin{tabular}[c]{@{}l@{}}The purpose of this test case is\\ to test the ability of the\\ program to reject a password\\ that fails multiple rules and is\\ similar to, backwards\end{tabular}  \\
   \hline
-  New Password & oc\#\@0 =\textgreater \\
+  New Password & oc\#)0 =\textgreater \\
   \hline
   Current Password & COrrect440\@\# \\
   \hline
@@ -1311,7 +1311,7 @@ multiple rules\end{tabular}  \\
   \hline
   Purpose & \begin{tabular}[c]{@{}l@{}}The purpose of this test case is\\ to test the ability of the\\ program to reject a password\\ that is too long, fails upper and numbers\\ and is similar to, backwards\end{tabular}  \\
   \hline
-  New Password & lagnot,enonogongg\_e t!\@upputeggnogonone-tongal \\
+  New Password & lagnot,enonogongg\_et!\@upputeggnogonone-tongal \\
   \hline
   Current Password & 234\_)tongal, \\
   \hline

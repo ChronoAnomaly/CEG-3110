@@ -1,16 +1,120 @@
 SsaPmis628@@
 #558#&;DoGs
 SimPass12!!
-R (similar)
-&ˆ!aaCH91 chat
+R (1 similar)
+&^!aaCH91 chat
 #558#&;DoGs
 ToT86635ss/<
-R (space)
+R (2 space)
 #$678123HOUSE
 ToT86635ss/<
 SimPass12!!
-R (lower case)
+R (3 lower case)
 lowercasepasswords!;123
 445HAtter((
 #558#&;DoGs
-R (upper case)
+R (4 upper case)
+Do12ah_=
+GUha891))
+_CAThat22=
+R (5 too short)
+WAYtooLong_+=8835houseing40
+#558#;DoGs
+lowerCASEpasswords!;123
+R (6 too long)
+1 H 1 !
+89hATs++
+FoolIng112=!
+R (7 space, upper, lower, special)
+40!#RacecaR
+^002raceCAR,
+WHat28;)pass
+R (8 similar to)
+1aH ;
+><33YOuqaaeqw2
+*GooD^.,50
+R (9 upper, lower, numbers, special, space)
+77WaitT!=gge
+^002raceCAR,
+FoolIng112=!
+A (10 valid)
+34ha$=AT
+COrrect44#
+HousIng99!!
+R (11 short)
+;;03FIres10001
+Snake8,2D1
+234+,;SErifant
+R (12 similar to)
+Housing^.House
+orca28!_AcrobatsstaB
+ValidPass#!110
+R (13 numbers, special)
+Test`erpa774*=
+lowerCASEpasswords!;123
+GUha891))
+R (14 invalid character)
+>>!9100361=,
+ManySeats361=,>$;
+234+.;SErifant
+R (15 letters,similar to)
+THISSHOULDBEOKRIGHTPLEACEOKGOOD
+QuickPass42=!
+11_MultiPass;
+R (16 long, only upper case)
+num$!2!#di
+110VAlid#!2!24
+QuickPass42=!
+R (17 upper, numbers, similar to)
+Civic1 !
+vicLoaD1!9=ci
+Snake8,2D1
+R (18 multiple, space, similar to)
+RACECAR
+36*RacecaR*
+Correct440!#
+R (19 multiple, similar to)
+ValidPass#!110"
+36!RacecaR*
+vicLoaD1!9=ic
+R (20 invalid character)
+Kanakanak 1_
+Kana5507^*kanak
+QuickPass42=!
+R (21 fails multiple, space, similar)
+DAgo *>
+SHop5840!
+110VAlid#!2!24
+R (22 space, lower case)
+aD765840! =|
+Kana5507^*kanak
+SHop5840!
+R (23 fails multiple, space, similar to)
+comp_$&;;longer101017pass!=*\<
+11_MultiPass;
+110VAlid#!2!24
+R (24 upper, long)
+LidOffadaffodil4221
+234+.;SErifant
+VA342*;daffodil
+R (25 special, similar to)
+oc#)0 =>
+COrrect440#
+ManySeats361
+R (26 fails multiple, similar to)
+lagnot,enonogongg_et!upputeggnogonone-tongal
+234_)tongal,
+11_MultiPass;
+R (27 long, upper, numbers, similar to)
+FireS2!9)paSS12
+234+.;SErifant
+SimPass12!!
+R (28 similar)
+NumberBoycott_?
+SimPass12!!
+445HAtter((
+R (29 numbers)
+&^!aa`CH9`1 chat
+ManySeats361=,>$;
+234+.;SErifant
+R (30 space, invalid character)

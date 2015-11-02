@@ -119,10 +119,8 @@ void process_file(char* argv[], char* new_pass, char* cur_pass, char* pre_pass)
 void process_manual(char* new_pass, char* cur_pass, char* pre_pass)
 {
 	char line[BUFFER];
-	size_t len = 0;
 
 	printf("Entering manual mode. (Enter exit to stop)\n");
-
 	printf("Enter your new password: \n");
 	fgets(line, BUFFER, stdin);
 
@@ -142,7 +140,7 @@ void process_manual(char* new_pass, char* cur_pass, char* pre_pass)
 		rm_newline(line);
 		strcpy(pre_pass, line);
 
-		password_checker(new_pass, cur_pass, pre_pass)
+		password_checker(new_pass, cur_pass, pre_pass);
 	
 		/* Begins reading password loop again */
 		printf("Enter your new password: \n");
