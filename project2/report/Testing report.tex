@@ -189,9 +189,6 @@ the system.
 
 \subsection{Test plan}
 
-\newcommand{\specialcell}[2][c]{% Custom talbe lines, set for 3 rows in one table cell
-  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
-
 \centering Equivalence class and Boundary Test Plan
 
 \begin{center}
@@ -423,66 +420,203 @@ These cases would be True/False options that correspond to the logic of the syst
 \subsection{Resulting Decision table}
 
 % Decision table part
-\begin{table}[h]
-  \begin{center}
-    \caption{Decision table}
-    \label{tab:Decision table}
-    
-    \begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|}
-    & 1 & 2 - 26 & 26 & 27 - 63 & 64 - 100 & 101 & 7 & 8 & 9 & 10 & 11 \\
-    \hline
-    less than 9 chars & T &  & T &  &  & T & & & & & \\
-    \hline
-    9-24 chars & T & F & T &  &  & T & & & & & \\
-    \hline
-    more than 24 chars & T &  & & & & & & & & & \\
-    \hline
-    Upper case & F & - & F &  &  & T & & & & & \\
-    \hline
-    Lower case & F & - & F &  &  & T & & & & & \\
-    \hline
-    Numbers & F & - & F &  &  & T & & & & & \\
-    \hline
-    Special characters & F & - & T &  &  & T & & & & & \\
-    \hline
-    Space & T & - & T &  &  & F & & & & & \\
-    \hline 
-    Similar to, forwards & T & F & F & T & F & F & & & & & \\
-    \hline
-    Similar to, backwards & F & F & T & F & T & F & & & & & \\
-    \midrule
-    Accept & & & & & & X & & & & & \\
-    \hline
-    Reject & & X & X & X & X & & & & & & \\
-    \hline
-    Impossible & X & & & & & & & & & & \\
-    \end{tabular}
-    
-    Legend: T = True, F = False, - = Don't care, x = Expected output
-  \end{center}
-\end{table}
 
-% Decision table test cases
-\begin{table}[h]
-  \caption{Test Plan}
-  \label{tab:Decision test cases}
-  
-  \begin{tabular}{||c|c||}
-    \hline
-    \multicolumn{2}{||c||}{Test Case 1} \\
-    \hline
-    New Password & SOLID9019 \\
-    \hline
-    Current Password & catHOUsing24\_! \\
-    \hline
-    Previous Password & 9926CAdo\%\& \\
-    \hline
-    Expected Output & Rejected \\
-    \hline
+\begin{center}
+
+    
+  \begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|}
+  & 1 & 2 - 26 & 26 & 27 - 63 & 64 - 100 & 101 & 102 & 103 & 104 & 105 & 106 \\
+  \hline
+  less than 9 chars & T &  & F &  &  & F & F & F & F & F & F \\
+  \hline
+  9-24 chars & T & F & T &  &  & T & T & T & T & T & T \\
+  \hline
+  more than 24 chars & T &  & F & & & F & F & F & F & F & F \\
+  \hline
+  Upper case & F & - & F &  &  & T & - & T & F & T & T \\
+  \hline
+  Lower case & F & - & F &  &  & T & - & T & T & F & T \\
+  \hline
+  Numbers & F & - & F &  &  & T & - & F & T & T & F \\
+  \hline
+  Special characters & F & - & T &  &  & T & - & T & T & F & F \\
+  \hline
+  Space & F & - & T &  &  & F & - & F & F & F & F \\
+  \hline 
+  Similar to, forwards & T & F & F & T & F & F & T & F & F & F & F \\
+  \hline
+  Similar to, backwards & F & F & T & F & T & F & T & F & F & F & F \\
+  \midrule
+  Accept & & & & & & X & & & & & \\
+  \hline
+  Reject & & X & X & X & X & & X & X & X & X & X \\
+  \hline
+  Impossible & X & & & & & & & & & & \\
   \end{tabular}
-\end{table}
+    
+  Legend: T = True, F = False, - = Don't care, x = Expected output
+\end{center}
+
 
 \subsection{Test plan}
+
+\centering Decision table Test Plan
+% Decision table test cases
+
+\begin{center}
+
+  
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 1} \\
+  \hline
+  New Password & SOLID9019 \\
+  \hline
+  Current Password & catHOUsing24\_! \\
+  \hline
+  Previous Password & 9926CAdo\%\& \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  \end{tabular}
+  \vspace{1mm}
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 2} \\
+  \hline
+  New Password & 34ha\$=AT \\
+  \hline
+  Current Password & COrrect440@\# \\
+  \hline
+  Previous Password & HousIng99!! \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  \end{tabular}
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 3} \\
+  \hline
+  New Password & !!\_=\#\# \$ ++ \\
+  \hline
+  Current Password & 20CatH!a\^{}ts \\
+  \hline
+  Previous Password & HIca=\_!!++113 \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  \end{tabular}
+  \vspace{1mm}
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 4} \\
+  \hline
+  New Password &  256TieE44472\^{}! \\
+  \hline
+  Current Password & 992\^{}\_CallCenter \\
+  \hline
+  Previous Password & 00\^{}!IE44472hats \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  \end{tabular}
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 5} \\
+  \hline
+  New Password &  ;:03Fires10001 \\
+  \hline
+  Current Password & Snake8,2Dl \\
+  \hline
+  Previous Password & 234+.;SErifant \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  \end{tabular}
+  \vspace{1mm}
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 6} \\
+  \hline
+  New Password &  ValidPass\#!110 \\
+  \hline
+  Current Password & 992\^{}\_CallCenter \\
+  \hline
+  Previous Password & 20CatH!a\^{}ts \\
+  \hline
+  Expected Output & Accept \\
+  \hline
+  \end{tabular}
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 7} \\
+  \hline
+  New Password & 23AcrobatSstABorca!! \\
+  \hline
+  Current Password & orca28!\_Acrobatsstab \\
+  \hline
+  Previous Password & 992\^{}\_CallCenter \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  \end{tabular}
+  \vspace{1mm}
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 8} \\
+  \hline
+  New Password & Housing\^{}.House \\
+  \hline
+  Current Password & orca28!\_Acrobatsstab \\
+  \hline
+  Previous Password & ValidPass\#!110 \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  \end{tabular}
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 9} \\
+  \hline
+  New Password & no!\#uppers24 \\
+  \hline
+  Current Password &  \\
+  \hline
+  Previous Password &  \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  \end{tabular}
+  \vspace{1mm}
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 10} \\
+  \hline
+  New Password &  \\
+  \hline
+  Current Password & NO10!\#uppers24 \\
+  \hline
+  Previous Password &  \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  \end{tabular}
+  \begin{tabular}{||c|c||}
+  \hline
+  \multicolumn{2}{||c||}{Test Case 11} \\
+  \hline
+  New Password &  \\
+  \hline
+  Current Password &  \\
+  \hline
+  Previous Password &  \\
+  \hline
+  Expected Output & Rejected \\
+  \hline
+  \end{tabular}
+
+\end{center}
+
 
 
 \section{Combined Test Plan}
